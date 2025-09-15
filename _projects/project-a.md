@@ -27,6 +27,22 @@ We’ll keep updating this page with notes, screenshots, and milestones as Proje
 Stay tuned!
 
 ## Gallery
-![Project A — Screenshot 1](/projects/project-a/screenshot-1.png)  
-![Project A — Screenshot 2](/projects/project-a/screenshot-2.png)  
-![Project A — Screenshot 3](/projects/project-a/screenshot-3.png)
+
+<div class="swiper">
+  <div class="swiper-wrapper">
+    <div class="swiper-slide">
+      <img src="/projects/project-a/screenshot-1.png" alt="Project A — Screenshot 1">
+    </div>
+    <div class="swiper-slide">
+      <img src="/projects/project-a/screenshot-2.png" alt="Project A — Screenshot 2">
+    </div>
+    <div class="swiper-slide">
+      <img src="/projects/project-a/screenshot-3.png" alt="Project A — Screenshot 3">
+    </div>
+  </div>
+  <!-- Controls -->
+  <div class="swiper-pagination"></div>
+  <div class="swiper-button-prev"></div>
+  <div class="swiper-button-next"></div>
+</div>
+
