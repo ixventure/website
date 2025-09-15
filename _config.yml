@@ -6,3 +6,8 @@ theme: minima
 plugins:
   - jekyll-feed
   - jekyll-seo-tag
+
+# Add collections
+collections:
+  projects:
+    output: true
