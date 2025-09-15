@@ -1,9 +1,8 @@
-title: IxVentures Studio
-description: A portfolio of projects from IxVentures
-url: "https://ixventures.studio"
-baseurl: ""   # leave empty unless the site is served in a subpath
+title: IxVentures
+description: >-
+  IxVentures site powered by Jekyll + Minima.
+theme: minima
 
-collections:
-  projects:
-    output: true
-    permalink: /projects/:name/
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
