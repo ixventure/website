@@ -38,3 +38,9 @@ p, li {
   margin: 0 auto;
   padding: 0 1em;
 }
+
+.header-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
