@@ -9,7 +9,7 @@
     <meta name="description" content="{{ page.excerpt | default: page.description | default: site.description | strip_html | normalize_whitespace | truncate: 160 | escape }}">
 
     <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
-    <!-- Swiper CSS (only on project pages) -->
+    <!-- Swiper CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
   </head>
 
@@ -29,12 +29,8 @@
         {{ content }}
 
         <!-- Auto-discovered image carousel -->
-        {% comment %}
-          Looks for images in the folder defined by page.image_dir.
-          Falls back to page.dir if image_dir is missing.
-        {% endcomment %}
-
         {% assign project_prefix = page.image_dir | default: page.dir %}
+        {% assign project_prefix = project_prefix | replace_first: '/', '' %}
         {% assign images = site.static_files | where_exp: "f", "f.relative_path contains project_prefix" | sort: "relative_path" %}
         
         {% if images and images.size > 0 %}
@@ -48,7 +44,6 @@
               {% endfor %}
             </div>
 
-            <!-- pagination / navigation -->
             <div class="swiper-pagination"></div>
             <div class="swiper-button-prev" aria-label="Previous slide"></div>
             <div class="swiper-button-next" aria-label="Next slide"></div>
@@ -69,7 +64,7 @@
       </div>
     </footer>
 
-    <!-- Swiper JS (only on project pages) -->
+    <!-- Swiper JS -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", function () {
