@@ -1,12 +1,14 @@
 ---
+layout: project
 title: Project A
 description: Building something amazing with AI
-layout: project
-images_path: "/projects/project-a"
 ---
 
+# Project A
+*Building something amazing with AI*
+
 ## Overview
-Project A is an initiative where we’re exploring how artificial intelligence can help people **work smarter, create faster, and solve complex problems**.  
+Project A is an initiative where we’re exploring how artificial intelligence can help people **work smarter**, **create faster**, and **solve complex problems**.
 
 ## Goals
 - Build a prototype that demonstrates real-world value.  
@@ -16,24 +18,14 @@ Project A is an initiative where we’re exploring how artificial intelligence c
 ## Progress
 - ✅ Defined the problem space.  
 - ✅ Built an early prototype.  
-- 🔄 Currently testing with small groups.  
-- ⏳ Next: polish and prepare for broader release.  
-
-## Media
-Here’s a first look at the interface:
-
-<figure class="project-screenshot">
-  <img src="/projects/project-a/screenshot-1.png" alt="Project A Screenshot 1">
-  <figcaption>Early prototype view of Project A.</figcaption>
-</figure>
-
----
+- 🟩 Currently testing with small groups.  
+- ⏭ Next: polish and prepare for broader release.  
 
 ## What’s Next
 We’ll keep updating this page with notes, screenshots, and milestones as Project A evolves.  
 Stay tuned!
 
----
-
 ## Gallery
-*(auto-generated from `/projects/project-a/`)*  
+![Project A — Screenshot 1](/projects/project-a/screenshot-1.png)  
+![Project A — Screenshot 2](/projects/project-a/screenshot-2.png)  
+![Project A — Screenshot 3](/projects/project-a/screenshot-3.png)
