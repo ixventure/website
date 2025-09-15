@@ -8,4 +8,10 @@ url: ""
 theme: minima
 
 # Custom settings
-version: 0.1.0
+version: 0.1.1
+
+# Enable project pages
+collections:
+  projects:
+    output: true
+    permalink: /projects/:name/
