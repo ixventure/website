@@ -1,8 +1,5 @@
-title: IxVentures
-description: >-
-  IxVentures site powered by Jekyll + Minima.
+title: IxVenture
+description: Building something amazing with AI
+baseurl: ""
+url: "https://ixventure.github.io"
 theme: minima
-
-plugins:
-  - jekyll-feed
-  - jekyll-seo-tag
