@@ -1,22 +1,19 @@
 ---
 layout: project
 title: Project B
-description: Exploring the future of web3 and decentralized apps
-permalink: /projects/project-b/
+description: Another test project
+image_dir: /projects/project-b/
 ---
 
-# Project B
-*Exploring the future of web3 and decentralized apps.*
-
 ## Overview
-Project B is about experimenting with new decentralized technologies that could empower creators, communities, and businesses in new ways.
+Project B is a second demo project, helping us test multiple entries in the portfolio.
 
 ## Goals
-- Research and test web3 frameworks  
-- Explore integrations with AI and automation  
-- Share learnings and potential applications  
+- Try out new features in the theme.
+- Confirm multi-project layouts work.
+- Check the carousel handles missing images gracefully.
 
 ## Progress
-- ✅ Initial research completed  
-- 🟩 Early prototypes under development  
-- ⏭ Next: open-source release of basic toolkit.
+- ✅ Setup project skeleton.  
+- 🟩 Adding content and screenshots.  
+- ⏭ Next: gather feedback.
