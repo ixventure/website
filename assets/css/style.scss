@@ -1,38 +1,40 @@
-// Base theme import
+---
+---
+
 @import "minima";
 
-// Project grid styling
-.projects-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 2rem;
-  margin-top: 2rem;
+// Custom tweaks for IxVenture
+
+body {
+  font-family: system-ui, sans-serif;
+  line-height: 1.6;
 }
 
-.project-card {
-  border: 1px solid #eee;
-  border-radius: 12px;
-  padding: 1rem;
-  background: #fff;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+h1, h2, h3 {
+  margin-top: 1.4em;
+  margin-bottom: 0.6em;
+  font-weight: 600;
+}
+
+p, li {
+  margin-bottom: 0.8em;
+}
+
+.site-header, .site-footer {
+  background: #fafafa;
+  border-top: 1px solid #e0e0e0;
+  border-bottom: 1px solid #e0e0e0;
+  padding: 1em 0;
   text-align: center;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-
-  a {
-    text-decoration: none;
-    color: inherit;
-    display: block;
-  }
-
-  &:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-  }
 }
 
-.project-thumb {
-  max-width: 100%;
-  height: auto;
-  border-radius: 8px;
-  margin-bottom: 1rem;
+.site-footer p {
+  font-size: 0.9em;
+  color: #666;
+}
+
+.wrapper {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 0 1em;
 }
