@@ -1,0 +1,16 @@
+---
+layout: default
+title: Home
+---
+
+<h1>Welcome to IxVenture</h1>
+<p>Building something amazing with AI.</p>
+
+<h2>Our Projects</h2>
+<ul>
+  {% for project in site.projects %}
+    <li>
+      <a href="{{ project.url | relative_url }}">{{ project.title }}</a>
+    </li>
+  {% endfor %}
+</ul>
