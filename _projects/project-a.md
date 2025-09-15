@@ -2,6 +2,7 @@
 title: Project A
 description: Building something amazing with AI
 layout: project
+images_path: "/projects/project-a"
 ---
 
 ## Overview
@@ -21,8 +22,18 @@ Project A is an initiative where we’re exploring how artificial intelligence c
 ## Media
 Here’s a first look at the interface:
 
-![Project A Screenshot](/assets/images/project-a-screenshot.png)
+<figure class="project-screenshot">
+  <img src="/projects/project-a/screenshot-1.png" alt="Project A Screenshot 1">
+  <figcaption>Early prototype view of Project A.</figcaption>
+</figure>
+
+---
 
 ## What’s Next
 We’ll keep updating this page with notes, screenshots, and milestones as Project A evolves.  
 Stay tuned!
+
+---
+
+## Gallery
+*(auto-generated from `/projects/project-a/`)*  
