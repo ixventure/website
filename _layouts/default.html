@@ -1,24 +1,17 @@
 <!DOCTYPE html>
-<html lang="{{ page.lang | default: site.lang | default: 'en' }}">
-
+<html lang="en">
   <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <title>{{ page.title | escape }} - {{ site.title | escape }}</title>
-    <meta name="description" content="{{ page.excerpt | default: site.description | strip_html | normalize_whitespace | truncate: 160 | escape }}">
-
-    <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+    <title>{{ page.title }} | {{ site.title }}</title>
+    <link rel="stylesheet" href="{{ "/assets/main.css" | relative_url }}">
   </head>
-
   <body>
-
     <header class="site-header" role="banner">
       <div class="wrapper header-flex">
-        <a class="site-title" rel="author" href="{{ '/' | relative_url }}">{{ site.title | escape }}</a>
+        <a class="site-title" rel="author" href="{{ "/" | relative_url }}">{{ site.title }}</a>
         <nav class="site-nav">
-          <a href="{{ '/projects/project-a/' | relative_url }}">Projects</a>
+          <a href="{{ '/projects/' | relative_url }}">Projects</a>
         </nav>
       </div>
     </header>
@@ -32,31 +25,11 @@
     <footer class="site-footer">
       <div class="wrapper">
         <p>
-          IxVenture site — powered by Jekyll.<br>
-          Theme is a FLOSS fork of Minima — contributions welcome!<br>
-          <small>Version: {{ site.version }}</small>
+          IxVenture site — powered by Jekyll. <br>
+          Theme is a FLOSS fork of Minima — contributions welcome! <br>
+          Version: {{ site.version }}
         </p>
       </div>
     </footer>
-    
-    <!-- SwiperJS for carousel -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        new Swiper(".swiper", {
-          loop: true,
-          pagination: {
-            el: ".swiper-pagination",
-            clickable: true,
-          },
-          navigation: {
-            nextEl: ".swiper-button-next",
-            prevEl: ".swiper-button-prev",
-          },
-        });
-      });
-    </script>
-
   </body>
 </html>
