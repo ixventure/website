@@ -2,6 +2,7 @@
 layout: project
 title: Project A
 description: Building something amazing with AI
+permalink: /projects/project-a/
 ---
 
 # Project A
