@@ -6,3 +6,6 @@ baseurl: ""
 url: "" 
 
 theme: minima
+
+# Custom settings
+version: 0.1.0
