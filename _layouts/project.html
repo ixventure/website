@@ -1,29 +1,96 @@
----
-layout: default
----
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: site.lang | default: 'en' }}">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<article class="post">
-  <header class="post-header">
-    <h1 class="post-title">{{ page.title }}</h1>
-    <p class="post-meta">{{ page.description }}</p>
-  </header>
+    <title>{{ page.title | escape }} - {{ site.title | escape }}</title>
+    <meta name="description" content="{{ page.excerpt | default: page.description | default: site.description | strip_html | normalize_whitespace | truncate: 160 | escape }}">
 
-  <div class="post-content">
-    {{ content }}
-  </div>
+    <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+    <!-- Swiper CSS (only on project pages) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  </head>
 
-  {% if page.images_path %}
-  <section class="project-gallery">
-    <h2>Gallery</h2>
-    <div class="gallery-grid">
-      {% for file in site.static_files %}
-        {% if file.path contains page.images_path and file.extname == ".png" %}
-        <figure>
-          <img src="{{ file.path | relative_url }}" alt="{{ page.title }} screenshot">
-        </figure>
+  <body>
+
+    <header class="site-header" role="banner">
+      <div class="wrapper header-flex">
+        <a class="site-title" rel="author" href="{{ '/' | relative_url }}">{{ site.title | escape }}</a>
+        <nav class="site-nav">
+          <a href="{{ '/projects/' | relative_url }}">Projects</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        {{ content }}
+
+        <!-- Auto-discovered image carousel -->
+        {% comment %}
+          This finds all site.static_files whose relative_path contains the current page URL.
+          Example: page.url = "/projects/project-a/" matches "/projects/project-a/screenshot-1.png".
+        {% endcomment %}
+
+        {% assign project_prefix = page.url %}
+        {% assign images = site.static_files | where_exp: "f", "f.relative_path contains project_prefix" | sort: "relative_path" %}
+        
+        {% if images and images.size > 0 %}
+          <h2>Gallery</h2>
+          <div class="swiper">
+            <div class="swiper-wrapper">
+              {% for img in images %}
+                <div class="swiper-slide">
+                  <img src="{{ img.relative_path | relative_url }}" alt="{{ page.title }} screenshot {{ forloop.index }}">
+                </div>
+              {% endfor %}
+            </div>
+
+            <!-- pagination / navigation -->
+            <div class="swiper-pagination"></div>
+            <div class="swiper-button-prev" aria-label="Previous slide"></div>
+            <div class="swiper-button-next" aria-label="Next slide"></div>
+          </div>
+        {% else %}
+          <p><em>No gallery images found for this project. Drop images into <code>/projects/{{ page.url | remove_first: '/' | remove_last: '/' }}/</code> to populate the carousel.</em></p>
         {% endif %}
-      {% endfor %}
-    </div>
-  </section>
-  {% endif %}
-</article>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="wrapper">
+        <p>
+          IxVenture site — powered by Jekyll.<br>
+          Theme is a FLOSS fork of Minima — contributions welcome!<br>
+          Version: {{ site.version }}
+        </p>
+      </div>
+    </footer>
+
+    <!-- Swiper JS (only on project pages) -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        if (document.querySelector('.swiper')) {
+          new Swiper('.swiper', {
+            loop: true,
+            pagination: {
+              el: '.swiper-pagination',
+              clickable: true,
+            },
+            navigation: {
+              nextEl: '.swiper-button-next',
+              prevEl: '.swiper-button-prev',
+            },
+            // small responsive tweak
+            slidesPerView: 1,
+            spaceBetween: 10
+          });
+        }
+      });
+    </script>
+
+  </body>
+</html>
