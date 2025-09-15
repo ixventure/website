@@ -1,11 +1,17 @@
 ---
 layout: default
-title: IxVenture
+title: Projects
+permalink: /projects/
 ---
 
-# IxVenture Studio
+# Projects
 
-Welcome! Here’s what we’re working on:
+Here are the projects we’re working on:
 
-- [Project A](/projects/project-a/)  
-  *Building something amazing with AI*
+<ul>
+{% for project in site.projects %}
+  <li>
+    <a href="{{ project.url | relative_url }}">{{ project.title }}</a> — {{ project.description }}
+  </li>
+{% endfor %}
+</ul>
