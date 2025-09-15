@@ -1,0 +1,11 @@
+title: IxVentures Studio
+description: A portfolio of projects from IxVentures
+baseurl: "" # keep empty if deploying to ixventures.github.io
+url: "https://ixventures.github.io"
+
+collections:
+  projects:
+    output: true
+    permalink: /projects/:name/
+
+theme: minima # can replace with a custom theme later
