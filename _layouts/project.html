@@ -30,11 +30,11 @@
 
         <!-- Auto-discovered image carousel -->
         {% comment %}
-          This finds all site.static_files whose relative_path contains the current page URL.
-          Example: page.url = "/projects/project-a/" matches "/projects/project-a/screenshot-1.png".
+          This finds all site.static_files whose relative_path contains the current page directory.
+          Example: page.dir = "/projects/project-a/" matches "/projects/project-a/screenshot-1.png".
         {% endcomment %}
 
-        {% assign project_prefix = page.url %}
+        {% assign project_prefix = page.dir %}
         {% assign images = site.static_files | where_exp: "f", "f.relative_path contains project_prefix" | sort: "relative_path" %}
         
         {% if images and images.size > 0 %}
@@ -54,7 +54,7 @@
             <div class="swiper-button-next" aria-label="Next slide"></div>
           </div>
         {% else %}
-          <p><em>No gallery images found for this project. Drop images into <code>/projects/{{ page.url | remove_first: '/' | remove_last: '/' }}/</code> to populate the carousel.</em></p>
+          <p><em>No gallery images found for this project. Drop images into <code>{{ page.dir }}</code> to populate the carousel.</em></p>
         {% endif %}
       </div>
     </main>
@@ -84,7 +84,6 @@
               nextEl: '.swiper-button-next',
               prevEl: '.swiper-button-prev',
             },
-            // small responsive tweak
             slidesPerView: 1,
             spaceBetween: 10
           });
