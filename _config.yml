@@ -1,5 +1,8 @@
 title: IxVenture
 description: Building something amazing with AI
-baseurl: ""
-url: "https://ixventure.github.io"
+
+# Use empty baseurl by default, but allow GitHub Pages to override
+baseurl: "" 
+url: "" 
+
 theme: minima
