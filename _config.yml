@@ -1,13 +1,12 @@
-title: IxVentures
+title: IxVenture
 description: >-
-  IxVentures site powered by Jekyll + Minima.
+  IxVenture site powered by Jekyll + Minima.
 theme: minima
 
 plugins:
   - jekyll-feed
   - jekyll-seo-tag
 
-# Add collections
 collections:
   projects:
     output: true
