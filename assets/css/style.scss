@@ -24,8 +24,12 @@ p, li {
   margin-bottom: 0.8em;
 }
 
-/* Header + Footer */
-.site-header, .site-footer {
+/* ========================
+   Header + Footer
+   ======================== */
+
+.site-header,
+.site-footer {
   background: #fafafa;
   border-top: 1px solid #e0e0e0;
   border-bottom: 1px solid #e0e0e0;
