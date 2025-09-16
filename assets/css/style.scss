@@ -3,11 +3,15 @@
 
 @import "minima";
 
-// Custom tweaks for IxVenture
+/* ========================
+   Base tweaks for IxVenture
+   ======================== */
 
 body {
   font-family: system-ui, sans-serif;
   line-height: 1.6;
+  background: #fff;
+  color: #222;
 }
 
 h1, h2, h3 {
@@ -20,6 +24,7 @@ p, li {
   margin-bottom: 0.8em;
 }
 
+/* Header + Footer */
 .site-header, .site-footer {
   background: #fafafa;
   border-top: 1px solid #e0e0e0;
@@ -34,7 +39,7 @@ p, li {
 }
 
 .wrapper {
-  max-width: 760px;
+  max-width: 960px;
   margin: 0 auto;
   padding: 0 1em;
 }
@@ -45,16 +50,66 @@ p, li {
   align-items: center;
 }
 
-/* Swiper tweaks */
+/* ========================
+   Project grid + cards
+   ======================== */
+
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.project-card {
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #fff;
+  text-align: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+}
+
+.project-card a {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.project-thumb {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  background: #f8f8f8;
+}
+
+.project-title {
+  padding: 0.75rem;
+  font-weight: 600;
+  font-size: 1rem;
+  color: #222;
+}
+
+/* ========================
+   Swiper tweaks (gallery)
+   ======================== */
+
 .swiper {
   width: 100%;
   margin: 1.2rem 0;
 }
+
 .swiper .swiper-slide {
   display: flex;
   align-items: center;
   justify-content: center;
 }
+
 .swiper .swiper-slide img {
   display: block;
   width: 100%;
@@ -62,4 +117,3 @@ p, li {
   object-fit: cover;
   border-radius: 6px;
 }
-
