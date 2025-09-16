@@ -1,18 +1,17 @@
 ---
-layout: project
 title: Project A
-description: Building something amazing with AI
-image_dir: /assets/projects/project-a/
+slug: project-a
+layout: project
 ---
 
-## Overview
-Project A is an initiative where we’re exploring how artificial intelligence can help people **work smarter, create faster, and solve complex problems.**
+# Project A
 
-## Goals
-- Build a prototype that demonstrates real-world value.
-- Collect feedback from early adopters.
-- Lay the foundation for future iterations.
+This is **Project A**, an example project.
 
----
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia odio vitae vestibulum vestibulum.
 
-{% include gallery.html %}
+- Feature 1
+- Feature 2
+- Feature 3
+
+{% include gallery.html slug="project-a" title="Project A" %}
