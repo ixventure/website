@@ -9,6 +9,40 @@
     <meta name="description" content="{{ page.excerpt | default: site.description | strip_html | normalize_whitespace | truncate: 160 | escape }}">
 
     <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+    <style>
+      #update-toast {
+        display: none;
+        position: fixed;
+        top: 1rem;
+        right: 1rem;
+        background: #222;
+        color: #fff;
+        padding: 0.75rem 1rem;
+        border-radius: 0.5rem;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        z-index: 9999;
+        animation: slideDown 0.3s ease-out;
+      }
+
+      #update-toast button {
+        margin-left: 1rem;
+        background: #4CAF50;
+        border: none;
+        padding: 0.4rem 0.75rem;
+        border-radius: 0.25rem;
+        color: white;
+        cursor: pointer;
+      }
+
+      #update-toast button:hover {
+        background: #45a049;
+      }
+
+      @keyframes slideDown {
+        from { transform: translateY(-20px); opacity: 0; }
+        to { transform: translateY(0); opacity: 1; }
+      }
+    </style>
   </head>
 
   <body>
@@ -38,5 +72,32 @@
       </div>
     </footer>
 
+    <!-- Update toast -->
+    <div id="update-toast">
+      🔄 New version available.
+      <button id="reload-btn">Reload</button>
+    </div>
+
+    <script>
+      let currentBuild = "{{ site.time | date_to_xmlschema }}";
+
+      async function checkForUpdate() {
+        try {
+          const res = await fetch('/version.json', { cache: 'no-store' });
+          const data = await res.json();
+          if (data.build !== currentBuild) {
+            document.getElementById('update-toast').style.display = 'block';
+          }
+        } catch (e) {
+          console.error('Version check failed', e);
+        }
+      }
+
+      document.getElementById('reload-btn').addEventListener('click', () => {
+        location.reload(true);
+      });
+
+      setInterval(checkForUpdate, 60000); // check every 60s
+    </script>
   </body>
 </html>
