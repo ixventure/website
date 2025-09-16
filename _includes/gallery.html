@@ -64,10 +64,7 @@ It auto-discovers files under project_path using site.static_files.
 {%- else -%}
   <p><em>No gallery images found for this project. Drop images into <code>{{ project_path }}</code> to populate the carousel.</em></p>
 
-  {%- comment -%}
-  Quick debug info (uncomment to show on the page while testing)
-  {%- endcomment -%}
-  <!--
+  <!-- DEBUG INFO -->
   <pre style="background:#111;color:#eee;padding:12px;font-size:12px;">
   Debug: project_path={{ project_path }}
   images_count={{ images | size }}
@@ -75,5 +72,4 @@ It auto-discovers files under project_path using site.static_files.
     {{ f.relative_path }}
   {% endfor %}
   </pre>
-  -->
 {%- endif -%}
