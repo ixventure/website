@@ -1,42 +1,29 @@
-<!DOCTYPE html>
-<html lang="{{ page.lang | default: site.lang | default: 'en' }}">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+---
+layout: default
+---
 
-    <title>{{ page.title | escape }} - {{ site.title | escape }}</title>
-    <meta name="description" content="{{ page.excerpt | default: page.description | default: site.description | strip_html | normalize_whitespace | truncate: 160 | escape }}">
+<article class="project-page wrap">
+  <header class="project-header">
+    <h1>{{ page.title }}</h1>
+    {% if page.description %}<p class="muted">{{ page.description }}</p>{% endif %}
+  </header>
 
-    <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
-  </head>
+  <section class="project-body">
+    {{ content }}
+  </section>
 
-  <body>
+  <section class="project-gallery">
+    {% include gallery.html slug=page.slug title=page.title %}
+  </section>
 
-    <header class="site-header" role="banner">
-      <div class="wrapper header-flex">
-        <a class="site-title" rel="author" href="{{ '/' | relative_url }}">{{ site.title | escape }}</a>
-        <nav class="site-nav">
-          <a href="{{ '/projects/' | relative_url }}">Projects</a>
-        </nav>
-      </div>
-    </header>
+  {% if page.thumbnail %}
+    <section class="project-thumbnail">
+      <img src="{{ page.thumbnail | relative_url }}?v={{ site.time | date: '%s' }}" 
+           alt="{{ page.title }} thumbnail">
+    </section>
+  {% endif %}
 
-    <main class="page-content" aria-label="Content">
-      <div class="wrapper">
-        {{ content }}
-      </div>
-    </main>
-
-    <footer class="site-footer">
-      <div class="wrapper">
-        <p>
-          IxVenture site — powered by Jekyll.<br>
-          Theme is a FLOSS fork of Minima — contributions welcome!<br>
-          Version: {{ site.version }}
-        </p>
-      </div>
-    </footer>
-
-  </body>
-</html>
+  <nav class="project-actions">
+    <a href="{{ '/projects/' | relative_url }}">← Back to projects</a>
+  </nav>
+</article>
