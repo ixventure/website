@@ -7,31 +7,15 @@ title: Home
 <p>Building something amazing with AI.</p>
 
 <h2>Our Projects</h2>
-<div class="project-grid">
+<div class="projects-grid">
   {% for project in site.projects %}
-    {% assign project_slug = project.slug | default: project.name | split: "." | first %}
-    {% assign project_path = '/assets/projects/' | append: project_slug %}
-    
-    <div class="project-card">
-      <a href="{{ project.url | relative_url }}">
-        {%- assign exts = "png,jpg,jpeg,svg" | split: "," -%}
-        {%- assign found = false -%}
-        {%- for ext in exts -%}
-          {% if found == false %}
-            <img src="{{ project_path }}/image-1.{{ ext }}"
-                 alt="{{ project.title }} thumbnail"
-                 class="project-thumb"
-                 onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-            {% assign found = true %}
-          {% endif %}
-        {%- endfor -%}
-        <!-- fallback logo -->
-        <img src="/assets/company-logo.png"
-             alt="IxVenture logo"
-             class="project-thumb"
-             style="display:none;">
-        <div class="project-title">{{ project.title }}</div>
-      </a>
-    </div>
+    <a class="project-card" href="{{ project.url | relative_url }}">
+      {% if project.thumbnail %}
+        <img src="{{ project.thumbnail | relative_url }}" alt="{{ project.title }} thumbnail">
+      {% else %}
+        <img src="/assets/images/logo.png" alt="IxVenture logo">
+      {% endif %}
+      <span>{{ project.title }}</span>
+    </a>
   {% endfor %}
 </div>
