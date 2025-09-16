@@ -7,10 +7,26 @@ title: Home
 <p>Building something amazing with AI.</p>
 
 <h2>Our Projects</h2>
-<ul>
+<ul class="project-list">
   {% for project in site.projects %}
-    <li>
-      <a href="{{ project.url | relative_url }}">{{ project.title }}</a>
+    {% assign project_slug = project.slug | default: project.name | split: "." | first %}
+    {% assign project_path = '/assets/projects/' | append: project_slug %}
+
+    <li class="project-item">
+      <a href="{{ project.url | relative_url }}">
+        {%- assign exts = "png,jpg,jpeg,svg" | split: "," -%}
+        {%- for ext in exts -%}
+          <img src="{{ project_path }}/image-1.{{ ext }}"
+               alt="{{ project.title }} thumbnail"
+               onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-block';">
+          {%- endfor -%}
+          <!-- fallback company logo -->
+          <img src="/assets/company-logo.png"
+               alt="IxVenture logo"
+               style="display:none; max-width:120px;">
+        <br>
+        {{ project.title }}
+      </a>
     </li>
   {% endfor %}
 </ul>
