@@ -4,8 +4,6 @@ slug: project-b
 layout: project
 ---
 
-# Project B
-
 This is **Project B**, another example project.
 
 Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin.
