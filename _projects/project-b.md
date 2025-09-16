@@ -14,4 +14,4 @@ Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante so
 - Benefit 2
 - Benefit 3
 
-{% include gallery.html slug="project-b" title="Project B" %}
+{% include gallery.html slug=page.slug title=page.title %}
