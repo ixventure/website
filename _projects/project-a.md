@@ -4,8 +4,6 @@ slug: project-a
 layout: project
 ---
 
-# Project A
-
 This is **Project A**, an example project.
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia odio vitae vestibulum vestibulum.
@@ -13,5 +11,3 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia odio vi
 - Feature 1
 - Feature 2
 - Feature 3
-
-{% include gallery.html slug=page.slug title=page.title %}
