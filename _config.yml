@@ -14,3 +14,7 @@ collections:
   projects:
     output: true
     permalink: /projects/:path/
+
+# Ensure project images are included in the build
+include:
+  - projects
