@@ -9,8 +9,6 @@
     <meta name="description" content="{{ page.excerpt | default: page.description | default: site.description | strip_html | normalize_whitespace | truncate: 160 | escape }}">
 
     <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
-    <!-- Swiper CSS (only on project pages) -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
   </head>
 
   <body>
@@ -27,35 +25,6 @@
     <main class="page-content" aria-label="Content">
       <div class="wrapper">
         {{ content }}
-
-        <!-- Auto-discovered image carousel -->
-        {% assign project_slug = page.slug | default: page.name | split: "." | first %}
-        {% if page.image_dir %}
-          {% assign project_path = page.image_dir %}
-        {% else %}
-          {% assign project_path = '/projects/' | append: project_slug | append: '/' %}
-        {% endif %}
-        {% assign images = site.static_files | where_exp: "f", "f.relative_path contains project_path" | sort: "relative_path" %}
-        
-        {% if images and images.size > 0 %}
-          <h2>Gallery</h2>
-          <div class="swiper">
-            <div class="swiper-wrapper">
-              {% for img in images %}
-                <div class="swiper-slide">
-                  <img src="{{ img.relative_path | relative_url }}" alt="{{ page.title }} screenshot {{ forloop.index }}">
-                </div>
-              {% endfor %}
-            </div>
-
-            <!-- pagination / navigation -->
-            <div class="swiper-pagination"></div>
-            <div class="swiper-button-prev" aria-label="Previous slide"></div>
-            <div class="swiper-button-next" aria-label="Next slide"></div>
-          </div>
-        {% else %}
-          <p><em>No gallery images found for this project. Drop images into <code>{{ project_path }}</code> to populate the carousel.</em></p>
-        {% endif %}
       </div>
     </main>
 
@@ -68,28 +37,6 @@
         </p>
       </div>
     </footer>
-
-    <!-- Swiper JS (only on project pages) -->
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        if (document.querySelector('.swiper')) {
-          new Swiper('.swiper', {
-            loop: true,
-            pagination: {
-              el: '.swiper-pagination',
-              clickable: true,
-            },
-            navigation: {
-              nextEl: '.swiper-button-next',
-              prevEl: '.swiper-button-prev',
-            },
-            slidesPerView: 1,
-            spaceBetween: 10
-          });
-        }
-      });
-    </script>
 
   </body>
 </html>
