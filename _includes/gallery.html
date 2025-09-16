@@ -13,14 +13,16 @@ Usage:
   <div class="swiper gallery-swiper">
     <div class="swiper-wrapper">
       {%- assign extensions = "png,jpg,jpeg,svg" | split: "," -%}
-      {%- for i in (1..20) -%}
-        {%- for ext in extensions -%}
+      {%- assign screenshots = site.static_files 
+          | where_exp: "file", "file.path contains project_path" -%}
+      {%- for file in screenshots -%}
+        {%- assign ext = file.extname | remove: "." | downcase -%}
+        {%- if extensions contains ext and file.name contains "image-" -%}
           <div class="swiper-slide">
-            <img src="{{ project_path }}/image-{{ i }}.{{ ext }}?v={{ site.time | date: '%s' }}"
-                 alt="{{ include.title | default: page.title }} image {{ i }}"
-                 onerror="this.parentNode.remove();">
+            <img src="{{ file.path | relative_url }}?v={{ site.time | date: '%s' }}"
+                 alt="{{ include.title | default: page.title }} screenshot">
           </div>
-        {%- endfor -%}
+        {%- endif -%}
       {%- endfor -%}
     </div>
 
@@ -40,28 +42,22 @@ document.addEventListener("DOMContentLoaded", function () {
   const wrapper = document.querySelector(wrapperSelector);
   if (!wrapper) return;
 
-  setTimeout(() => {
-    wrapper.querySelectorAll(".swiper-slide").forEach(slide => {
-      const img = slide.querySelector("img");
-      if (!img || !img.complete || img.naturalWidth === 0) slide.remove();
-    });
+  // Remove swiper entirely if no slides
+  if (wrapper.querySelectorAll(".swiper-slide").length === 0) {
+    const msg = document.createElement("p");
+    msg.innerHTML =
+      '<em>No gallery images found. Please add <code>image-*.png|.jpg|.jpeg|.svg</code> to <code>{{ project_path }}</code>.</em>';
+    wrapper.parentNode.insertBefore(msg, wrapper);
+    wrapper.remove();
+    return;
+  }
 
-    if (wrapper.querySelectorAll(".swiper-slide").length === 0) {
-      const msg = document.createElement("p");
-      msg.innerHTML =
-        '<em>No gallery images found. Please use <code>image-*.png|.jpg|.jpeg|.svg</code> convention in <code>{{ project_path }}</code>.</em>';
-      wrapper.parentNode.insertBefore(msg, wrapper);
-      wrapper.remove();
-      return;
-    }
-
-    new Swiper(wrapperSelector, {
-      loop: true,
-      pagination: { el: wrapperSelector + ' .swiper-pagination', clickable: true },
-      navigation: { nextEl: wrapperSelector + ' .swiper-button-next', prevEl: wrapperSelector + ' .swiper-button-prev' },
-      slidesPerView: 1,
-      spaceBetween: 10
-    });
-  }, 200);
+  new Swiper(wrapperSelector, {
+    loop: true,
+    pagination: { el: wrapperSelector + ' .swiper-pagination', clickable: true },
+    navigation: { nextEl: wrapperSelector + ' .swiper-button-next', prevEl: wrapperSelector + ' .swiper-button-prev' },
+    slidesPerView: 1,
+    spaceBetween: 10
+  });
 });
 </script>
