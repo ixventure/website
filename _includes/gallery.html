@@ -3,32 +3,16 @@ Include: _includes/gallery.html
 
 Usage:
   {% raw %}{% include gallery.html slug="project-a" title="Project A" %}{% endraw %}
+
+Behavior:
+  - Looks for images under /assets/projects/<slug>/
+  - Compatible with GitHub Pages’ Jekyll (v3.10, safe mode)
 {%- endcomment -%}
 
 {%- assign project_slug = include.slug | default: page.slug | default: page.name | split: "." | first -%}
 {%- assign project_path = '/assets/projects/' | append: project_slug | append: '/' -%}
 
-{%- comment -%}
-Try multiple match strategies, since f.relative_path can vary:
-  - contains project_path
-  - ends with project_path
-  - simple filename pattern (screenshot-*.png)
-{%- endcomment -%}
-{%- assign images = site.static_files
-  | where_exp: "f", "f.relative_path contains project_path"
-  | sort: "relative_path" -%}
-
-{%- if images == empty -%}
-  {%- assign images = site.static_files
-    | where_exp: "f", "f.relative_path endswith project_slug | append: '/' | append: f.name"
-    | sort: "relative_path" -%}
-{%- endif -%}
-
-{%- if images == empty -%}
-  {%- assign images = site.static_files
-    | where_exp: "f", "f.relative_path contains project_slug and f.extname == '.png'"
-    | sort: "relative_path" -%}
-{%- endif -%}
+{%- assign images = site.static_files | where_exp: "f", "f.relative_path contains project_path" | sort: "relative_path" -%}
 
 {%- if images and images.size > 0 -%}
   <h2>Gallery</h2>
@@ -67,13 +51,12 @@ Try multiple match strategies, since f.relative_path can vary:
   <p><em>No gallery images found for this project. Drop images into <code>{{ project_path }}</code> to populate the carousel.</em></p>
 
   <!-- Debug info -->
-  <pre style="background:#111;color:#eee;padding:12px;font-size:12px;">
+  <pre style="background:#111;color:#eee;padding:12px;font-size:12px;overflow-x:auto">
   Debug: project_path={{ project_path }}
   images_count={{ images | size }}
 
-  All static files:
   {% for f in site.static_files %}
-    - {{ f.relative_path }}
+    {{ f.relative_path }}
   {% endfor %}
   </pre>
 {%- endif -%}
