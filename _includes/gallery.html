@@ -2,11 +2,15 @@
 Include: _includes/gallery.html
 
 Usage:
-  Place images in: assets/projects/<slug>/
-  Name them consistently (screenshot-1.png, screenshot-2.png, ...)
+  1. Place screenshots in: assets/projects/<slug>/
+     Example: assets/projects/project-a/screenshot-1.png
+  2. In your project markdown (_projects/project-a.md):
+     {% raw %}{% include gallery.html slug="project-a" title="Project A" %}{% endraw %}
 
-Example:
-  {% include gallery.html slug="project-a" title="Project A" %}
+Behavior:
+  - Looks inside /assets/projects/<slug>/ for screenshot-N.png files
+  - Auto-removes blank slides so Swiper stays clean
+  - Works with GitHub Pages (safe mode)
 {%- endcomment -%}
 
 {%- assign project_slug = include.slug | default: page.slug | default: page.name | split: "." | first -%}
@@ -19,11 +23,12 @@ Example:
       <div class="swiper-slide">
         <img src="{{ project_path }}screenshot-{{ i }}.png"
              alt="{{ include.title | default: page.title }} screenshot {{ i }}"
-             onerror="this.parentNode.remove()">
+             onerror="this.parentElement.remove()">
       </div>
     {%- endfor -%}
   </div>
 
+  <!-- Pagination / navigation -->
   <div class="swiper-pagination"></div>
   <div class="swiper-button-prev" aria-label="Previous slide"></div>
   <div class="swiper-button-next" aria-label="Next slide"></div>
