@@ -29,13 +29,12 @@
         {{ content }}
 
         <!-- Auto-discovered image carousel -->
-        {% comment %}
-          Use page.slug (if set in front matter) or fall back to filename.
-          Example: slug = "project-a" → looks inside /projects/project-a/
-        {% endcomment %}
-
         {% assign project_slug = page.slug | default: page.name | split: "." | first %}
-        {% assign project_path = '/projects/' | append: project_slug | append: '/' %}
+        {% if page.image_dir %}
+          {% assign project_path = page.image_dir %}
+        {% else %}
+          {% assign project_path = '/projects/' | append: project_slug | append: '/' %}
+        {% endif %}
         {% assign images = site.static_files | where_exp: "f", "f.relative_path contains project_path" | sort: "relative_path" %}
         
         {% if images and images.size > 0 %}
