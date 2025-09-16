@@ -2,51 +2,55 @@
 Include: _includes/gallery.html
 
 Usage:
-  1. Place screenshots in: assets/projects/<slug>/
+  1. Put screenshots in: assets/projects/<slug>/
      Example: assets/projects/project-a/screenshot-1.png
   2. In your project markdown (_projects/project-a.md):
      {% raw %}{% include gallery.html slug="project-a" title="Project A" %}{% endraw %}
 
 Behavior:
-  - Looks inside /assets/projects/<slug>/ for screenshot-N.png files
-  - Auto-removes blank slides so Swiper stays clean
-  - Works with GitHub Pages (safe mode)
+  - Auto-detects all images inside /assets/projects/<slug>/
+  - Works in GitHub Pages (safe mode)
+  - No ghost slides — only actual files render
 {%- endcomment -%}
 
 {%- assign project_slug = include.slug | default: page.slug | default: page.name | split: "." | first -%}
 {%- assign project_path = '/assets/projects/' | append: project_slug | append: '/' -%}
+{%- assign images = site.static_files | where_exp: "f", "f.relative_path contains project_path" | sort: "relative_path" -%}
 
-<h2>Gallery</h2>
-<div class="swiper">
-  <div class="swiper-wrapper">
-    {%- for i in (1..20) -%}
-      <div class="swiper-slide">
-        <img src="{{ project_path }}screenshot-{{ i }}.png"
-             alt="{{ include.title | default: page.title }} screenshot {{ i }}"
-             onerror="this.parentElement.remove()">
-      </div>
-    {%- endfor -%}
+{%- if images and images.size > 0 -%}
+  <h2>Gallery</h2>
+  <div class="swiper">
+    <div class="swiper-wrapper">
+      {%- for img in images -%}
+        <div class="swiper-slide">
+          <img src="{{ img.relative_path | relative_url }}"
+               alt="{{ include.title | default: page.title }} screenshot {{ forloop.index }}">
+        </div>
+      {%- endfor -%}
+    </div>
+
+    <!-- Pagination / navigation -->
+    <div class="swiper-pagination"></div>
+    <div class="swiper-button-prev" aria-label="Previous slide"></div>
+    <div class="swiper-button-next" aria-label="Next slide"></div>
   </div>
 
-  <!-- Pagination / navigation -->
-  <div class="swiper-pagination"></div>
-  <div class="swiper-button-prev" aria-label="Previous slide"></div>
-  <div class="swiper-button-next" aria-label="Next slide"></div>
-</div>
-
-<!-- Swiper resources -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    if (document.querySelector('.swiper')) {
-      new Swiper('.swiper', {
-        loop: true,
-        pagination: { el: '.swiper-pagination', clickable: true },
-        navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
-        slidesPerView: 1,
-        spaceBetween: 10
-      });
-    }
-  });
-</script>
+  <!-- Swiper resources -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      if (document.querySelector('.swiper')) {
+        new Swiper('.swiper', {
+          loop: true,
+          pagination: { el: '.swiper-pagination', clickable: true },
+          navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
+          slidesPerView: 1,
+          spaceBetween: 10
+        });
+      }
+    });
+  </script>
+{%- else -%}
+  <p><em>No gallery images found for this project. Add files into <code>{{ project_path }}</code>.</em></p>
+{%- endif -%}
