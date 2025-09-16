@@ -1,12 +1,12 @@
 ---
 title: Project B
-slug: project-b
+slug: test
 layout: project
 ---
 
-# Project B
+# Test
 
-This is **Project B**, another example project.
+This is **Test**, another example project.
 
 Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin.
 
