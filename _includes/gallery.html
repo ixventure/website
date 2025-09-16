@@ -1,35 +1,33 @@
 {%- comment -%}
-Gallery include (GitHub Pages safe)
+Gallery include
 ----------------------------------
-Supports images:
-  assets/projects/<slug>/image-1.png
-  assets/projects/<slug>/image-2.jpg
-  assets/projects/<slug>/image-3.svg
-  ...
-Up to 20 images are attempted for each extension.
+Usage:
+  {% include gallery.html slug="project-a" title="Project A" %}
 {%- endcomment -%}
 
 {%- assign project_slug = include.slug | default: page.slug | default: page.name | split: "." | first -%}
 {%- assign project_path = '/assets/projects/' | append: project_slug -%}
 
 <h2>Gallery</h2>
-<div class="swiper gallery-swiper">
-  <div class="swiper-wrapper">
-    {%- assign extensions = "png,jpg,jpeg,svg" | split: "," -%}
-    {%- for i in (1..20) -%}
-      {%- for ext in extensions -%}
-        <div class="swiper-slide">
-          <img src="{{ project_path }}/image-{{ i }}.{{ ext }}"
-               alt="{{ include.title | default: page.title }} image {{ i }}"
-               onerror="this.parentNode.remove();">
-        </div>
+<div class="gallery">
+  <div class="swiper gallery-swiper">
+    <div class="swiper-wrapper">
+      {%- assign extensions = "png,jpg,jpeg,svg" | split: "," -%}
+      {%- for i in (1..20) -%}
+        {%- for ext in extensions -%}
+          <div class="swiper-slide">
+            <img src="{{ project_path }}/image-{{ i }}.{{ ext }}?v={{ site.time | date: '%s' }}"
+                 alt="{{ include.title | default: page.title }} image {{ i }}"
+                 onerror="this.parentNode.remove();">
+          </div>
+        {%- endfor -%}
       {%- endfor -%}
-    {%- endfor -%}
-  </div>
+    </div>
 
-  <div class="swiper-pagination"></div>
-  <div class="swiper-button-prev" aria-label="Previous slide"></div>
-  <div class="swiper-button-next" aria-label="Next slide"></div>
+    <div class="swiper-pagination"></div>
+    <div class="swiper-button-prev" aria-label="Previous slide"></div>
+    <div class="swiper-button-next" aria-label="Next slide"></div>
+  </div>
 </div>
 
 <!-- Swiper resources -->
@@ -43,7 +41,6 @@ document.addEventListener("DOMContentLoaded", function () {
   if (!wrapper) return;
 
   setTimeout(() => {
-    // Remove slides where <img> failed
     wrapper.querySelectorAll(".swiper-slide").forEach(slide => {
       const img = slide.querySelector("img");
       if (!img || !img.complete || img.naturalWidth === 0) slide.remove();
