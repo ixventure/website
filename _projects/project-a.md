@@ -2,7 +2,7 @@
 layout: project
 title: Project A
 description: Building something amazing with AI
-image_dir: /projects/project-a/
+image_dir: /assets/projects/project-a/
 ---
 
 ## Overview
