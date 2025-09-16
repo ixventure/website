@@ -9,7 +9,7 @@
     <meta name="description" content="{{ page.excerpt | default: page.description | default: site.description | strip_html | normalize_whitespace | truncate: 160 | escape }}">
 
     <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
-    <!-- Swiper CSS -->
+    <!-- Swiper CSS (only on project pages) -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
   </head>
 
@@ -29,7 +29,12 @@
         {{ content }}
 
         <!-- Auto-discovered image carousel -->
-        {% assign project_slug = page.name | split: '.' | first %}
+        {% comment %}
+          Use page.slug (works for collection docs) to build the folder path.
+          Example: slug = "project-a" → looks inside /projects/project-a/
+        {% endcomment %}
+
+        {% assign project_slug = page.slug %}
         {% assign project_path = '/projects/' | append: project_slug | append: '/' %}
         {% assign images = site.static_files | where_exp: "f", "f.relative_path contains project_path" | sort: "relative_path" %}
         
@@ -65,7 +70,7 @@
       </div>
     </footer>
 
-    <!-- Swiper JS -->
+    <!-- Swiper JS (only on project pages) -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", function () {
