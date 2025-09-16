@@ -2,7 +2,7 @@
 layout: project
 title: Project B
 description: Another test project
-image_dir: /projects/project-b/
+image_dir: /assets/projects/project-b/
 ---
 
 ## Overview
