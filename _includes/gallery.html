@@ -3,6 +3,7 @@ Gallery include
 ----------------------------------
 Usage:
   {% include gallery.html slug="project-a" title="Project A" %}
+If omitted, it will use page.slug or page.name as a fallback.
 {%- endcomment -%}
 
 {%- assign project_slug = include.slug | default: page.slug | default: page.name | split: "." | first -%}
@@ -13,8 +14,8 @@ Usage:
   <div class="swiper gallery-swiper">
     <div class="swiper-wrapper">
       {%- assign extensions = "png,jpg,jpeg,svg" | split: "," -%}
-      {%- assign screenshots = site.static_files 
-          | where_exp: "file", "file.path contains project_path" -%}
+      {%- assign screenshots = site.static_files | where_exp: "file", "file.path contains project_path" | sort: "path" -%}
+
       {%- for file in screenshots -%}
         {%- assign ext = file.extname | remove: "." | downcase -%}
         {%- if extensions contains ext and file.name contains "image-" -%}
@@ -42,7 +43,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const wrapper = document.querySelector(wrapperSelector);
   if (!wrapper) return;
 
-  // Remove swiper entirely if no slides
+  // If no slides (no images), show a helpful message with exact folder
   if (wrapper.querySelectorAll(".swiper-slide").length === 0) {
     const msg = document.createElement("p");
     msg.innerHTML =
