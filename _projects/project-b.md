@@ -11,11 +11,8 @@ Project B is a second demo project, helping us test multiple entries in the port
 ## Goals
 - Try out new features in the theme.
 - Confirm multi-project layouts work.
-- Check the carousel handles missing images gracefully.
+- Check gallery integration.
 
-## Progress
-- ✅ Setup project skeleton.  
-- 🟩 Adding content and screenshots.  
-- ⏭ Next: gather feedback.
+---
 
 {% include gallery.html %}
