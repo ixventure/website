@@ -1,0 +1,7 @@
+---
+layout: null
+permalink: /version.json
+---
+{
+  "build": "{{ site.time | date_to_xmlschema }}"
+}
