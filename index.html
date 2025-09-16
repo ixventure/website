@@ -1,6 +1,6 @@
 ---
 layout: default
-title: IxVenture
+title: Home
 ---
 
 # Welcome to IxVenture
@@ -10,13 +10,24 @@ Building something amazing with AI.
 
 <div class="project-grid">
   {% for project in site.projects %}
+    {% assign project_slug = project.slug | default: project.name | split: "." | first %}
+    {% assign project_path = '/assets/projects/' | append: project_slug %}
+
     <div class="project-card">
       <a href="{{ project.url | relative_url }}">
-        {% if project.thumbnail %}
-          <img src="{{ project.thumbnail | relative_url }}" alt="{{ project.title }} thumbnail" class="project-thumb">
-        {% else %}
-          <img src="{{ '/assets/images/logo.png' | relative_url }}" alt="IxVenture logo" class="project-thumb">
-        {% endif %}
+        {%- assign exts = "png,jpg,jpeg,svg" | split: "," -%}
+        {%- assign thumb_found = false -%}
+        {%- for ext in exts -%}
+          <img class="project-thumb"
+               src="{{ project_path }}/image-1.{{ ext }}"
+               alt="{{ project.title }} thumbnail"
+               onerror="this.style.display='none';"
+               loading="lazy">
+          {%- endfor -%}
+          <img class="project-thumb"
+               src="/assets/logo.png"
+               alt="IxVenture logo (fallback)"
+               loading="lazy">
         <div class="project-title">{{ project.title }}</div>
       </a>
     </div>
