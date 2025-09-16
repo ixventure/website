@@ -3,42 +3,29 @@ layout: default
 title: Home
 ---
 
-<section class="hero">
-  <div class="wrap">
-    <h1>Welcome to IxVenture</h1>
-    <p>Building something amazing with AI.</p>
-  </div>
-</section>
+<h1>Welcome to IxVenture</h1>
+<p>Building something amazing with AI.</p>
 
-<main class="wrap">
-  <h2>Our Projects</h2>
-
-  <ul class="project-list project-grid">
-    {% for project in site.projects %}
-      {% assign project_slug = project.slug | default: project.name | split: "." | first %}
-      {% assign project_path = '/assets/projects/' | append: project_slug %}
-
-      <li class="project-item">
-        <a href="{{ project.url | relative_url }}">
-          {%- assign exts = "png,jpg,jpeg,svg" | split: "," -%}
-          {%- for ext in exts -%}
-            <img src="{{ project_path }}/image-1.{{ ext }}?v={{ site.time | date: '%s' }}"
-                 alt="{{ project.title }} thumbnail"
-                 loading="lazy"
-                 onerror="this.style.display='none'; if(this.nextElementSibling) this.nextElementSibling.style.display='inline-block';">
-          {%- endfor -%}
-
-          <!-- fallback company logo (shown only if all image-1.* attempts fail) -->
-          <img src="/assets/company-logo.png?v={{ site.time | date: '%s' }}"
-               alt="IxVenture logo"
-               style="display:none; max-width:140px;">
-
-          <div class="project-title">{{ project.title }}</div>
-          {% if project.description %}
-            <div class="muted project-desc">{{ project.description }}</div>
-          {% endif %}
-        </a>
-      </li>
-    {% endfor %}
-  </ul>
-</main>
+<h2>Our Projects</h2>
+<div class="project-grid">
+  {% for project in site.projects %}
+    {% assign project_slug = project.slug | default: project.name | split: "." | first %}
+    {% assign project_path = '/assets/projects/' | append: project_slug %}
+    <div class="project-card">
+      <a href="{{ project.url | relative_url }}">
+        {%- assign exts = "png,jpg,jpeg,svg" | split: "," -%}
+        {%- for ext in exts -%}
+          <img src="{{ project_path }}/image-1.{{ ext }}"
+               alt="{{ project.title }} thumbnail"
+               class="project-thumb"
+               onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-block';">
+        {%- endfor -%}
+        <img src="/assets/company-logo.png"
+             alt="IxVenture logo"
+             class="project-thumb"
+             style="display:none;">
+        <div class="project-title">{{ project.title }}</div>
+      </a>
+    </div>
+  {% endfor %}
+</div>
