@@ -14,4 +14,4 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia odio vi
 - Feature 2
 - Feature 3
 
-{% include gallery.html slug="project-a" title="Project A" %}
+{% include gallery.html slug=page.slug title=page.title %}
