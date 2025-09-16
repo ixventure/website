@@ -8,13 +8,13 @@ url: ""
 theme: minima
 
 # Site version
-version: 0.1.8
+version: 0.1.9
 
 collections:
   projects:
     output: true
     permalink: /projects/:path/
 
-# Ensure project images are included in the build
+# Ensure static images are included
 include:
-  - projects
+  - assets/projects
