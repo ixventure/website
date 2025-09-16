@@ -2,28 +2,27 @@
 layout: default
 ---
 
-<article class="project-page wrap">
-  <header class="project-header">
+<article class="project">
+  <header>
     <h1>{{ page.title }}</h1>
-    {% if page.description %}<p class="muted">{{ page.description }}</p>{% endif %}
   </header>
-
-  <section class="project-body">
-    {{ content }}
-  </section>
 
   <section class="project-gallery">
     {% include gallery.html slug=page.slug title=page.title %}
   </section>
 
-  {% if page.thumbnail %}
-    <section class="project-thumbnail">
-      <img src="{{ page.thumbnail | relative_url }}?v={{ site.time | date: '%s' }}" 
-           alt="{{ page.title }} thumbnail">
-    </section>
-  {% endif %}
+  <section class="project-content">
+    {{ content }}
+  </section>
 
-  <nav class="project-actions">
-    <a href="{{ '/projects/' | relative_url }}">← Back to projects</a>
-  </nav>
+  {% if page.benefits %}
+  <section class="project-benefits">
+    <h2>Benefits</h2>
+    <ul>
+      {% for benefit in page.benefits %}
+        <li>{{ benefit }}</li>
+      {% endfor %}
+    </ul>
+  </section>
+  {% endif %}
 </article>
