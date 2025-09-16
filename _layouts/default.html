@@ -10,6 +10,7 @@
 
     <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
     <style>
+      /* small toast styles */
       #update-toast {
         display: none;
         position: fixed;
@@ -23,30 +24,13 @@
         z-index: 9999;
         animation: slideDown 0.3s ease-out;
       }
-
-      #update-toast button {
-        margin-left: 1rem;
-        background: #4CAF50;
-        border: none;
-        padding: 0.4rem 0.75rem;
-        border-radius: 0.25rem;
-        color: white;
-        cursor: pointer;
-      }
-
-      #update-toast button:hover {
-        background: #45a049;
-      }
-
-      @keyframes slideDown {
-        from { transform: translateY(-20px); opacity: 0; }
-        to { transform: translateY(0); opacity: 1; }
-      }
+      #update-toast button { margin-left: 1rem; background: #4CAF50; border: none; padding: 0.4rem 0.75rem; border-radius: 0.25rem; color: white; cursor: pointer; }
+      #update-toast button:hover { background: #45a049; }
+      @keyframes slideDown { from { transform: translateY(-20px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
     </style>
   </head>
 
   <body>
-
     <header class="site-header" role="banner">
       <div class="wrapper header-flex">
         <a class="site-title" rel="author" href="{{ '/' | relative_url }}">{{ site.title | escape }}</a>
@@ -79,25 +63,33 @@
     </div>
 
     <script>
-      let currentBuild = "{{ site.time | date_to_xmlschema }}";
+      document.addEventListener('DOMContentLoaded', function () {
+        const currentBuild = "{{ site.time | date_to_xmlschema }}";
+        const toast = document.getElementById('update-toast');
+        const reloadBtn = document.getElementById('reload-btn');
 
-      async function checkForUpdate() {
-        try {
-          const res = await fetch('/version.json', { cache: 'no-store' });
-          const data = await res.json();
-          if (data.build !== currentBuild) {
-            document.getElementById('update-toast').style.display = 'block';
+        async function checkForUpdateOnce() {
+          try {
+            const res = await fetch('/version.json', { cache: 'no-store' });
+            if (!res.ok) return;
+            const data = await res.json();
+            if (data.build && data.build !== currentBuild) {
+              if (toast) toast.style.display = 'block';
+            }
+          } catch (e) {
+            // silent; failing to reach version.json is non-fatal
+            console.debug('Version check failed', e);
           }
-        } catch (e) {
-          console.error('Version check failed', e);
         }
-      }
 
-      document.getElementById('reload-btn').addEventListener('click', () => {
-        location.reload(true);
+        if (reloadBtn) {
+          reloadBtn.addEventListener('click', function () { location.reload(true); });
+        }
+
+        // initial check + periodic
+        checkForUpdateOnce();
+        setInterval(checkForUpdateOnce, 60 * 1000); // check every 60s
       });
-
-      setInterval(checkForUpdate, 60000); // check every 60s
     </script>
   </body>
 </html>
