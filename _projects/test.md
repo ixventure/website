@@ -1,6 +1,6 @@
 ---
 title: TEST
-slug: project-b
+slug: test
 layout: project
 ---
 
