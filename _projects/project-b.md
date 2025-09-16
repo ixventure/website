@@ -1,18 +1,17 @@
 ---
-layout: project
 title: Project B
-description: Another test project
-image_dir: /assets/projects/project-b/
+slug: project-b
+layout: project
 ---
 
-## Overview
-Project B is a second demo project, helping us test multiple entries in the portfolio.
+# Project B
 
-## Goals
-- Try out new features in the theme.
-- Confirm multi-project layouts work.
-- Check gallery integration.
+This is **Project B**, another example project.
 
----
+Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin.
 
-{% include gallery.html %}
+- Benefit 1
+- Benefit 2
+- Benefit 3
+
+{% include gallery.html slug="project-b" title="Project B" %}
