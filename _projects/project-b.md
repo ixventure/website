@@ -17,3 +17,5 @@ Project B is a second demo project, helping us test multiple entries in the port
 - ✅ Setup project skeleton.  
 - 🟩 Adding content and screenshots.  
 - ⏭ Next: gather feedback.
+
+{% include gallery.html %}
