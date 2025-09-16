@@ -24,9 +24,20 @@
         z-index: 9999;
         animation: slideDown 0.3s ease-out;
       }
-      #update-toast button { margin-left: 1rem; background: #4CAF50; border: none; padding: 0.4rem 0.75rem; border-radius: 0.25rem; color: white; cursor: pointer; }
+      #update-toast button {
+        margin-left: 1rem;
+        background: #4CAF50;
+        border: none;
+        padding: 0.4rem 0.75rem;
+        border-radius: 0.25rem;
+        color: white;
+        cursor: pointer;
+      }
       #update-toast button:hover { background: #45a049; }
-      @keyframes slideDown { from { transform: translateY(-20px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+      @keyframes slideDown {
+        from { transform: translateY(-20px); opacity: 0; }
+        to { transform: translateY(0); opacity: 1; }
+      }
     </style>
   </head>
 
@@ -77,14 +88,24 @@
               if (toast) toast.style.display = 'block';
             }
           } catch (e) {
-            // silent; failing to reach version.json is non-fatal
             console.debug('Version check failed', e);
           }
         }
 
         if (reloadBtn) {
-          reloadBtn.addEventListener('click', function () { location.reload(true); });
+          reloadBtn.addEventListener('click', function () {
+            // notify all tabs
+            localStorage.setItem('ixventure-refresh', Date.now().toString());
+            location.reload(true);
+          });
         }
+
+        // listen for refresh from another tab
+        window.addEventListener('storage', (e) => {
+          if (e.key === 'ixventure-refresh') {
+            location.reload(true);
+          }
+        });
 
         // initial check + periodic
         checkForUpdateOnce();
