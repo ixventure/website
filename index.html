@@ -15,20 +15,35 @@ Building something amazing with AI.
 
     <div class="project-card">
       <a href="{{ project.url | relative_url }}">
-        {%- assign exts = "png,jpg,jpeg,svg" | split: "," -%}
-        {%- assign thumb_found = false -%}
-        {%- for ext in exts -%}
+        {%- comment -%}
+          Find first existing image-1.* in the project's assets (robust, no hard-coded extensions order).
+        {%- endcomment -%}
+        {%- assign found_thumb = "" -%}
+        {%- assign project_files = site.static_files | where_exp: "f", "f.path contains project_path" | sort: "path" -%}
+        {%- for f in project_files -%}
+          {%- assign name = f.name | downcase -%}
+          {%- if name contains "image-1." -%}
+            {%- assign found_thumb = f.path -%}
+            {%- break -%}
+          {%- endif -%}
+        {%- endfor -%}
+
+        {% if found_thumb != "" %}
           <img class="project-thumb"
-               src="{{ project_path }}/image-1.{{ ext }}"
+               src="{{ found_thumb | relative_url }}?v={{ site.time | date: '%s' }}"
                alt="{{ project.title }} thumbnail"
-               onerror="this.style.display='none';"
                loading="lazy">
-          {%- endfor -%}
+        {% else %}
           <img class="project-thumb"
-               src="/assets/logo.png"
+               src="{{ '/assets/images/logo.png' | relative_url }}?v={{ site.time | date: '%s' }}"
                alt="IxVenture logo (fallback)"
                loading="lazy">
+        {% endif %}
+
         <div class="project-title">{{ project.title }}</div>
+        {% if project.description %}
+          <div class="muted project-desc">{{ project.description }}</div>
+        {% endif %}
       </a>
     </div>
   {% endfor %}
