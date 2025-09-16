@@ -2,29 +2,20 @@
 Include: _includes/gallery.html
 
 Usage (simple):
-  Put `image_dir: /projects/project-a/` in the page front matter
-  Then in the page content where you want the gallery add:
+  Put your screenshots into: assets/projects/project-a/
+  Then in your page content just add:
     {% raw %}{% include gallery.html %}{% endraw %}
 
 Optional usage:
-  {% raw %}{% include gallery.html image_dir="/projects/project-a/" slug="project-a" title="Project A" %}{% endraw %}
+  {% raw %}{% include gallery.html slug="project-a" title="Project A" %}{% endraw %}
 
 Behavior:
-  1. If include.image_dir provided → uses that
-  2. Else if page.image_dir provided → uses that
-  3. Else falls back to slug / filename
-It auto-discovers files under project_path using site.static_files.
+  - Looks for images under /assets/projects/<slug>/
+  - Works on GitHub Pages (safe mode)
 {%- endcomment -%}
 
 {%- assign project_slug = include.slug | default: page.slug | default: page.name | split: "." | first -%}
-
-{%- if include.image_dir -%}
-  {%- assign project_path = include.image_dir -%}
-{%- elsif page.image_dir -%}
-  {%- assign project_path = page.image_dir -%}
-{%- else -%}
-  {%- assign project_path = '/projects/' | append: project_slug | append: '/' -%}
-{%- endif -%}
+{%- assign project_path = '/assets/projects/' | append: project_slug | append: '/' -%}
 
 {%- assign images = site.static_files | where_exp: "f", "f.relative_path contains project_path" | sort: "relative_path" -%}
 
@@ -44,7 +35,7 @@ It auto-discovers files under project_path using site.static_files.
     <div class="swiper-button-next" aria-label="Next slide"></div>
   </div>
 
-  <!-- Swiper resources (safe to include here; if your layout already has them remove duplicates) -->
+  <!-- Swiper resources -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   <script>
@@ -64,11 +55,11 @@ It auto-discovers files under project_path using site.static_files.
 {%- else -%}
   <p><em>No gallery images found for this project. Drop images into <code>{{ project_path }}</code> to populate the carousel.</em></p>
 
-  <!-- DEBUG INFO -->
+  <!-- Debug info -->
   <pre style="background:#111;color:#eee;padding:12px;font-size:12px;">
   Debug: project_path={{ project_path }}
   images_count={{ images | size }}
-  {% for f in images %}
+  {% for f in site.static_files %}
     {{ f.relative_path }}
   {% endfor %}
   </pre>
