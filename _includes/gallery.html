@@ -1,14 +1,12 @@
 {%- comment -%}
-Gallery include (safe for GitHub Pages)
---------------------------------------
-Assumes images are named:
-  assets/projects/<slug>/screenshot-1.png
-  assets/projects/<slug>/screenshot-2.png
+Gallery include (GitHub Pages safe)
+----------------------------------
+Supports images:
+  assets/projects/<slug>/image-1.png
+  assets/projects/<slug>/image-2.jpg
+  assets/projects/<slug>/image-3.svg
   ...
-Up to 20 images are attempted; missing ones auto-remove.
-
-Usage in project page:
-  {% include gallery.html slug="project-a" title="Project A" %}
+Up to 20 images are attempted for each extension.
 {%- endcomment -%}
 
 {%- assign project_slug = include.slug | default: page.slug | default: page.name | split: "." | first -%}
@@ -17,12 +15,15 @@ Usage in project page:
 <h2>Gallery</h2>
 <div class="swiper gallery-swiper">
   <div class="swiper-wrapper">
+    {%- assign extensions = "png,jpg,jpeg,svg" | split: "," -%}
     {%- for i in (1..20) -%}
-      <div class="swiper-slide">
-        <img src="{{ project_path }}/screenshot-{{ i }}.png"
-             alt="{{ include.title | default: page.title }} screenshot {{ i }}"
-             onerror="this.parentNode.remove();">
-      </div>
+      {%- for ext in extensions -%}
+        <div class="swiper-slide">
+          <img src="{{ project_path }}/image-{{ i }}.{{ ext }}"
+               alt="{{ include.title | default: page.title }} image {{ i }}"
+               onerror="this.parentNode.remove();">
+        </div>
+      {%- endfor -%}
     {%- endfor -%}
   </div>
 
@@ -42,14 +43,16 @@ document.addEventListener("DOMContentLoaded", function () {
   if (!wrapper) return;
 
   setTimeout(() => {
-    // Remove slides whose <img> failed to load
+    // Remove slides where <img> failed
     wrapper.querySelectorAll(".swiper-slide").forEach(slide => {
-      if (!slide.querySelector("img") || !slide.querySelector("img").src) slide.remove();
+      const img = slide.querySelector("img");
+      if (!img || !img.complete || img.naturalWidth === 0) slide.remove();
     });
 
     if (wrapper.querySelectorAll(".swiper-slide").length === 0) {
       const msg = document.createElement("p");
-      msg.innerHTML = '<em>No gallery images found in <code>{{ project_path }}</code></em>';
+      msg.innerHTML =
+        '<em>No gallery images found. Please use <code>image-*.png|.jpg|.jpeg|.svg</code> convention in <code>{{ project_path }}</code>.</em>';
       wrapper.parentNode.insertBefore(msg, wrapper);
       wrapper.remove();
       return;
