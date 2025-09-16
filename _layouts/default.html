@@ -9,8 +9,9 @@
     <meta name="description" content="{{ page.excerpt | default: site.description | strip_html | normalize_whitespace | truncate: 160 | escape }}">
 
     <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+
     <style>
-      /* Toast styles */
+      /* small toast styles */
       #update-toast {
         display: none;
         position: fixed;
@@ -33,10 +34,7 @@
   <body>
     <header class="site-header" role="banner">
       <div class="wrapper header-flex">
-        <a class="site-title" rel="author" href="{{ '/' | relative_url }}">
-          <img src="{{ '/assets/images/logo.png' | relative_url }}" alt="{{ site.title }} logo" style="height:32px; vertical-align:middle;">
-          {{ site.title | escape }}
-        </a>
+        <a class="site-title" rel="author" href="{{ '/' | relative_url }}">{{ site.title | escape }}</a>
         <nav class="site-nav">
           <a href="{{ '/projects/' | relative_url }}">Projects</a>
         </nav>
@@ -73,17 +71,12 @@
 
         async function checkForUpdateOnce() {
           try {
-            const res = await fetch('{{ "/version.json" | relative_url }}', { cache: 'no-store' });
+            const res = await fetch('/version.json', { cache: 'no-store' });
             if (!res.ok) return;
             const data = await res.json();
-
-            const lastSeen = localStorage.getItem('siteBuild');
-            if (data.build) {
-              if (!lastSeen) {
-                localStorage.setItem('siteBuild', data.build);
-              } else if (data.build !== lastSeen) {
-                toast.style.display = 'block';
-              }
+            if (data.build && data.build !== localStorage.getItem('lastBuild')) {
+              toast.style.display = 'block';
+              localStorage.setItem('newBuild', data.build);
             }
           } catch (e) {
             console.debug('Version check failed', e);
@@ -92,11 +85,12 @@
 
         if (reloadBtn) {
           reloadBtn.addEventListener('click', function () {
-            localStorage.setItem('siteBuild', currentBuild);
+            localStorage.setItem('lastBuild', localStorage.getItem('newBuild'));
             location.reload(true);
           });
         }
 
+        // initial check + periodic
         checkForUpdateOnce();
         setInterval(checkForUpdateOnce, 60 * 1000);
       });
