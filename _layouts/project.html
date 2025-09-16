@@ -30,11 +30,11 @@
 
         <!-- Auto-discovered image carousel -->
         {% comment %}
-          Use page.slug (works for collection docs) to build the folder path.
+          Use page.slug (if set in front matter) or fall back to filename.
           Example: slug = "project-a" → looks inside /projects/project-a/
         {% endcomment %}
 
-        {% assign project_slug = page.slug %}
+        {% assign project_slug = page.slug | default: page.name | split: "." | first %}
         {% assign project_path = '/projects/' | append: project_slug | append: '/' %}
         {% assign images = site.static_files | where_exp: "f", "f.relative_path contains project_path" | sort: "relative_path" %}
         
@@ -52,45 +52,4 @@
             <!-- pagination / navigation -->
             <div class="swiper-pagination"></div>
             <div class="swiper-button-prev" aria-label="Previous slide"></div>
-            <div class="swiper-button-next" aria-label="Next slide"></div>
-          </div>
-        {% else %}
-          <p><em>No gallery images found for this project. Drop images into <code>{{ project_path }}</code> to populate the carousel.</em></p>
-        {% endif %}
-      </div>
-    </main>
-
-    <footer class="site-footer">
-      <div class="wrapper">
-        <p>
-          IxVenture site — powered by Jekyll.<br>
-          Theme is a FLOSS fork of Minima — contributions welcome!<br>
-          Version: {{ site.version }}
-        </p>
-      </div>
-    </footer>
-
-    <!-- Swiper JS (only on project pages) -->
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        if (document.querySelector('.swiper')) {
-          new Swiper('.swiper', {
-            loop: true,
-            pagination: {
-              el: '.swiper-pagination',
-              clickable: true,
-            },
-            navigation: {
-              nextEl: '.swiper-button-next',
-              prevEl: '.swiper-button-prev',
-            },
-            slidesPerView: 1,
-            spaceBetween: 10
-          });
-        }
-      });
-    </script>
-
-  </body>
-</html>
+            <div class="swiper-button-next"
