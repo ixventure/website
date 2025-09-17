@@ -1,42 +1,127 @@
-# IxVenture Studio — Jekyll template
+# IxVentures Jekyll DOM Template
 
-This repository contains a small Jekyll template used by IxVenture Studio.
-It provides a projects collection and a lightweight gallery include that
-auto-discovers images inside `assets/projects/<slug>/`.
+This repository contains the **IxVentures Jekyll DOM Template**, a  
+GitHub-hosted **Document Object Model (DOM) architecture**.  
+It is both a **technical framework** and a **digital legal formalism object** —  
+designed to encode structure, accountability, and reproducibility in digital projects.
 
-## Quick notes
+---
 
-- Projects live in `_projects/` and must include front matter:
-  - `title` (string)
-  - `description` (string)
-  - `slug` (string, matching directory under `assets/projects/`)
-  - `thumbnail` (optional path to a thumbnail image)
-  - `layout: project`
+## Purpose
 
-- Project images should be put in `assets/projects/<slug>/` and named
-  consistently (e.g. `screenshot-1.png`, `screenshot-2.png`, etc.) to make
-  re-use and searching predictable.
+DOMs are not only browser artifacts.  
+At IxVentures, we treat DOMs as **formal digital objects**, capable of carrying  
+**legal, technical, and governance meaning**.  
 
-- The gallery include (`_includes/gallery.html`) will loop over
-  `site.static_files` and include any file found under `assets/projects/<slug>/`.
-  It adds a cache-busting query string using `site.time`.
+This template:
 
-## Local development
+- Uses **Jekyll** to transform structured markdown into static, auditable DOM artifacts.  
+- Provides a **mapping of repository files** alongside AI-generated reviews.  
+- Demonstrates how a **repo → framework → DOM** workflow can establish  
+  transparency, reproducibility, and machine-human accountability.  
 
-```bash
-# Install (if using bundler)
-bundle install
+---
 
-# Serve locally (restart if you add new static files that Jekyll doesn't pick up)
-bundle exec jekyll serve --livereload
+## Project Context
+
+This template has been created for the  
+[x.com/nocap_so](https://x.com/nocap_so) **90-day sprint**, in collaboration with  
+
+- [github.com/bestape/neowise](https://github.com/bestape/neowise)  
+- The world’s first **"AIpreneur" DAO** — a serial solo entrepreneur teaching a  
+  **1 perfect pupil business model**.  
+
+---
+
+## Features
+
+- **Markdown-Driven**: All project docs and reviews are structured in `.md`.  
+- **AI-Reviewed Files**: Each source file has an accompanying `*_review.md`.  
+- **File Mapping**: A `dom.md` project maps the repository structure in human-readable form.  
+- **Version Tracking**: `version.json` ensures reproducibility by commit.  
+- **GitHub Integration**: Designed for GitHub Pages (or any Jekyll host).  
+
+---
+
+## Repository Structure
+
+Example (commit:  
+[45b589a5f3c85130da4cab762ea2ae77fcdfa02c](https://github.com/ixventure/index_main/tree/45b589a5f3c85130da4cab762ea2ae77fcdfa02c)):
+
+```
+index_main-rollback-cf64385/
+├── index.md
+├── projects.md
+├── _projects/
+│   ├── project-a.md
+│   ├── project-b.md
+│   ├── test.md
+│   └── dom.md   (maps all reviews together)
+├── assets/
+│   └── css/style.scss
+├── CNAME
+├── _config.yml
+├── _headers
+├── version.json
+└── AI-generated *_review.md files
 ```
 
-If you find that a newly added static image doesn't appear during `jekyll serve`,
-restart the server. Cache-busting query strings are included so browsers will
-fetch new images after site rebuilds.
+---
 
-## Deploy
+## How to Use
 
-This template is ready for GitHub Pages or other static hosts (Cloudflare in front is okay).
-If Cloudflare is used, consider setting `Cache-Control: no-cache` for HTML and using
-aggressive caching only for known fixed asset names, or rely on the cache-busting query strings.
+1. **Clone the repo**  
+   ```bash
+   git clone https://github.com/ixventure/index_main.git
+   cd index_main
+   ```
+
+2. **Install Jekyll**  
+   ```bash
+   bundle install
+   ```
+
+3. **Run locally**  
+   ```bash
+   bundle exec jekyll serve
+   ```
+
+4. **Visit site**  
+   Open [http://localhost:4000](http://localhost:4000)  
+
+5. **Deploy to GitHub Pages**  
+   - Push commits to your GitHub repo.  
+   - Enable **Pages** in repo settings.  
+
+---
+
+## Strengths
+
+- **Simplicity**: Minimal markdown + YAML → reproducible DOM.  
+- **Auditability**: Every file has an AI-reviewed mirror for context.  
+- **Transparency**: Repo, configs, and generated site are all visible.  
+- **Community Support**: Built on Jekyll with GitHub ecosystem tools.  
+
+---
+
+## Limitations
+
+- **Indirect DOM Generation**: Output is produced via Jekyll build, not raw repo.  
+- **Loss of Fidelity**: Non-rendered files (branches, comments, binaries) not fully captured.  
+- **Dependency**: DOM integrity depends on Jekyll + configuration staying stable.  
+
+---
+
+## License
+
+© IxVentures Studio.  
+Open for experimental use under permissive terms.  
+See `LICENSE` for details.  
+
+---
+
+## Acknowledgments
+
+- Sprint partner: [@nocap_so](https://x.com/nocap_so)  
+- DAO partner: [bestape/neowise](https://github.com/bestape/neowise)  
+- AI review contributions: ChatGPT 5, GitHub Copilot  
