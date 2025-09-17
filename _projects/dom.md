@@ -1,7 +1,7 @@
 ---
 title: DOM
 layout: project
-description: This project collects AI-generated review explanations for the repository files.
+description: A GitHub-hosted DOM architecture using Jekyll, treating the DOM as a digital legal formalism object with AI-generated file review mappings.
 ---
 
 ## DOM as a Digital Legal Formalism Object
@@ -48,6 +48,8 @@ It is powered by the **Jekyll framework**, which transforms structured markdown 
 
 This project snapshot is based on commit  
 [45b589a5f3c85130da4cab762ea2ae77fcdfa02c](https://github.com/ixventure/index_main/tree/45b589a5f3c85130da4cab762ea2ae77fcdfa02c)
+
+This project collected AI-generated review explanations for the repository files for this commit. The are included in the snapshot and listed below as *_review.md.
 
 ```
 index_main-rollback-cf64385/
