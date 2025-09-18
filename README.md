@@ -152,28 +152,45 @@ index_main-rollback-cf64385/
 
 ## How to Use
 
-1. **Clone the repo**  
-   ```bash
-   git clone https://github.com/ixventure/index_main.git
-   cd index_main
-   ```
+1. Clone your fork
+git clone https://github.com/<your-username>/ixv-jekyll-minima-template.git
+cd ixv-jekyll-minima-template
 
-2. **Install Jekyll**  
-   ```bash
-   bundle install
-   ```
+(Optional) Check out a specific commit if needed:
+git checkout <commit-hash>
 
-3. **Run locally**  
-   ```bash
-   bundle exec jekyll serve
-   ```
+2. Repo URL mode (GitHub Pages)
+To serve the site at your GitHub Pages repo URL:
+https://<your-username>.github.io/ixv-jekyll-minima-template/
+follow these steps:
 
-4. **Visit site**  
-   Open [http://localhost:4000](http://localhost:4000)  
+- Delete the `CNAME` file if it exists. This stops GitHub Pages from forcing any custom domain.
+- Update `_config.yml` with the following minimal settings:
 
-5. **Deploy to GitHub Pages**  
-   - Push commits to your GitHub repo.  
-   - Enable **Pages** in repo settings.  
+url: "https://<your-username>.github.io"
+baseurl: "/ixv-jekyll-minima-template"
+
+This ensures links, assets, and CSS paths respect the repo URL.
+
+⚠️ Note: You can’t simply edit the `CNAME` file to switch to the repo URL; it must be deleted.
+
+3. Alternative: Use a custom domain with CNAME (no `_config.yml` changes)
+If you want to keep a custom domain (e.g., `ixventure.studio`) instead of the repo URL:
+
+- Keep or add a `CNAME` file containing your domain.
+- GitHub Pages will automatically serve the site at that domain.
+- No changes to `_config.yml` are required in this mode.
+
+⚠️ Note: With the `CNAME` present, the repo URL (https://<your-username>.github.io/...) will **not work**.
+
+4. Localhost preview
+You can try running Jekyll locally with:
+bundle exec jekyll serve
+
+⚠️ Note: Localhost preview has **not been tested** with this template, so some paths or links may not render correctly.
+
+5. Deploy
+Push your changes to GitHub, and the site will be served at either your repo URL (if CNAME deleted) or your custom domain (if CNAME present).  
 
 ---
 
