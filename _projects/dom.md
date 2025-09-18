@@ -2,7 +2,7 @@
 title: DOM
 slug: dom
 layout: project
-description: Treating the DOM as a digital legal formalism object with AI-generated file review mappings.
+description: Treating the DOM as a digital legal formalism "document" object.
 ---
 
 ## IxVenture’s Position on DOMs
