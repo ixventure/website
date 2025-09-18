@@ -1,10 +1,8 @@
-# Line-by-Line Review of `_projects/project-b.md`
+# Line-by-line explanation of `project-b.md`
 
-**Commit reviewed:** `b619aea0d111db045cc010d50809f41c267a260c`
+This file is a Jekyll project page written in Markdown with YAML front matter.
 
----
-
-## 1. Front Matter
+## Source
 
 ```markdown
 ---
@@ -12,49 +10,106 @@ title: Project B
 slug: project-b
 layout: project
 ---
-```
-- YAML front matter for Jekyll.
-- Sets the title to "Project B".
-- Sets the slug to "project-b" (used for URLs and gallery includes).
-- Sets the layout to `project`, which uses `_layouts/project.html`.
 
----
-
-## 2. Project Description
-
-```markdown
 This is **Project B**, another example project.
-```
-- Project summary/introduction.
-- Uses Markdown bold for emphasis.
 
----
-
-## 3. Main Content
-
-```markdown
 Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin.
-```
-- Placeholder descriptive text (Latin), commonly used for layout demonstration.
 
----
-
-## 4. Benefits List
-
-```markdown
 - Benefit 1
 - Benefit 2
 - Benefit 3
+
 ```
-- Markdown unordered list of project benefits.
 
+## Line-by-line explanation
+
+### 1
+
+```
 ---
+```
+Start of the YAML front matter block. Everything between the opening and closing `---` is metadata.
 
-## Summary
+### 2
 
-This file:
-- Declares metadata so Jekyll builds the page with the correct title, URL, and layout.
-- Presents a short description and Markdown-formatted benefit list.
-- Will be rendered by `_layouts/project.html` which adds title, gallery, and (optionally) benefits.
+```
+title: Project B
+```
+YAML key `title` sets the page title to 'Project B'. This is used in layouts and navigation.
 
-**Ready for review and teaching purposes!**
+### 3
+
+```
+slug: project-b
+```
+YAML key `slug` defines the unique identifier 'project-b'. Useful for URLs and includes.
+
+### 4
+
+```
+layout: project
+```
+YAML key `layout` specifies the layout template to use. Here it uses the `project` layout.
+
+### 5
+
+```
+---
+```
+End of the YAML front matter block. After this, normal Markdown content begins.
+
+### 6
+
+```
+(blank line)
+```
+Blank line, separates sections in Markdown.
+
+### 7
+
+```
+This is **Project B**, another example project.
+```
+Markdown paragraph introducing Project B. Uses `**` around 'Project B' to bold it.
+
+### 8
+
+```
+(blank line)
+```
+Blank line, separates sections in Markdown.
+
+### 9
+
+```
+Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin.
+```
+Another Markdown paragraph with placeholder (Lorem Ipsum–style) filler text.
+
+### 10
+
+```
+(blank line)
+```
+Blank line, separates sections in Markdown.
+
+### 11
+
+```
+- Benefit 1
+```
+Markdown list item showing a project benefit. Rendered as a bullet point in HTML.
+
+### 12
+
+```
+- Benefit 2
+```
+Markdown list item showing a project benefit. Rendered as a bullet point in HTML.
+
+### 13
+
+```
+- Benefit 3
+```
+Markdown list item showing a project benefit. Rendered as a bullet point in HTML.
