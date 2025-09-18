@@ -45,27 +45,109 @@ This template has been created for the
 
 ## Repository Structure
 
-Example (commit:  
-[45b589a5f3c85130da4cab762ea2ae77fcdfa02c](https://github.com/ixventure/index_main/tree/45b589a5f3c85130da4cab762ea2ae77fcdfa02c)):
+This project snapshot is based on commit  
+[45b589a5f3c85130da4cab762ea2ae77fcdfa02c](https://github.com/ixventure/index_main/tree/45b589a5f3c85130da4cab762ea2ae77fcdfa02c)
+
+This project collected AI-generated review explanations for the repository files for this commit. The are included in the snapshot and listed below as *_review.md.
+
+<details>
+  <summary>📑 Click to expand repository structure</summary>
 
 ```
 index_main-rollback-cf64385/
-├── index.md
-├── projects.md
+├── CNAME
+├── CNAME_chatGPT_5_review.md
+├── README.md
+├── _config.yml
+├── _config_chatGPT_5_review.md
+├── _headers
+├── _headers_chatGPT_5_review.md
+├── _includes/
+│   └── gallery.html
+│       └── galleryHtml_github_copilot_review.md
+├── _layouts/
+│   ├── default.html
+│   │   └── defaultHtml_github_copilot_review.md
+│   └── project.html
+│       └── projectHtml_github_copilot_review.md
 ├── _projects/
 │   ├── project-a.md
+│   │   └── project-aMd_chatGPT_5_review.md
 │   ├── project-b.md
-│   ├── test.md
-│   └── dom.md   (maps all reviews together)
+│   │   └── project-bMd_github_copilot_review.md
+│   └── test.md
+│       └── testMd_chatGPT_5_review.md
 ├── assets/
-│   └── css/style.scss
-├── CNAME
-├── _config.yml
-├── _headers
+│   ├── css/
+│   │   └── style.scss
+│   │       └── styleScss_chatGPT_5_review.md
+│   ├── images/
+│   │   └── logo.png
+│   └── projects/
+│       ├── project-a/
+│       │   ├── image-1.png
+│       │   ├── image-2.png
+│       │   └── image-3.png
+│       └── project-b/
+│           └── image-1.svg
+├── index.md
+│   └── indexmd_chatGPT_5_review.md
+├── projects.md
+│   └── projectsmd_chatGPT_5_review.md
 ├── version.json
-└── AI-generated *_review.md files
+└── versionjson_chatGPT_5_review.md
 ```
 
+</details>
+
+---
+
+## File Review Links
+
+<details>
+  <summary>📑 Click to expand file review links</summary>
+
+- [galleryHtml_github_copilot_review.md](https://github.com/ixventure/index_main/blob/rollback-cf64385/_includes/galleryHtml_github_copilot_review.md) 
+  *Handles the gallery include logic, generating dynamic image layouts.*
+
+- [defaultHtml_github_copilot_review.md](https://github.com/ixventure/index_main/blob/rollback-cf64385/_layouts/defaultHtml_github_copilot_review.md)  
+  *Defines the default layout template applied across pages.*
+
+- [projectHtml_github_copilot_review.md](https://github.com/ixventure/index_main/blob/rollback-cf64385/_layouts/projectHtml_github_copilot_review.md) 
+  *Provides the specialized layout for project detail pages.*
+
+- [project-aMd_chatGPT_5_review.md](https://github.com/ixventure/index_main/blob/rollback-cf64385/_projects/project-aMd_chatGPT_5_review.md) 
+  *AI review of Project A’s markdown file.*
+
+- [project-bMd_github_copilot_review.md](https://github.com/ixventure/index_main/blob/rollback-cf64385/_projects/project-bMd_github_copilot_review.md)  
+  *AI review of Project B’s markdown file.*
+
+- [testMd_chatGPT_5_review.md](https://github.com/ixventure/index_main/blob/rollback-cf64385/_projects/testMd_chatGPT_5_review.md)  
+  *AI review of the Test project markdown file.*
+
+- [styleScss_chatGPT_5_review.md](https://github.com/ixventure/index_main/blob/rollback-cf64385/assets/css/styleScss_chatGPT_5_review.md)  
+  *Explains the SCSS stylesheet defining the site’s styles.*
+
+- [CNAME_chatGPT_5_review.md](https://github.com/ixventure/index_main/blob/rollback-cf64385/CNAME_chatGPT_5_review.md)  
+  *Details the CNAME configuration for custom domain setup.*
+
+- [_config_chatGPT_5_review.md](https://github.com/ixventure/index_main/blob/rollback-cf64385/_config_chatGPT_5_review.md) 
+  *Breaks down the Jekyll site configuration YAML.*
+
+- [_headers_chatGPT_5_review.md](https://github.com/ixventure/index_main/blob/rollback-cf64385/_headers_chatGPT_5_review.md)
+  *Covers Netlify/hosting header rules for performance and security.*
+
+- [indexmd_chatGPT_5_review.md](https://github.com/ixventure/index_main/blob/rollback-cf64385/indexmd_chatGPT_5_review.md)
+  *Explains the site’s homepage markdown file.*
+
+- [projectsmd_chatGPT_5_review.md](https://github.com/ixventure/index_main/blob/rollback-cf64385/projectsmd_chatGPT_5_review.md)  
+  *Explains the projects listing markdown file.*
+
+- [versionjson_chatGPT_5_review.md](https://github.com/ixventure/index_main/blob/rollback-cf64385/versionjson_chatGPT_5_review.md) 
+  *Details the version.json metadata file for version tracking.*
+
+</details>
+  
 ---
 
 ## How to Use
