@@ -1,9 +1,13 @@
 title: IxVenture
 description: Building something amazing with AI
 
+# Repo-mode settings
+url: "https://bestape.github.io"
+baseurl: "/ixv-jekyll-minima-template"
+
 # Use empty baseurl by default, but allow GitHub Pages to override
-baseurl: "" 
-url: "" 
+# baseurl: "" 
+# url: "" 
 
 theme: minima
 
