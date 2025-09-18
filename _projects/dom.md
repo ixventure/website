@@ -12,11 +12,12 @@ IxVenture is investing in multiple **Document Object Model (DOM) formats** becau
 The historical progression has been:  
 
 1. **Oral** – agreements spoken and remembered
-2. **Print** – agreements codified on paper
-3. **Digital-Analog** – agreements stored as digital files but still interpreted by analog legal systems
-4. **DOM** – agreements expressed as structured, machine-readable objects
+2. **Papyrus** – agreements codified on paper
+3. **Print** – agreements widely disseminated
+4. **Digital-Print** – agreements stored as digital files but still interpreted by analog legal systems
+5. **Digital-DOM** – agreements expressed as structured, machine-readable objects
 
-DOMs move organizational and legal logic into programmable structures, making them transparent, verifiable, and extensible across platforms.
+DOMs shift organizational and legal logic into programmable structures, making them transparent, verifiable, and extensible across platforms. Unlike past approaches that relied on occasional snapshots, DOMs treat legal formalization as a continuous stream of events with ongoing recording and accountability.
 
 ## DOM Categories
 
@@ -32,6 +33,4 @@ DOMs move organizational and legal logic into programmable structures, making th
 - **uxNFTs** – some info at [ERC-7827 proposal](https://ethereum-magicians.org/t/erc-7827-json-smart-contract-with-value-version-control/21865)  
 
 ## Why This Matters
-By supporting **multiple DOM formats**, IxVenture is building toward a world where organizational and contractual logic can be expressed as interoperable objects.
-
-This step — from digital-analog to DOM — represents the **fourth stage** in the evolution of legal and organizational systems.  
+By supporting **multiple DOM formats**, IxVenture is building toward a world where organizational and contractual logic can be expressed as interoperable objects.  
