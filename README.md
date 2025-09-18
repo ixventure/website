@@ -153,21 +153,21 @@ index_main-rollback-cf64385/
 ## How to Use
 
 1. Clone your fork
-git clone https://github.com/<your-username>/ixv-jekyll-minima-template.git
+git clone https://github.com/USERNAME/ixv-jekyll-minima-template.git
 cd ixv-jekyll-minima-template
 
 (Optional) Check out a specific commit if needed:
-git checkout <commit-hash>
+git checkout COMMIT-HASH
 
 2. Repo URL mode (GitHub Pages)
 To serve the site at your GitHub Pages repo URL:
-https://<your-username>.github.io/ixv-jekyll-minima-template/
+https://USERNAME.github.io/ixv-jekyll-minima-template/
 follow these steps:
 
 - Delete the `CNAME` file if it exists. This stops GitHub Pages from forcing any custom domain.
 - Update `_config.yml` with the following minimal settings:
 
-url: "https://<your-username>.github.io"
+url: "https://USERNAME.github.io"
 baseurl: "/ixv-jekyll-minima-template"
 
 This ensures links, assets, and CSS paths respect the repo URL.
@@ -181,7 +181,7 @@ If you want to keep a custom domain (e.g., `ixventure.studio`) instead of the re
 - GitHub Pages will automatically serve the site at that domain.
 - No changes to `_config.yml` are required in this mode.
 
-⚠️ Note: With the `CNAME` present, the repo URL (https://<your-username>.github.io/...) will **not work**.
+⚠️ Note: With the `CNAME` present, the repo URL (https://USERNAME.github.io/ixv-jekyll-minima-template/) will **not work**.
 
 4. Localhost preview
 You can try running Jekyll locally with:
@@ -190,7 +190,9 @@ bundle exec jekyll serve
 ⚠️ Note: Localhost preview has **not been tested** with this template, so some paths or links may not render correctly.
 
 5. Deploy
-Push your changes to GitHub, and the site will be served at either your repo URL (if CNAME deleted) or your custom domain (if CNAME present).  
+Push your changes to GitHub, and the site will be served at either your repo URL (if CNAME deleted) or your custom domain (if CNAME present).
+
+*Replace `USERNAME` and `COMMIT-HASH` with your GitHub username and the commit hash if needed.*
 
 ---
 
