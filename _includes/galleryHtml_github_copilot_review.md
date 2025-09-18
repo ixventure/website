@@ -1,19 +1,31 @@
-# GitHub Copilot Review
+# Line-by-Line Review of `_includes/gallery.html`
 
-This file contains a summary of the review applied to the commit 0a65da925df6a2b42498c848295aac9c11db6bc3.
+**Commit reviewed:** `0a65da925df6a2b42498c848295aac9c11db6bc3`  
 
-## Review Details
-- **Commit SHA**: 0a65da925df6a2b42498c848295aac9c11db6bc3
-- **Repository**: ixventure/index_main
-- **Branch**: rollback-cf64385
+---
 
-## Summary
-The code changes introduced in this commit were reviewed thoroughly. Here are the key points:
+## 1. Include Tag
 
-1. **Functionality**: The new features implemented were functioning as expected.
-2. **Code Quality**: Code follows the best practices and is well-structured.
-3. **Testing**: Adequate testing was performed to ensure reliability.
+```liquid
+{% include gallery.html slug="project-b" title="Project B" %}
+```
 
-## Recommendations
-- Consider additional documentation on the new functions.
-- Review the performance metrics after deployment.
+- This is a **Jekyll include statement**.  
+- It pulls in the file `_includes/gallery.html`.  
+- The `slug="project-b"` argument tells the gallery which project’s images/content to load.  
+- The `title="Project B"` argument provides a human-readable title for the gallery section.
+
+---
+
+## 2. Purpose
+
+- Lets you reuse a single gallery template for multiple projects.  
+- Avoids duplication: instead of hardcoding HTML in each project page, the gallery logic lives in `_includes/gallery.html`.  
+- Easier to maintain and update.
+
+---
+
+## 3. Key Takeaways
+
+- **Separation of concerns:** content (Markdown files) stays separate from display logic (HTML include).  
+- **Scalability:** adding a new project gallery is as simple as calling the include with a new slug/title.  
