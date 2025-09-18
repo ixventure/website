@@ -2,6 +2,7 @@
 title: Project B
 slug: project-b
 layout: project
+definition: this is where the project description should go!
 ---
 
 This is **Project B**, another example project.
