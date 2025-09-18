@@ -51,6 +51,14 @@ p, li {
 }
 
 /* ========================
+   Header tweaks
+   ======================== */
+.site-nav a {
+  padding: 0.5rem 0.75rem;
+  display: inline-block;
+}
+
+/* ========================
    Project grid + cards
    ======================== */
 
@@ -68,6 +76,7 @@ p, li {
   background: #fff;
   text-align: center;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
+  padding: 1rem; /* Added inner spacing */
 }
 
 .project-card:hover {
@@ -93,6 +102,10 @@ p, li {
   font-weight: 600;
   font-size: 1rem;
   color: #222;
+}
+
+.project-card p {
+  margin: 0.5rem 0 1rem;
 }
 
 /* ========================
