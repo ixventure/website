@@ -12,7 +12,7 @@ baseurl: "/ixv-jekyll-minima-template"
 theme: minima
 
 # Site version
-version: 0.1.13
+version: 0.1.14
 
 collections:
   projects:
