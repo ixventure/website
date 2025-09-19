@@ -24,9 +24,6 @@ If omitted, it will use page.slug or page.name as a fallback.
         {%- assign last_part = parts | last -%}
         {%- assign number_val = last_part | plus: 0 -%}
 
-        {%- comment -%} Debug output: shows each file and extracted number {%- endcomment -%}
-        <p>Checking: {{ file.name }} → last_part={{ last_part }} → number_val={{ number_val }}</p>
-
         {%- if extensions contains ext and number_val > 0 -%}
           {%- assign item = file.path | append: "|" | append: number_val | append: "|" | append: ext -%}
           {%- assign numbered_files = numbered_files | push: item -%}
