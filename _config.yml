@@ -22,3 +22,4 @@ collections:
 # Ensure static images are included
 include:
   - assets
+  - version.json
