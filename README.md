@@ -1,86 +1,101 @@
 # IxVentures Jekyll DOM Template
 
-This repository contains the **IxVentures Jekyll DOM Template**, a  
-GitHub-hosted **Document Object Model (DOM) architecture**.  
-It is both a **technical framework** and a **digital legal formalism object** —  
+This repository contains the **IxVentures Jekyll DOM Template**, a
+GitHub-hosted **Document Object Model (DOM) architecture**.
+It is both a **technical framework** and a **digital legal formalism object** —
 designed to encode structure, accountability, and reproducibility in digital projects.
 
 ---
 
 ## Purpose
 
-DOMs are not only browser artifacts.  
-At IxVentures, we treat DOMs as **formal digital objects**, capable of carrying  
-**legal, technical, and governance meaning**.  
+DOMs are not only browser artifacts.
+At IxVentures, we treat DOMs as **formal digital objects**, capable of carrying
+**legal, technical, and governance meaning**.
 
 This template:
 
-- Uses **Jekyll** to transform structured markdown into static, auditable DOM artifacts.  
-- Provides a **mapping of repository files** alongside AI-generated reviews.  
-- Demonstrates how a **repo → framework → DOM** workflow can establish  
-  transparency, reproducibility, and machine-human accountability.  
+* Uses **Jekyll** to transform structured markdown into static, auditable DOM artifacts.
+* Provides a **mapping of repository files** alongside AI-generated reviews.
+* Demonstrates how a **repo → framework → DOM** workflow can establish
+  transparency, reproducibility, and machine-human accountability.
 
 ---
 
 ## Project Context
 
-This template has been created for the  
-[x.com/nocap_so](https://x.com/nocap_so) **90-day sprint**, in collaboration with  
+This template has been created for the
+[x.com/nocap\_so](https://x.com/nocap_so) **90-day sprint**, in collaboration with
 
-- [github.com/bestape/neowise](https://github.com/bestape/neowise)  
-- The world’s first **"AIpreneur" DAO** — a serial solo entrepreneur teaching a  
-  **1 perfect pupil business model**.  
+* [github.com/bestape/neowise](https://github.com/bestape/neowise)
+* The world’s first **"AIpreneur" DAO** — a serial solo entrepreneur teaching a
+  **1 perfect pupil business model**.
 
 ---
 
 ## Features
 
-- **Markdown-Driven**: All project docs and reviews are structured in `.md`.  
-- **AI-Reviewed Files**: Each source file has an accompanying `*_review.md`.  
-- **File Mapping**: A `dom.md` project maps the repository structure in human-readable form.  
-- **Version Tracking**: `version.json` ensures reproducibility by commit.  
-- **GitHub Integration**: Designed for GitHub Pages (or any Jekyll host).  
+* **Markdown-Driven**: All project docs and reviews are structured in `.md`.
+* **AI-Reviewed Files**: Each source file has an accompanying `*_review.md`.
+* **File Mapping**: A `dom.md` project maps the repository structure in human-readable form.
+* **Version Tracking**: `version.json` ensures reproducibility by commit.
+* **GitHub Integration**: Designed for GitHub Pages (or any Jekyll host).
+
+---
+
+## Project Thumbnails & Gallery
+
+The template automatically detects project thumbnail images:
+
+* Any file in a project folder that matches `*-1.*` is used as the main thumbnail.
+* Works with any extension (`png, jpg, jpeg, svg`, etc.).
+* Falls back to `/assets/images/logo.png` if no image is found.
+
+Example (home/projects listing):
+
+```liquid
+{%- assign project_files = site.static_files | where_exp: "f", "f.path contains project_path" | sort: "path" -%}
+{%- assign found_thumb = "" -%}
+{%- for f in project_files -%}
+  {%- assign name = f.name | downcase -%}
+  {%- assign parts = name | split: "-" -%}
+  {%- if parts.size > 1 -%}
+    {%- assign number_part = parts.last | split: "." | first -%}
+    {%- if number_part == "1" -%}
+      {%- assign found_thumb = f.path -%}
+      {%- break -%}
+    {%- endif -%}
+  {%- endif -%}
+{%- endfor -%}
+```
 
 ---
 
 ## Repository Structure
 
-This project snapshot is based on commit  
-[45b589a5f3c85130da4cab762ea2ae77fcdfa02c](https://github.com/ixventure/index_main/tree/45b589a5f3c85130da4cab762ea2ae77fcdfa02c)
-
-This project collected AI-generated review explanations for the repository files for this commit. The are included in the snapshot and listed below as *_review.md.
+Snapshot from commit
+[45b589a5f3c85130da4cab762ea2ae77fcdfa02c](https://github.com/ixventure/index_main/tree/45b589a5f3c85130da4cab762ea2ae77fcdfa02c):
 
 <details>
-  <summary>📑 Click to expand repository structure</summary>
+<summary>📑 Expand repository structure</summary>
 
 ```
 index_main-rollback-cf64385/
 ├── CNAME
-├── CNAME_chatGPT_5_review.md
 ├── README.md
 ├── _config.yml
-├── _config_chatGPT_5_review.md
-├── _headers
-├── _headers_chatGPT_5_review.md
 ├── _includes/
 │   └── gallery.html
-│       └── galleryHtml_github_copilot_review.md
 ├── _layouts/
 │   ├── default.html
-│   │   └── defaultHtml_github_copilot_review.md
 │   └── project.html
-│       └── projectHtml_github_copilot_review.md
 ├── _projects/
 │   ├── project-a.md
-│   │   └── project-aMd_chatGPT_5_review.md
 │   ├── project-b.md
-│   │   └── project-bMd_github_copilot_review.md
 │   └── test.md
-│       └── testMd_chatGPT_5_review.md
 ├── assets/
 │   ├── css/
 │   │   └── style.scss
-│   │       └── styleScss_chatGPT_5_review.md
 │   ├── images/
 │   │   └── logo.png
 │   └── projects/
@@ -91,11 +106,8 @@ index_main-rollback-cf64385/
 │       └── project-b/
 │           └── image-1.svg
 ├── index.md
-│   └── indexmd_chatGPT_5_review.md
 ├── projects.md
-│   └── projectsmd_chatGPT_5_review.md
-├── version.json
-└── versionjson_chatGPT_5_review.md
+└── version.json
 ```
 
 </details>
@@ -105,92 +117,61 @@ index_main-rollback-cf64385/
 ## File Review Links
 
 <details>
-  <summary>📑 Click to expand file review links</summary>
+<summary>📑 Expand file review links</summary>
 
-- [galleryHtml_github_copilot_review.md](https://github.com/ixventure/index_main/blob/rollback-cf64385/_includes/galleryHtml_github_copilot_review.md) 
-  *Handles the gallery include logic, generating dynamic image layouts.*
-
-- [defaultHtml_github_copilot_review.md](https://github.com/ixventure/index_main/blob/rollback-cf64385/_layouts/defaultHtml_github_copilot_review.md)  
-  *Defines the default layout template applied across pages.*
-
-- [projectHtml_github_copilot_review.md](https://github.com/ixventure/index_main/blob/rollback-cf64385/_layouts/projectHtml_github_copilot_review.md) 
-  *Provides the specialized layout for project detail pages.*
-
-- [project-aMd_chatGPT_5_review.md](https://github.com/ixventure/index_main/blob/rollback-cf64385/_projects/project-aMd_chatGPT_5_review.md) 
-  *AI review of Project A’s markdown file.*
-
-- [project-bMd_github_copilot_review.md](https://github.com/ixventure/index_main/blob/rollback-cf64385/_projects/project-bMd_github_copilot_review.md)  
-  *AI review of Project B’s markdown file.*
-
-- [testMd_chatGPT_5_review.md](https://github.com/ixventure/index_main/blob/rollback-cf64385/_projects/testMd_chatGPT_5_review.md)  
-  *AI review of the Test project markdown file.*
-
-- [styleScss_chatGPT_5_review.md](https://github.com/ixventure/index_main/blob/rollback-cf64385/assets/css/styleScss_chatGPT_5_review.md)  
-  *Explains the SCSS stylesheet defining the site’s styles.*
-
-- [CNAME_chatGPT_5_review.md](https://github.com/ixventure/index_main/blob/rollback-cf64385/CNAME_chatGPT_5_review.md)  
-  *Details the CNAME configuration for custom domain setup.*
-
-- [_config_chatGPT_5_review.md](https://github.com/ixventure/index_main/blob/rollback-cf64385/_config_chatGPT_5_review.md) 
-  *Breaks down the Jekyll site configuration YAML.*
-
-- [_headers_chatGPT_5_review.md](https://github.com/ixventure/index_main/blob/rollback-cf64385/_headers_chatGPT_5_review.md)
-  *Covers Netlify/hosting header rules for performance and security.*
-
-- [indexmd_chatGPT_5_review.md](https://github.com/ixventure/index_main/blob/rollback-cf64385/indexmd_chatGPT_5_review.md)
-  *Explains the site’s homepage markdown file.*
-
-- [projectsmd_chatGPT_5_review.md](https://github.com/ixventure/index_main/blob/rollback-cf64385/projectsmd_chatGPT_5_review.md)  
-  *Explains the projects listing markdown file.*
-
-- [versionjson_chatGPT_5_review.md](https://github.com/ixventure/index_main/blob/rollback-cf64385/versionjson_chatGPT_5_review.md) 
-  *Details the version.json metadata file for version tracking.*
+* [gallery.html review](https://github.com/ixventure/index_main/blob/rollback-cf64385/_includes/galleryHtml_github_copilot_review.md)
+* [default.html review](https://github.com/ixventure/index_main/blob/rollback-cf64385/_layouts/defaultHtml_github_copilot_review.md)
+* [project.html review](https://github.com/ixventure/index_main/blob/rollback-cf64385/_layouts/projectHtml_github_copilot_review.md)
+* [project-a.md review](https://github.com/ixventure/index_main/blob/rollback-cf64385/_projects/project-aMd_chatGPT_5_review.md)
+* [project-b.md review](https://github.com/ixventure/index_main/blob/rollback-cf64385/_projects/project-bMd_github_copilot_review.md)
+* [test.md review](https://github.com/ixventure/index_main/blob/rollback-cf64385/_projects/testMd_chatGPT_5_review.md)
+* [style.scss review](https://github.com/ixventure/index_main/blob/rollback-cf64385/assets/css/styleScss_chatGPT_5_review.md)
+* [version.json review](https://github.com/ixventure/index_main/blob/rollback-cf64385/versionjson_chatGPT_5_review.md)
 
 </details>
-  
+
 ---
 
 ## How to Use
 
-1. Clone your fork
+1. Clone your fork:
+
+```bash
 git clone https://github.com/USERNAME/ixv-jekyll-minima-template.git
 cd ixv-jekyll-minima-template
+```
 
 (Optional) Check out a specific commit if needed:
+
+```bash
 git checkout COMMIT-HASH
+```
 
-2. Repo URL mode (GitHub Pages)
-To serve the site at your GitHub Pages repo URL:
-https://USERNAME.github.io/ixv-jekyll-minima-template/
-follow these steps:
+2. Repo URL mode (GitHub Pages):
 
-- Delete the `CNAME` file if it exists. This stops GitHub Pages from forcing any custom domain.
-- Update `_config.yml` with the following minimal settings:
+* Delete `CNAME` if it exists.
+* Update `_config.yml`:
 
+```yaml
 url: "https://USERNAME.github.io"
 baseurl: "/ixv-jekyll-minima-template"
+```
 
-This ensures links, assets, and CSS paths respect the repo URL.
+3. Optional: Custom domain via CNAME:
 
-⚠️ Note: You can’t simply edit the `CNAME` file to switch to the repo URL; it must be deleted.
+* Keep a `CNAME` file containing your domain.
+* GitHub Pages serves site at that domain; no `_config.yml` changes needed.
 
-3. Alternative: Use a custom domain with CNAME (no `_config.yml` changes)
-If you want to keep a custom domain (e.g., `ixventure.studio`) instead of the repo URL:
+4. Local preview:
 
-- Keep or add a `CNAME` file containing your domain.
-- GitHub Pages will automatically serve the site at that domain.
-- No changes to `_config.yml` are required in this mode.
-
-⚠️ Note: With the `CNAME` present, the repo URL (https://USERNAME.github.io/ixv-jekyll-minima-template/) will **not work**.
-
-4. Localhost preview
-You can try running Jekyll locally with:
+```bash
 bundle exec jekyll serve
+```
 
-⚠️ Note: Localhost preview has **not been tested** with this template, so some paths or links may not render correctly.
+5. Deploy:
 
-5. Deploy
-Push your changes to GitHub, and the site will be served at either your repo URL (if CNAME deleted) or your custom domain (if CNAME present).
+* Push changes to GitHub.
+* `version.json` tracks builds and triggers update notifications.
 
 *Replace `USERNAME` and `COMMIT-HASH` with your GitHub username and the commit hash if needed.*
 
@@ -198,31 +179,31 @@ Push your changes to GitHub, and the site will be served at either your repo URL
 
 ## Strengths
 
-- **Simplicity**: Minimal markdown + YAML → reproducible DOM.  
-- **Auditability**: Every file has an AI-reviewed mirror for context.  
-- **Transparency**: Repo, configs, and generated site are all visible.  
-- **Community Support**: Built on Jekyll with GitHub ecosystem tools.  
+* **Simplicity**: Minimal markdown + YAML → reproducible DOM.
+* **Auditability**: Every file has an AI-reviewed mirror.
+* **Transparency**: Repo, configs, and generated site are visible.
+* **Community Support**: Built on Jekyll + GitHub Pages ecosystem.
 
 ---
 
 ## Limitations
 
-- **Indirect DOM Generation**: Output is produced via Jekyll build, not raw repo.  
-- **Loss of Fidelity**: Non-rendered files (branches, comments, binaries) not fully captured.  
-- **Dependency**: DOM integrity depends on Jekyll + configuration staying stable.  
+* **Indirect DOM Generation**: Output via Jekyll build, not raw repo.
+* **Loss of Fidelity**: Non-rendered files (branches, comments, binaries) not fully captured.
+* **Dependency**: DOM integrity depends on Jekyll + configuration stability.
 
 ---
 
 ## License
 
-© IxVentures Studio.  
-Open for experimental use under permissive terms.  
-See `LICENSE` for details.  
+© IxVentures Studio.
+Open for experimental use under permissive terms.
+See `LICENSE` for details.
 
 ---
 
 ## Acknowledgments
 
-- Sprint partner: [@nocap_so](https://x.com/nocap_so)  
-- DAO partner: [bestape/neowise](https://github.com/bestape/neowise)  
-- AI review contributions: ChatGPT 5, GitHub Copilot  
+* Sprint partner: [@nocap\_so](https://x.com/nocap_so)
+* DAO partner: [bestape/neowise](https://github.com/bestape/neowise)
+* AI review contributions: ChatGPT 5, GitHub Copilot
