@@ -9,7 +9,6 @@ If omitted, it will use page.slug or page.name as a fallback.
 {%- assign project_slug = include.slug | default: page.slug | default: page.name | split: "." | first -%}
 {%- assign project_path = '/assets/projects/' | append: project_slug -%}
 
-<h2>Gallery</h2>
 <div class="gallery">
   <div class="swiper gallery-swiper">
     <div class="swiper-wrapper">
