@@ -3,5 +3,5 @@ layout: null
 permalink: /version.json
 ---
 {
-  "build": "{{ site.github.build_revision | default: site.time | date_to_xmlschema }}"
+  "build": "{{ site.time | date: '%s' }}"
 }
