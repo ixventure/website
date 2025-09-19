@@ -13,16 +13,28 @@ If omitted, it will use page.slug or page.name as a fallback.
   <div class="swiper gallery-swiper">
     <div class="swiper-wrapper">
       {%- assign extensions = "png,jpg,jpeg,svg" | split: "," -%}
-      {%- assign screenshots = site.static_files | where_exp: "file", "file.path contains project_path" | sort: "path" -%}
+      {%- assign screenshots = site.static_files | where_exp: "file", "file.path contains project_path" -%}
 
+      {%- comment -%} Build array of files with numeric index extracted {%- endcomment -%}
+      {%- assign numbered_files = "" | split: "" -%}
       {%- for file in screenshots -%}
         {%- assign ext = file.extname | remove: "." | downcase -%}
-        {%- if extensions contains ext and file.name contains "image-" -%}
-          <div class="swiper-slide">
-            <img src="{{ file.path | relative_url }}?v={{ site.time | date: '%s' }}"
-                 alt="{{ include.title | default: page.title }} screenshot">
-          </div>
+        {%- if extensions contains ext and file.name matches '-[0-9]+$' -%}
+          {%- assign number_match = file.name | remove: ext | remove: "." | slice: -3,3 | plus: 0 -%}
+          {%- assign item = file.path | append: "|" | append: number_match -%}
+          {%- assign numbered_files = numbered_files | push: item -%}
         {%- endif -%}
+      {%- endfor -%}
+
+      {%- comment -%} Sort numerically by number extracted {%- endcomment -%}
+      {%- assign numbered_files = numbered_files | sort_natural: "split: '|', last" -%}
+
+      {%- for item in numbered_files -%}
+        {%- assign parts = item | split: "|" -%}
+        <div class="swiper-slide">
+          <img src="{{ parts[0] | relative_url }}?v={{ site.time | date: '%s' }}"
+               alt="{{ include.title | default: page.title }} screenshot">
+        </div>
       {%- endfor -%}
     </div>
 
@@ -41,11 +53,10 @@ document.addEventListener("DOMContentLoaded", function () {
   const wrapper = document.querySelector(wrapperSelector);
   if (!wrapper) return;
 
-  // If no slides (no images), show a helpful message with exact folder
   if (wrapper.querySelectorAll(".swiper-slide").length === 0) {
     const msg = document.createElement("p");
     msg.innerHTML =
-      '<em>No gallery images found. Please add <code>image-*.png|.jpg|.jpeg|.svg</code> to <code>{{ project_path }}</code>.</em>';
+      `<em>No gallery images found. Please add files matching <code>-NUMBER.png|.jpg|.jpeg|.svg</code> to <code>{{ project_path }}</code>.</em>`;
     wrapper.parentNode.insertBefore(msg, wrapper);
     wrapper.remove();
     return;
