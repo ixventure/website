@@ -147,3 +147,17 @@ p, li {
   margin-top: 12px;
   text-align: center;
 }
+
+<style>
+/* pagination dots */
+.gallery .swiper-pagination-bullet {
+  background-color: gray;   /* default */
+  opacity: 0.6;             /* slightly transparent */
+}
+
+/* active dot */
+.gallery .swiper-pagination-bullet-active {
+  background-color: #555;   /* darker gray for the active slide */
+  opacity: 1;
+}
+</style>
