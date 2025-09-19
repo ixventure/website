@@ -25,9 +25,21 @@
         z-index: 9999;
         animation: slideDown 0.3s ease-out;
       }
-      #update-toast button { margin-left: 1rem; background: #4CAF50; border: none; padding: 0.4rem 0.75rem; border-radius: 0.25rem; color: white; cursor: pointer; }
+      #update-toast button {
+        margin-left: 1rem;
+        background: #4CAF50;
+        border: none;
+        padding: 0.4rem 0.75rem;
+        border-radius: 0.25rem;
+        color: white;
+        cursor: pointer;
+      }
       #update-toast button:hover { background: #45a049; }
-      @keyframes slideDown { from { transform: translateY(-20px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+
+      @keyframes slideDown {
+        from { transform: translateY(-20px); opacity: 0; }
+        to { transform: translateY(0); opacity: 1; }
+      }
     </style>
   </head>
 
@@ -63,46 +75,47 @@
       <button id="reload-btn">Reload</button>
     </div>
 
-		<script>
-		  document.addEventListener('DOMContentLoaded', function () {
-		    const toast = document.getElementById('update-toast');
-		    const reloadBtn = document.getElementById('reload-btn');
-		
-		    async function checkForUpdateOnce() {
-		      try {
-		        const res = await fetch('/version.json', { cache: 'no-store' });
-		        if (!res.ok) return;
-		
-		        const data = await res.json();
-		        const lastBuild = localStorage.getItem('lastBuild');
-		
-		        // First visit: initialize lastBuild and exit
-		        if (!lastBuild) {
-		          localStorage.setItem('lastBuild', data.build);
-		          return;
-		        }
-		
-		        // Subsequent visits: show toast if build changed
-		        if (data.build && data.build !== lastBuild) {
-		          toast.style.display = 'block';
-		          localStorage.setItem('newBuild', data.build);
-		        }
-		      } catch (e) {
-		        console.debug('Version check failed', e);
-		      }
-		    }
-		
-		    if (reloadBtn) {
-		      reloadBtn.addEventListener('click', function () {
-		        localStorage.setItem('lastBuild', localStorage.getItem('newBuild'));
-		        location.reload(true);
-		      });
-		    }
-		
-		    // initial check + periodic
-		    checkForUpdateOnce();
-		    setInterval(checkForUpdateOnce, 60 * 1000);
-		  });
-		</script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        const toast = document.getElementById('update-toast');
+        const reloadBtn = document.getElementById('reload-btn');
+
+        async function checkForUpdateOnce() {
+          try {
+            const res = await fetch('/version.json', { cache: 'no-store' });
+            if (!res.ok) return;
+            const data = await res.json();
+            const lastBuild = localStorage.getItem('lastBuild');
+
+            // First visit: store build, do not show toast
+            if (!lastBuild) {
+              localStorage.setItem('lastBuild', data.build);
+              return;
+            }
+
+            // Subsequent visits: show toast if build changed
+            if (data.build && data.build !== lastBuild) {
+              toast.style.display = 'block';
+              localStorage.setItem('newBuild', data.build);
+            }
+
+          } catch (e) {
+            console.debug('Version check failed', e);
+          }
+        }
+
+        // Reload button
+        if (reloadBtn) {
+          reloadBtn.addEventListener('click', function () {
+            localStorage.setItem('lastBuild', localStorage.getItem('newBuild'));
+            location.reload();
+          });
+        }
+
+        // Initial check + periodic check every 60 seconds
+        checkForUpdateOnce();
+        setInterval(checkForUpdateOnce, 60 * 1000);
+      });
+    </script>
   </body>
 </html>
