@@ -12,7 +12,7 @@ IxVenture is investing in multiple **Document Object Model (DOM) formats** becau
 The historical progression has been:  
 
 <details>
-<summary>Cuntinued...</summary>
+<summary>Continued...</summary>
 
 1. **Oral** – agreements spoken and remembered
 2. **Papyrus** – agreements codified on paper
