@@ -124,19 +124,6 @@
           location.reload(true);
         });
 
-        // Manual test button to force show the toast
-        const testBtn = document.createElement('button');
-        testBtn.innerText = '🔍 Test Toast';
-        testBtn.style.position = 'fixed';
-        testBtn.style.bottom = '1rem';
-        testBtn.style.left = '1rem';
-        testBtn.style.zIndex = 10000;
-        testBtn.addEventListener('click', () => {
-          console.log('[UpdateCheck] Test button clicked → forcing toast display');
-          toast.style.display = 'block';
-        });
-        document.body.appendChild(testBtn);
-
         // Run check immediately and every 30s
         checkForUpdate();
         setInterval(checkForUpdate, 30 * 1000);
