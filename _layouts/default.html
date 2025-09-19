@@ -82,36 +82,63 @@
         async function checkForUpdate() {
           try {
             const res = await fetch('/version.json', { cache: 'no-store' });
+            console.log('[UpdateCheck] Fetch status:', res.status);
             if (!res.ok) return;
+
             const data = await res.json();
-            if (!data.build) return;
+            console.log('[UpdateCheck] version.json data:', data);
+
+            if (!data.build) {
+              console.warn('[UpdateCheck] No build key found in version.json');
+              return;
+            }
 
             const lastBuild = localStorage.getItem('lastBuild');
+            console.log('[UpdateCheck] lastBuild (from localStorage):', lastBuild);
 
-            // First visit: store build
             if (!lastBuild) {
+              console.log('[UpdateCheck] First visit → saving build only, no toast');
               localStorage.setItem('lastBuild', data.build);
               return;
             }
 
-            // Show toast if a newer build exists
             if (data.build !== lastBuild) {
+              console.log('[UpdateCheck] Build changed → showing toast');
               toast.style.display = 'block';
               localStorage.setItem('newBuild', data.build);
+            } else {
+              console.log('[UpdateCheck] Build unchanged → no toast');
             }
           } catch (e) {
-            console.debug('Version check failed', e);
+            console.error('[UpdateCheck] Version check failed', e);
           }
         }
 
         reloadBtn?.addEventListener('click', function () {
           const newBuild = localStorage.getItem('newBuild');
-          if (newBuild) localStorage.setItem('lastBuild', newBuild);
+          if (newBuild) {
+            console.log('[UpdateCheck] Reload button clicked. Updating lastBuild →', newBuild);
+            localStorage.setItem('lastBuild', newBuild);
+          }
           location.reload(true);
         });
 
+        // Manual test button to force show the toast
+        const testBtn = document.createElement('button');
+        testBtn.innerText = '🔍 Test Toast';
+        testBtn.style.position = 'fixed';
+        testBtn.style.bottom = '1rem';
+        testBtn.style.left = '1rem';
+        testBtn.style.zIndex = 10000;
+        testBtn.addEventListener('click', () => {
+          console.log('[UpdateCheck] Test button clicked → forcing toast display');
+          toast.style.display = 'block';
+        });
+        document.body.appendChild(testBtn);
+
+        // Run check immediately and every 30s
         checkForUpdate();
-        setInterval(checkForUpdate, 30 * 1000); // check every 30s
+        setInterval(checkForUpdate, 30 * 1000);
       });
     </script>
   </body>
