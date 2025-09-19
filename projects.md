@@ -15,9 +15,12 @@ permalink: /projects/
       <a href="{{ project.url | relative_url }}">
         {%- assign found_thumb = "" -%}
         {%- assign project_files = site.static_files | where_exp: "f", "f.path contains project_path" | sort: "path" -%}
+
         {%- for f in project_files -%}
-          {%- assign name = f.name | downcase -%}
-          {%- if name contains "image-1." -%}
+          {%- assign name_no_ext = f.name | remove: f.extname | remove: "." | downcase -%}
+          {%- assign parts = name_no_ext | split: "-" -%}
+          {%- assign last_part = parts | last | plus: 0 -%}
+          {%- if last_part > 0 -%}
             {%- assign found_thumb = f.path -%}
             {%- break -%}
           {%- endif -%}
@@ -31,7 +34,7 @@ permalink: /projects/
         {% else %}
           <img class="project-thumb"
                src="{{ '/assets/images/logo.png' | relative_url }}?v={{ site.time | date: '%s' }}"
-               alt="IxVenture logo"
+               alt="IxVenture logo (fallback)"
                loading="lazy">
         {% endif %}
 
