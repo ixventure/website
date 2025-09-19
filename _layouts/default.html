@@ -35,7 +35,6 @@
         cursor: pointer;
       }
       #update-toast button:hover { background: #45a049; }
-
       @keyframes slideDown {
         from { transform: translateY(-20px); opacity: 0; }
         to { transform: translateY(0); opacity: 1; }
@@ -80,23 +79,23 @@
         const toast = document.getElementById('update-toast');
         const reloadBtn = document.getElementById('reload-btn');
 
-        async function checkForUpdateOnce() {
+        async function checkForUpdate() {
           try {
-            // Force fresh fetch
-            const res = await fetch('/version.json?v=' + new Date().getTime(), { cache: 'no-store' });
+            const res = await fetch('/version.json', { cache: 'no-store' });
             if (!res.ok) return;
-
             const data = await res.json();
+            if (!data.build) return;
+
             const lastBuild = localStorage.getItem('lastBuild');
 
-            // First visit: store timestamp, do not show toast
+            // First visit: store build
             if (!lastBuild) {
               localStorage.setItem('lastBuild', data.build);
               return;
             }
 
-            // Show toast if build changed
-            if (data.build && data.build !== lastBuild) {
+            // Show toast if a newer build exists
+            if (data.build !== lastBuild) {
               toast.style.display = 'block';
               localStorage.setItem('newBuild', data.build);
             }
@@ -105,17 +104,14 @@
           }
         }
 
-        // Reload button logic
-        if (reloadBtn) {
-          reloadBtn.addEventListener('click', function () {
-            localStorage.setItem('lastBuild', localStorage.getItem('newBuild'));
-            location.reload();
-          });
-        }
+        reloadBtn?.addEventListener('click', function () {
+          const newBuild = localStorage.getItem('newBuild');
+          if (newBuild) localStorage.setItem('lastBuild', newBuild);
+          location.reload(true);
+        });
 
-        // Initial check + periodic check every 60 seconds
-        checkForUpdateOnce();
-        setInterval(checkForUpdateOnce, 60 * 1000);
+        checkForUpdate();
+        setInterval(checkForUpdate, 30 * 1000); // check every 30s
       });
     </script>
   </body>
