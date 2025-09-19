@@ -15,21 +15,24 @@ If omitted, it will use page.slug or page.name as a fallback.
       {%- assign extensions = "png,jpg,jpeg,svg" | split: "," -%}
       {%- assign screenshots = site.static_files | where_exp: "file", "file.path contains project_path" -%}
 
-      {%- comment -%} Build array of files with numeric index extracted {%- endcomment -%}
       {%- assign numbered_files = "" | split: "" -%}
+
       {%- for file in screenshots -%}
         {%- assign ext = file.extname | remove: "." | downcase -%}
-        {%- if extensions contains ext and file.name matches '-[0-9]+$' -%}
-          {%- assign number_match = file.name | remove: ext | remove: "." | slice: -3,3 | plus: 0 -%}
-          {%- assign item = file.path | append: "|" | append: number_match -%}
-          {%- assign numbered_files = numbered_files | push: item -%}
+        {%- assign name_no_ext = file.name | remove: file.extname | remove: "." -%}
+        {%- assign parts = name_no_ext | split: "-" -%}
+        {%- assign last_part = parts | last -%}
+
+        {%- comment -%} Check if last part is numeric {%- endcomment -%}
+        {%- if extensions contains ext and last_part | plus: 0 > 0 -%}
+          {%- assign numbered_files = numbered_files | push: file.path | append: "|" | append: last_part | append: "|" | append: ext -%}
         {%- endif -%}
       {%- endfor -%}
 
-      {%- comment -%} Sort numerically by number extracted {%- endcomment -%}
-      {%- assign numbered_files = numbered_files | sort_natural: "split: '|', last" -%}
+      {%- comment -%} Sort numerically by the extracted number {%- endcomment -%}
+      {%- assign sorted_files = numbered_files | sort_natural -%}
 
-      {%- for item in numbered_files -%}
+      {%- for item in sorted_files -%}
         {%- assign parts = item | split: "|" -%}
         <div class="swiper-slide">
           <img src="{{ parts[0] | relative_url }}?v={{ site.time | date: '%s' }}"
