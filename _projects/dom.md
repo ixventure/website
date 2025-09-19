@@ -11,7 +11,7 @@ IxVenture is investing in multiple **Document Object Model (DOM) formats** becau
 
 The historical progression has been:  
 
-<details>
+<details markdown="1">
 <summary>Continued...</summary>
 
 1. **Oral** – agreements spoken and remembered
