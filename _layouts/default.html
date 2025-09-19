@@ -82,10 +82,15 @@
 
         async function checkForUpdateOnce() {
           try {
-            const res = await fetch('/version.json', { cache: 'no-store' });
+            // Force fresh fetch to avoid cache
+            const res = await fetch('/version.json?v=' + new Date().getTime(), { cache: 'no-store' });
             if (!res.ok) return;
+
             const data = await res.json();
             const lastBuild = localStorage.getItem('lastBuild');
+
+            // Debug log for testing
+            console.log('Version check:', 'lastBuild=', lastBuild, 'currentBuild=', data.build);
 
             // First visit: store build, do not show toast
             if (!lastBuild) {
@@ -98,7 +103,6 @@
               toast.style.display = 'block';
               localStorage.setItem('newBuild', data.build);
             }
-
           } catch (e) {
             console.debug('Version check failed', e);
           }
