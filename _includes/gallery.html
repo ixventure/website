@@ -27,9 +27,8 @@ If omitted, it will use page.slug or page.name as a fallback.
       {%- endfor -%}
     </div>
 
+    <!-- Pagination dots only -->
     <div class="swiper-pagination"></div>
-    <div class="swiper-button-prev" aria-label="Previous slide"></div>
-    <div class="swiper-button-next" aria-label="Next slide"></div>
   </div>
 </div>
 
@@ -56,7 +55,6 @@ document.addEventListener("DOMContentLoaded", function () {
   new Swiper(wrapperSelector, {
     loop: true,
     pagination: { el: wrapperSelector + ' .swiper-pagination', clickable: true },
-    navigation: { nextEl: wrapperSelector + ' .swiper-button-next', prevEl: wrapperSelector + ' .swiper-button-prev' },
     slidesPerView: 1,
     spaceBetween: 10
   });
