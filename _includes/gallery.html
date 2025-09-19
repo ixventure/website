@@ -63,11 +63,26 @@ document.addEventListener("DOMContentLoaded", function () {
     return;
   }
 
-  new Swiper(wrapperSelector, {
+  // initialize swiper
+  const swiper = new Swiper(wrapperSelector, {
     loop: true,
     pagination: { el: wrapperSelector + ' .swiper-pagination', clickable: true },
     slidesPerView: 1,
-    spaceBetween: 10
+    spaceBetween: 10,
+    keyboard: { enabled: true, onlyInViewport: true } // ← enable arrow key navigation
+  });
+
+  // click on image: left half = prev, right half = next
+  wrapper.addEventListener("click", function (e) {
+    if (e.target.tagName.toLowerCase() === "img") {
+      const rect = e.target.getBoundingClientRect();
+      const clickX = e.clientX - rect.left; // click position relative to image
+      if (clickX < rect.width / 2) {
+        swiper.slidePrev();
+      } else {
+        swiper.slideNext();
+      }
+    }
   });
 });
 </script>
