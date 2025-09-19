@@ -134,6 +134,9 @@ index_main-rollback-cf64385/
 
 ## How to Use
 
+<details>
+<summary>📑 Run your own site using this template on GitHub</summary>
+
 1. Clone your fork:
 
 ```bash
@@ -174,6 +177,8 @@ bundle exec jekyll serve
 * `version.json` tracks builds and triggers update notifications.
 
 *Replace `USERNAME` and `COMMIT-HASH` with your GitHub username and the commit hash if needed.*
+
+</details>
 
 ---
 
