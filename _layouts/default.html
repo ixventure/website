@@ -81,7 +81,8 @@
 
         async function checkForUpdate() {
           try {
-            const res = await fetch('/version.json', { cache: 'no-store' });
+            const res = await fetch('{{ site.baseurl }}/version.json', { cache: 'no-store' });
+            console.log('[UpdateCheck] Fetch URL:', '{{ site.baseurl }}/version.json');
             console.log('[UpdateCheck] Fetch status:', res.status);
             if (!res.ok) return;
 
