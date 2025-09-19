@@ -16,13 +16,15 @@ Building something amazing with AI.
     <div class="project-card">
       <a href="{{ project.url | relative_url }}">
         {%- comment -%}
-          Find first existing image-1.* in the project's assets (robust, no hard-coded extensions order).
+          Find the first image in the project folder (any name, robust, sorted by filename)
         {%- endcomment -%}
         {%- assign found_thumb = "" -%}
+        {%- assign extensions = "png,jpg,jpeg,svg" | split: "," -%}
         {%- assign project_files = site.static_files | where_exp: "f", "f.path contains project_path" | sort: "path" -%}
+
         {%- for f in project_files -%}
-          {%- assign name = f.name | downcase -%}
-          {%- if name contains "image-1." -%}
+          {%- assign ext = f.extname | remove: "." | downcase -%}
+          {%- if extensions contains ext -%}
             {%- assign found_thumb = f.path -%}
             {%- break -%}
           {%- endif -%}
