@@ -22,14 +22,16 @@ If omitted, it will use page.slug or page.name as a fallback.
         {%- assign name_no_ext = file.name | remove: file.extname | remove: "." -%}
         {%- assign parts = name_no_ext | split: "-" -%}
         {%- assign last_part = parts | last -%}
+        {%- assign number_val = last_part | plus: 0 -%}
 
-        {%- comment -%} Check if last part is numeric {%- endcomment -%}
-        {%- if extensions contains ext and last_part | plus: 0 > 0 -%}
-          {%- assign numbered_files = numbered_files | push: file.path | append: "|" | append: last_part | append: "|" | append: ext -%}
+        {%- comment -%} Debug output: shows each file and extracted number {%- endcomment -%}
+        <p>Checking: {{ file.name }} → last_part={{ last_part }} → number_val={{ number_val }}</p>
+
+        {%- if extensions contains ext and number_val > 0 -%}
+          {%- assign numbered_files = numbered_files | push: file.path | append: "|" | append: number_val | append: "|" | append: ext -%}
         {%- endif -%}
       {%- endfor -%}
 
-      {%- comment -%} Sort numerically by the extracted number {%- endcomment -%}
       {%- assign sorted_files = numbered_files | sort_natural -%}
 
       {%- for item in sorted_files -%}
