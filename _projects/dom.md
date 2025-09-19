@@ -11,6 +11,9 @@ IxVenture is investing in multiple **Document Object Model (DOM) formats** becau
 
 The historical progression has been:  
 
+<details>
+<summary>Cuntinued...</summary>
+
 1. **Oral** – agreements spoken and remembered
 2. **Papyrus** – agreements codified on paper
 3. **Print** – agreements widely disseminated
@@ -34,3 +37,5 @@ DOMs shift organizational and legal logic into programmable structures, making t
 
 ## Why This Matters
 By supporting **multiple DOM formats**, IxVenture is building toward a world where organizational and contractual logic can be expressed as interoperable objects.  
+
+</details>
