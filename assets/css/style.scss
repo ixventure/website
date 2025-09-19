@@ -130,3 +130,20 @@ p, li {
   object-fit: cover;
   border-radius: 6px;
 }
+
+/* ========================
+   Gallery tweaks
+   ======================== */
+
+/* Hide arrows completely */
+.swiper-button-prev,
+.swiper-button-next {
+  display: none !important;
+}
+
+/* Move dots below slides */
+.swiper-pagination {
+  position: relative !important;
+  margin-top: 12px;
+  text-align: center;
+}
