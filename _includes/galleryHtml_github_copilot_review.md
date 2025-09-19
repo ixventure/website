@@ -1,8 +1,10 @@
-# Line-by-line explanation of `_includes/gallery.html`
+# `gallery.html` Include Explanation
 
-This file is a Jekyll include that builds a project gallery using Swiper.js. Below I show the source and then explain every line in order.
+This file defines a reusable Jekyll include that builds an image gallery (with Swiper.js) for a given project.
 
-## Source
+---
+
+## Liquid (Jekyll) Section
 
 ```liquid
 {%- comment -%}
@@ -12,512 +14,199 @@ Usage:
   {% include gallery.html slug="project-a" title="Project A" %}
 If omitted, it will use page.slug or page.name as a fallback.
 {%- endcomment -%}
+```
 
+- **Comment block**: documents usage.
+- You can call this include with `slug` and `title`.
+- If `slug` is not given, it falls back to the page’s `slug` or `name`.
+
+---
+
+```liquid
 {%- assign project_slug = include.slug | default: page.slug | default: page.name | split: "." | first -%}
 {%- assign project_path = '/assets/projects/' | append: project_slug -%}
+```
 
-<h2>Gallery</h2>
+- `project_slug`: determines which project folder to use, stripping any file extensions.
+- `project_path`: builds the asset path, e.g. `/assets/projects/project-a`.
+
+---
+
+```html
 <div class="gallery">
   <div class="swiper gallery-swiper">
     <div class="swiper-wrapper">
-      {%- assign extensions = "png,jpg,jpeg,svg" | split: "," -%}
-      {%- assign screenshots = site.static_files | where_exp: "file", "file.path contains project_path" | sort: "path" -%}
+```
+- Outer **`<div class="gallery">`**: wrapper for the gallery.
+- Inner **`swiper`** containers are required by Swiper.js.
 
-      {%- for file in screenshots -%}
-        {%- assign ext = file.extname | remove: "." | downcase -%}
-        {%- if extensions contains ext and file.name contains "image-" -%}
-          <div class="swiper-slide">
-            <img src="{{ file.path | relative_url }}?v={{ site.time | date: '%s' }}"
-                 alt="{{ include.title | default: page.title }} screenshot">
-          </div>
-        {%- endif -%}
-      {%- endfor -%}
+---
+
+```liquid
+{%- assign extensions = "png,jpg,jpeg,svg" | split: "," -%}
+{%- assign screenshots = site.static_files | where_exp: "file", "file.path contains project_path" -%}
+```
+
+- `extensions`: allowed image types.
+- `screenshots`: filters all static files to only those under the project’s asset path.
+
+---
+
+```liquid
+{%- assign numbered_files = "" | split: "" -%}
+```
+- Initializes an empty array for storing gallery items.
+
+---
+
+```liquid
+{%- for file in screenshots -%}
+  {%- assign ext = file.extname | remove: "." | downcase -%}
+  {%- assign name_no_ext = file.name | remove: file.extname | remove: "." -%}
+  {%- assign parts = name_no_ext | split: "-" -%}
+  {%- assign last_part = parts | last -%}
+  {%- assign number_val = last_part | plus: 0 -%}
+```
+- Loop through each candidate file.
+- Extracts:
+  - `ext`: extension (`png`, `jpg`, etc.).
+  - `name_no_ext`: filename without extension.
+  - `parts`: filename split by `-`.
+  - `last_part`: the last segment (expects a number).
+  - `number_val`: coerces that to a number (0 if not numeric).
+
+---
+
+```liquid
+  {%- if extensions contains ext and number_val > 0 -%}
+    {%- assign item = file.path | append: "|" | append: number_val | append: "|" | append: ext -%}
+    {%- assign numbered_files = numbered_files | push: item -%}
+  {%- endif -%}
+{%- endfor -%}
+```
+- Only include files with:
+  - A valid extension.
+  - A trailing numeric suffix (`-1.png`, `-2.jpg`, etc.).
+- Stores them in `numbered_files` as a pipe-delimited string:  
+  `path|number|extension`.
+
+---
+
+```liquid
+{%- assign sorted_files = numbered_files | sort_natural -%}
+```
+- Sorts gallery items in natural order (`1, 2, 3…` instead of `1, 10, 2`).
+
+---
+
+```liquid
+{%- for item in sorted_files -%}
+  {%- assign parts = item | split: "|" -%}
+  <div class="swiper-slide">
+    <img src="{{ parts[0] | relative_url }}?v={{ site.time | date: '%s' }}"
+         alt="{{ include.title | default: page.title }} screenshot">
+  </div>
+{%- endfor -%}
+```
+- For each sorted image:
+  - Split into `path`, `number`, and `extension`.
+  - Create a Swiper slide with an `<img>`.
+  - Cache-bust with a timestamp query (`?v=UNIXTIME`).
+  - Adds accessible `alt` text based on the project title.
+
+---
+
+```html
     </div>
-
     <div class="swiper-pagination"></div>
-    <div class="swiper-button-prev" aria-label="Previous slide"></div>
-    <div class="swiper-button-next" aria-label="Next slide"></div>
   </div>
 </div>
+```
+- Closes wrappers.
+- Adds pagination dots placeholder.
 
-<!-- Swiper resources -->
+---
+
+## External Dependencies
+
+```html
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+```
+- Loads Swiper CSS + JS from CDN.
 
-<script>
+---
+
+## JavaScript Section
+
+```js
 document.addEventListener("DOMContentLoaded", function () {
   const wrapperSelector = ".gallery-swiper";
   const wrapper = document.querySelector(wrapperSelector);
   if (!wrapper) return;
+```
+- Waits for DOM ready.
+- Selects `.gallery-swiper` container.
+- If none, exit.
 
-  // If no slides (no images), show a helpful message with exact folder
+---
+
+```js
   if (wrapper.querySelectorAll(".swiper-slide").length === 0) {
     const msg = document.createElement("p");
     msg.innerHTML =
-      '<em>No gallery images found. Please add <code>image-*.png|.jpg|.jpeg|.svg</code> to <code>{{ project_path }}</code>.</em>';
+      `<em>No gallery images found. Please add files matching <code>-NUMBER.png|.jpg|.jpeg|.svg</code> to <code>{{ project_path }}</code>.</em>`;
     wrapper.parentNode.insertBefore(msg, wrapper);
     wrapper.remove();
     return;
   }
+```
+- If no slides found:
+  - Inserts a helpful `<p>` message.
+  - Removes the empty gallery.
 
-  new Swiper(wrapperSelector, {
+---
+
+```js
+  const swiper = new Swiper(wrapperSelector, {
     loop: true,
     pagination: { el: wrapperSelector + ' .swiper-pagination', clickable: true },
-    navigation: { nextEl: wrapperSelector + ' .swiper-button-next', prevEl: wrapperSelector + ' .swiper-button-prev' },
     slidesPerView: 1,
-    spaceBetween: 10
-  });
-});
-</script>
-
-```
-
-## Line-by-line explanation
-
-### 1
-
-```
-{%- comment -%}
-```
-Start of a Liquid comment block. Everything until `{%- endcomment -%}` is ignored by Jekyll at build time. Used here to document how to use the include.
-
-### 2
-
-```
-Gallery include
-```
-Commented documentation header inside the Liquid comment.
-
-### 3
-
-```
-----------------------------------
-```
-Commented documentation header inside the Liquid comment.
-
-### 4
-
-```
-Usage:
-```
-Part of the comment: shows how to call this include from a Jekyll page.
-
-### 5
-
-```
-  {% include gallery.html slug="project-a" title="Project A" %}
-```
-Utility or closing line: ties up the previous block.
-
-### 6
-
-```
-If omitted, it will use page.slug or page.name as a fallback.
-```
-Utility or closing line: ties up the previous block.
-
-### 7
-
-```
-{%- endcomment -%}
-```
-End of the Liquid comment block.
-
-### 8
-
-```
-(blank line)
-```
-Blank line to improve readability and separate logical blocks.
-
-### 9
-
-```
-{%- assign project_slug = include.slug | default: page.slug | default: page.name | split: "." | first -%}
-```
-Define `project_slug` for this gallery. It uses the value passed to the include (`include.slug`) if present, otherwise falls back to `page.slug` or `page.name`. Finally it splits on `.` and takes the first part to strip file extensions.
-
-### 10
-
-```
-{%- assign project_path = '/assets/projects/' | append: project_slug -%}
-```
-Builds `project_path` by appending the `project_slug` to the base folder `/assets/projects/`. This is the folder the gallery will search for images in.
-
-### 11
-
-```
-(blank line)
-```
-Blank line to improve readability and separate logical blocks.
-
-### 12
-
-```
-<h2>Gallery</h2>
-```
-HTML: top-level heading for the gallery section.
-
-### 13
-
-```
-<div class="gallery">
-```
-HTML: wrapper element with class `gallery` for styling and scoping.
-
-### 14
-
-```
-  <div class="swiper gallery-swiper">
-```
-HTML: the Swiper container. `swiper` is Swiper's root class and `gallery-swiper` provides a local selector used later in JavaScript to initialize the slider.
-
-### 15
-
-```
-    <div class="swiper-wrapper">
-```
-HTML: Swiper's wrapper for slides. Child `.swiper-slide` elements go inside this container.
-
-### 16
-
-```
-      {%- assign extensions = "png,jpg,jpeg,svg" | split: "," -%}
-```
-Creates a Liquid array named `extensions` by splitting the string `png,jpg,jpeg,svg`. Used to whitelist which file extensions to include as slides.
-
-### 17
-
-```
-      {%- assign screenshots = site.static_files | where_exp: "file", "file.path contains project_path" | sort: "path" -%}
-```
-Collects site static files whose `file.path` contains `project_path`. `site.static_files` returns all files in the `assets/` (and other static) folders. `where_exp` filters this list and `sort: "path"` orders them.
-
-### 18
-
-```
-(blank line)
-```
-Blank line to improve readability and separate logical blocks.
-
-### 19
-
-```
-      {%- for file in screenshots -%}
-```
-Starts a Liquid `for` loop iterating over each `file` object found in the `screenshots` list.
-
-### 20
-
-```
-        {%- assign ext = file.extname | remove: "." | downcase -%}
-```
-Gets the file's extension from `file.extname`, removes the leading dot (`.`), and converts it to lowercase. Result stored in `ext` for extension checks.
-
-### 21
-
-```
-        {%- if extensions contains ext and file.name contains "image-" -%}
-```
-Conditional: only proceed if `ext` is in the `extensions` whitelist AND the file's `name` contains `image-`. This enforces both extension and filename pattern requirements (e.g., `image-1.png`).
-
-### 22
-
-```
-          <div class="swiper-slide">
-```
-HTML: start of a single Swiper slide. Each matched image gets wrapped in this container.
-
-### 23
-
-```
-            <img src="{{ file.path | relative_url }}?v={{ site.time | date: '%s' }}"
-```
-Image tag for the slide. `file.path | relative_url` produces the correct URL respecting `baseurl`. Appends `?v={{ site.time | date: '%s' }}` to the URL to force cache-busting on each build (site.time is replaced at build time).
-
-### 24
-
-```
-                 alt="{{ include.title | default: page.title }} screenshot">
-```
-`alt` attribute for accessibility. Uses the `include.title` if provided, otherwise falls back to `page.title`, then adds the word 'screenshot'. Good for screen readers and SEO.
-
-### 25
-
-```
-          </div>
-```
-Closing a previously opened HTML container.
-
-### 26
-
-```
-        {%- endif -%}
-```
-End of the conditional that checks filename and file extension.
-
-### 27
-
-```
-      {%- endfor -%}
-```
-End of the `for` loop that generated slides.
-
-### 28
-
-```
-    </div>
-```
-Closing a previously opened HTML container.
-
-### 29
-
-```
-(blank line)
-```
-Blank line to improve readability and separate logical blocks.
-
-### 30
-
-```
-    <div class="swiper-pagination"></div>
-```
-Element where Swiper will render pagination indicators (dots) if pagination is enabled.
-
-### 31
-
-```
-    <div class="swiper-button-prev" aria-label="Previous slide"></div>
-```
-Navigation buttons for previous/next. They include `aria-label` attributes (where present) for accessibility.
-
-### 32
-
-```
-    <div class="swiper-button-next" aria-label="Next slide"></div>
-```
-Navigation buttons for previous/next. They include `aria-label` attributes (where present) for accessibility.
-
-### 33
-
-```
-  </div>
-```
-Closing a previously opened HTML container.
-
-### 34
-
-```
-</div>
-```
-Closing a previously opened HTML container.
-
-### 35
-
-```
-(blank line)
-```
-Blank line to improve readability and separate logical blocks.
-
-### 36
-
-```
-<!-- Swiper resources -->
-```
-Comment marking the inclusion of external Swiper CSS/JS resources.
-
-### 37
-
-```
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-```
-Loads Swiper's stylesheet from jsDelivr CDN (version 11 as pinned). Required for Swiper's default styles.
-
-### 38
-
-```
-<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-```
-Loads Swiper's JavaScript from jsDelivr CDN. Required to initialize and run the slider.
-
-### 39
-
-```
-(blank line)
-```
-Blank line to improve readability and separate logical blocks.
-
-### 40
-
-```
-<script>
-```
-Starts an inline script block executed in the browser.
-
-### 41
-
-```
-document.addEventListener("DOMContentLoaded", function () {
-```
-Waits for DOMContentLoaded before running the initialization code, ensuring elements are present in the DOM.
-
-### 42
-
-```
-  const wrapperSelector = ".gallery-swiper";
-```
-Defines a CSS selector string to target the Swiper container (`.gallery-swiper`).
-
-### 43
-
-```
-  const wrapper = document.querySelector(wrapperSelector);
-```
-Selects the Swiper container element from the DOM. If not found, the script will return early.
-
-### 44
-
-```
-  if (!wrapper) return;
-```
-Guard clause: if the `.gallery-swiper` element doesn't exist on the page, stop executing the script.
-
-### 45
-
-```
-(blank line)
-```
-Blank line to improve readability and separate logical blocks.
-
-### 46
-
-```
-  // If no slides (no images), show a helpful message with exact folder
-```
-Utility or closing line: ties up the previous block.
-
-### 47
-
-```
-  if (wrapper.querySelectorAll(".swiper-slide").length === 0) {
-```
-Checks how many `.swiper-slide` elements exist inside the wrapper. If zero, it will show a helpful message for the developer/site author.
-
-### 48
-
-```
-    const msg = document.createElement("p");
-```
-Creates a new `<p>` element to hold the 'no images found' message.
-
-### 49
-
-```
-    msg.innerHTML =
-```
-Sets the inner HTML of the message paragraph. The string includes a Liquid variable `{{ project_path }}`, which Jekyll will substitute at build time so the message shows the correct folder path. The message instructs where to add files.
-
-### 50
-
-```
-      '<em>No gallery images found. Please add <code>image-*.png|.jpg|.jpeg|.svg</code> to <code>{{ project_path }}</code>.</em>';
-```
-Utility or closing line: ties up the previous block.
-
-### 51
-
-```
-    wrapper.parentNode.insertBefore(msg, wrapper);
-```
-Inserts the message `<p>` before the wrapper element so it is visible in the page flow.
-
-### 52
-
-```
-    wrapper.remove();
-```
-Removes the empty gallery wrapper from the DOM (since there are no slides to show).
-
-### 53
-
-```
-    return;
-```
-Stops further execution of the script after showing the message.
-
-### 54
-
-```
-  }
-```
-Utility or closing line: ties up the previous block.
-
-### 55
-
-```
-(blank line)
-```
-Blank line to improve readability and separate logical blocks.
-
-### 56
-
-```
-  new Swiper(wrapperSelector, {
-```
-Initializes a new Swiper instance targeting the `wrapperSelector`.
-
-### 57
-
-```
-    loop: true,
-```
-Enables continuous looping of slides so navigation cycles infinitely.
-
-### 58
-
-```
-    pagination: { el: wrapperSelector + ' .swiper-pagination', clickable: true },
-```
-Element where Swiper will render pagination indicators (dots) if pagination is enabled.
-
-### 59
-
-```
-    navigation: { nextEl: wrapperSelector + ' .swiper-button-next', prevEl: wrapperSelector + ' .swiper-button-prev' },
-```
-Navigation buttons for previous/next. They include `aria-label` attributes (where present) for accessibility.
-
-### 60
-
-```
-    slidesPerView: 1,
-```
-Sets how many slides are visible at once. `1` means one slide per view (typical for a simple gallery).
-
-### 61
-
-```
-    spaceBetween: 10
-```
-Pixel spacing between slides; `10` adds a small gap.
-
-### 62
-
-```
+    spaceBetween: 10,
+    keyboard: { enabled: true, onlyInViewport: true } // arrow key navigation
   });
 ```
-Utility or closing line: ties up the previous block.
+- Initializes Swiper:
+  - Infinite loop.
+  - Pagination dots.
+  - One slide visible at a time.
+  - Arrow key navigation.
 
-### 63
+---
 
-```
+```js
+  wrapper.addEventListener("click", function (e) {
+    if (e.target.tagName.toLowerCase() === "img") {
+      const rect = e.target.getBoundingClientRect();
+      const clickX = e.clientX - rect.left;
+      if (clickX < rect.width / 2) {
+        swiper.slidePrev();
+      } else {
+        swiper.slideNext();
+      }
+    }
+  });
 });
 ```
-Utility or closing line: ties up the previous block.
+- Adds click navigation:
+  - Clicking **left half** of image → previous slide.
+  - Clicking **right half** → next slide.
 
-### 64
+---
 
-```
-</script>
-```
-End of the inline script block.
+# Summary
+
+- This include dynamically builds a gallery for a project.
+- Images must be named with a **numbered suffix**: `screenshot-1.png`, `screenshot-2.jpg`, etc.
+- It uses **Swiper.js** for navigation, pagination, and keyboard support.
+- Fallback: shows a warning if no valid images exist.
