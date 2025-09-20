@@ -1,85 +1,382 @@
-<svg width="1200" height="675" viewBox="0 0 1200 675" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="No Cap's leap of faith — light">
-  <defs>
-    <linearGradient id="lightBg" x1="0" x2="1">
-      <stop offset="0" stop-color="#ffffff"></stop>
-      <stop offset="1" stop-color="#f6fbff"></stop>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="508mm"
+   height="285.75mm"
+   viewBox="0 0 508 285.75"
+   version="1.1"
+   id="svg1"
+   inkscape:version="1.4.2 (1:1.4.2+202505120737+ebf0e940d0)"
+   sodipodi:docname="image-2.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     inkscape:zoom="0.50180832"
+     inkscape:cx="1084.0793"
+     inkscape:cy="590.86306"
+     inkscape:window-width="1600"
+     inkscape:window-height="831"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs1">
+    <linearGradient
+       id="lightBg"
+       x1="0"
+       x2="249.73985"
+       gradientTransform="matrix(0.37585965,0,0,0.53157295,-673.74497,37.976502)"
+       y1="0"
+       y2="0"
+       gradientUnits="userSpaceOnUse">
+      <stop
+         offset="0"
+         stop-color="#ffffff"
+         id="stop1" />
+      <stop
+         offset="1"
+         stop-color="#f6fbff"
+         id="stop2" />
     </linearGradient>
-    <linearGradient id="accent" x1="0" x2="1">
-      <stop offset="0" stop-color="#0ea5e9"></stop>
-      <stop offset="1" stop-color="#0369a1"></stop>
+    <linearGradient
+       id="accent"
+       x1="43.826931"
+       x2="88.548294"
+       gradientTransform="matrix(1.9989837,0,0,0.09994919,-398.40137,91.614867)"
+       y1="939.14856"
+       y2="939.14856"
+       gradientUnits="userSpaceOnUse">
+      <stop
+         offset="0"
+         stop-color="#0ea5e9"
+         id="stop3" />
+      <stop
+         offset="1"
+         stop-color="#0369a1"
+         id="stop4" />
     </linearGradient>
-    <!-- clip area to prevent any overflow -->
-    <clipPath id="frame">
-      <rect x="0" y="0" width="1200" height="675" rx="0" ry="0"></rect>
-    </clipPath>
   </defs>
-
-  <!-- apply safe clip to entire content -->
-  <g clip-path="url(#frame)">
-
-    <!-- Background -->
-    <rect width="100%" height="100%" fill="url(#lightBg)"></rect>
-
-    <!-- Header -->
-    <text x="64" y="84" font-family="Inter, Arial, sans-serif" font-size="28" fill="#073046" font-weight="700">No Cap’s leap of faith</text>
-
-    <!-- Two-column safe layout: left explain, right visual -->
-    <!-- Left container (safe margin) -->
-    <g transform="translate(64,120)">
-      <rect width="520" height="320" rx="10" fill="#ffffff" stroke="#e6f4fb"></rect>
-      <text x="24" y="40" font-family="Inter, Arial, sans-serif" font-size="18" fill="#074a63" font-weight="700">What’s the bet?</text>
-      <text x="24" y="80" font-family="Inter, Arial, sans-serif" font-size="15" fill="#19638a">
-        No Cap is an AI-first investor betting that AI tools allow a single human to run a startup end-to-end.
-      </text>
-      <text x="24" y="110" font-family="Inter, Arial, sans-serif" font-size="14" fill="#19638a">
-        That implies tools will substitute for co-founders, legal authority, and accountable signatories.
-      </text>
-      <text x="24" y="160" font-family="Inter, Arial, sans-serif" font-size="13" fill="#0f3f4f">
-        Risk: deals executed without durable signing and identity rails expose founders, investors, and partners.
-      </text>
-
-      <!-- small footer label within left card (keeps inside card) -->
-      <rect x="24" y="200" width="320" height="34" rx="6" fill="#f0fbff" stroke="#d9f2fb"></rect>
-      <text x="36" y="224" font-family="Inter, Arial, sans-serif" font-size="12" fill="#0369a1">ixventure.studio/ai · founder: lesa.law</text>
-    </g>
-
-    <!-- Right container (safe margin) -->
-    <g transform="translate(616,120)">
-      <rect width="520" height="320" rx="10" fill="#ffffff" stroke="#e6f4fb"></rect>
-
-      <!-- left block inside right container: TOOLS -->
-      <rect x="28" y="44" width="160" height="108" rx="8" fill="#f0fbff" stroke="#d9f2fb"></rect>
-      <text x="46" y="78" font-family="Inter, Arial, sans-serif" font-size="13" fill="#0369a1" font-weight="700">TOOLS</text>
-      <text x="46" y="98" font-family="Inter, Arial, sans-serif" font-size="12" fill="#19638a">automation • prompts • assistants</text>
-
-      <!-- right block inside right container: SCALE -->
-      <rect x="332" y="44" width="160" height="108" rx="8" fill="#f0fbff" stroke="#d9f2fb"></rect>
-      <text x="350" y="78" font-family="Inter, Arial, sans-serif" font-size="13" fill="#0369a1" font-weight="700">SCALE</text>
-      <text x="350" y="98" font-family="Inter, Arial, sans-serif" font-size="12" fill="#19638a">legal authority • signing • accountability</text>
-
-      <!-- central 'gap' box — explicitly constrained to container -->
-      <rect x="208" y="84" width="96" height="36" fill="#ffffff" stroke="#f0f7fa" rx="6"></rect>
-      <text x="236" y="107" font-family="Inter, Arial, sans-serif" font-size="12" fill="#8aaec1">the gap</text>
-
-      <!-- founder arc — constrained coordinates so it stays inside the right container -->
-      <path d="M150 166 C 230 70, 280 70, 360 166" fill="none" stroke="#0ea5e9" stroke-width="4" stroke-linecap="round"></path>
-      <circle cx="360" cy="166" r="9" fill="#0ea5e9"></circle>
-      <text x="120" y="136" font-family="Inter, Arial, sans-serif" font-size="12" fill="#19638a">solo founder</text>
-
-      <!-- rail (IxVentures) - placed low inside container -->
-      <rect x="196" y="210" width="200" height="10" rx="5" fill="url(#accent)"></rect>
-      <text x="210" y="240" font-family="Inter, Arial, sans-serif" font-size="12" fill="#0f3f4f">IxVentures — IdP, Entities, Signature Economies</text>
-
-      <!-- small badge inside right container -->
-      <rect x="340" y="12" rx="6" width="140" height="28" fill="#ff6b6b"></rect>
-      <text x="356" y="32" font-family="Inter, Arial, sans-serif" font-size="13" fill="#fff" font-weight="700">Leap = Risk</text>
-    </g>
-
-    <!-- footer line (safe area) -->
-    <text x="64" y="520" font-family="Inter, Arial, sans-serif" font-size="13" fill="#075b73">
-      Bottom line: investors funding “solo + AI” need identity + signing rails — IxVentures builds those rails.
-    </text>
-    <text x="64" y="544" font-family="Inter, Arial, sans-serif" font-size="12" fill="#9dbecf">ixventure.studio/ai · founder: lesa.law</text>
-
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(673.745,-37.976505)">
+    <rect
+       style="fill:#ffffff;stroke-width:0.389244;stroke-linejoin:round"
+       id="rect13"
+       width="508"
+       height="285.75"
+       x="-673.745"
+       y="37.976505"
+       inkscape:export-filename="image-2.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <rect
+       width="232.43291"
+       height="143.03563"
+       rx="4.4698634"
+       fill="#ffffff"
+       stroke="#e6f4fb"
+       id="rect10"
+       x="-398.40137"
+       y="91.614861"
+       style="stroke-width:0.446986" />
+    <!-- apply safe clip to entire content -->
+    <rect
+       width="44.698635%"
+       height="44.698635%"
+       fill="url(#lightBg)"
+       id="rect5"
+       x="-673.745"
+       y="37.976505"
+       style="fill:url(#lightBg);stroke-width:0.446986" />
+    <text
+       x="-645.13788"
+       y="75.523354"
+       font-family="Inter, Arial, sans-serif"
+       font-size="12.5156px"
+       fill="#073046"
+       font-weight="700"
+       id="text5"
+       style="stroke-width:0.446986">No Cap’s leap of faith</text>
+    <rect
+       width="232.43291"
+       height="143.03563"
+       rx="4.4698634"
+       fill="#ffffff"
+       stroke="#e6f4fb"
+       id="rect6"
+       x="-645.13788"
+       y="91.614861"
+       style="stroke-width:0.446986" />
+    <text
+       x="-634.41022"
+       y="109.49432"
+       font-family="Inter, Arial, sans-serif"
+       font-size="8.04575px"
+       fill="#074a63"
+       font-weight="700"
+       id="text6"
+       style="stroke-width:0.446986">What’s the bet?</text>
+    <text
+       x="-634.41022"
+       y="163.13271"
+       font-family="Inter, Arial, sans-serif"
+       font-size="5.81082px"
+       fill="#0f3f4f"
+       id="text9"
+       style="stroke-width:0.446986"><tspan
+         sodipodi:role="line"
+         id="tspan6"
+         x="-634.41022"
+         y="163.13271"
+         style="stroke-width:0.446986">Risk: deals executed without durable signing and identity rails expose founders,</tspan><tspan
+         sodipodi:role="line"
+         id="tspan7"
+         x="-634.41022"
+         y="170.39622"
+         style="stroke-width:0.446986">investors, and partners.</tspan></text>
+    <rect
+       x="-634.41022"
+       y="181.01216"
+       width="143.03563"
+       height="15.197536"
+       rx="2.6819181"
+       fill="#f0fbff"
+       stroke="#d9f2fb"
+       id="rect9"
+       style="stroke-width:0.446986" />
+    <text
+       x="-629.04639"
+       y="191.73982"
+       font-family="Inter, Arial, sans-serif"
+       font-size="5.36384px"
+       fill="#0369a1"
+       id="text10"
+       style="stroke-width:0.446986">ixventure.studio/ai · founder: lesa.law</text>
+    <rect
+       x="-385.88571"
+       y="111.28226"
+       width="71.517815"
+       height="48.274525"
+       rx="3.5758908"
+       fill="#f0fbff"
+       stroke="#d9f2fb"
+       id="rect11"
+       style="stroke-width:0.446986" />
+    <text
+       x="-377.84"
+       y="126.4798"
+       font-family="Inter, Arial, sans-serif"
+       font-size="5.81082px"
+       fill="#0369a1"
+       font-weight="700"
+       id="text11"
+       style="stroke-width:0.446986">TOOLS</text>
+    <text
+       x="-377.84"
+       y="135.41956"
+       font-family="Inter, Arial, sans-serif"
+       font-size="5.36384px"
+       fill="#19638a"
+       id="text12"
+       style="stroke-width:0.446986"><tspan
+         sodipodi:role="line"
+         id="tspan8"
+         x="-377.84"
+         y="135.41956"
+         style="stroke-width:0.446986">automation</tspan><tspan
+         sodipodi:role="line"
+         x="-377.84"
+         y="142.12436"
+         id="tspan10"
+         style="stroke-width:0.446986">• prompts</tspan><tspan
+         sodipodi:role="line"
+         id="tspan9"
+         x="-377.84"
+         y="148.82916"
+         style="stroke-width:0.446986">• assistants</tspan></text>
+    <rect
+       x="-250.00189"
+       y="111.28226"
+       width="71.517815"
+       height="48.274525"
+       rx="3.5758908"
+       fill="#f0fbff"
+       stroke="#d9f2fb"
+       id="rect12"
+       style="stroke-width:0.446986" />
+    <text
+       x="-241.95613"
+       y="126.4798"
+       font-family="Inter, Arial, sans-serif"
+       font-size="5.81082px"
+       fill="#0369a1"
+       font-weight="700"
+       id="text13"
+       style="stroke-width:0.446986">SCALE</text>
+    <text
+       x="-241.95613"
+       y="135.41956"
+       font-family="Inter, Arial, sans-serif"
+       font-size="5.36384px"
+       fill="#19638a"
+       id="text14"
+       style="stroke-width:0.446986"><tspan
+         sodipodi:role="line"
+         id="tspan11"
+         x="-241.95613"
+         y="135.41956"
+         style="stroke-width:0.446986">legal authority</tspan><tspan
+         sodipodi:role="line"
+         id="tspan12"
+         x="-241.95613"
+         y="142.12436"
+         style="stroke-width:0.446986">• signing</tspan><tspan
+         sodipodi:role="line"
+         x="-241.95613"
+         y="148.82916"
+         id="tspan13"
+         style="stroke-width:0.446986">• accountability</tspan></text>
+    <rect
+       x="-305.42819"
+       y="129.16173"
+       width="42.91069"
+       height="16.091509"
+       fill="#ffffff"
+       stroke="#f0f7fa"
+       rx="2.6819181"
+       id="rect14"
+       style="stroke-width:0.446986" />
+    <text
+       x="-292.91257"
+       y="139.4424"
+       font-family="Inter, Arial, sans-serif"
+       font-size="5.36384px"
+       fill="#8aaec1"
+       id="text15"
+       style="stroke-width:0.446986">the gap</text>
+    <path
+       d="m -331.35341,165.81459 c 35.75892,-42.91069 58.10822,-42.91069 93.86714,0"
+       fill="none"
+       stroke="#0ea5e9"
+       stroke-width="1.78794"
+       stroke-linecap="round"
+       id="path15" />
+    <circle
+       cx="-237.48628"
+       cy="165.81461"
+       fill="#0ea5e9"
+       id="circle15"
+       style="stroke-width:0.446986"
+       r="4.0228772" />
+    <text
+       x="-344.763"
+       y="152.40503"
+       font-family="Inter, Arial, sans-serif"
+       font-size="5.36384px"
+       fill="#19638a"
+       id="text16"
+       style="stroke-width:0.446986">solo founder</text>
+    <rect
+       x="-310.79205"
+       y="185.48204"
+       width="89.39727"
+       height="4.4698634"
+       rx="2.2349317"
+       fill="url(#accent)"
+       id="rect16"
+       style="fill:url(#accent);stroke-width:0.446986" />
+    <text
+       x="-304.53421"
+       y="198.89162"
+       font-family="Inter, Arial, sans-serif"
+       font-size="5.36384px"
+       fill="#0f3f4f"
+       id="text17"
+       style="stroke-width:0.446986">IxVentures — IdP, Entities, Signature Economies</text>
+    <rect
+       x="-246.42599"
+       y="96.978706"
+       rx="2.6819181"
+       width="62.578094"
+       height="12.515618"
+       fill="#ff6b6b"
+       id="rect17"
+       style="stroke-width:0.446986" />
+    <text
+       x="-239.2742"
+       y="105.91842"
+       font-family="Inter, Arial, sans-serif"
+       font-size="5.81082px"
+       fill="#ffffff"
+       font-weight="700"
+       id="text18"
+       style="stroke-width:0.446986">Leap = Risk</text>
+    <text
+       x="-645.13788"
+       y="270.40939"
+       font-family="Inter, Arial, sans-serif"
+       font-size="5.81082px"
+       fill="#075b73"
+       id="text19"
+       style="stroke-width:0.446986">Bottom line: investors funding “solo + AI” need identity + signing rails — IxVentures builds those rails.</text>
+    <text
+       x="-645.13788"
+       y="281.13708"
+       font-family="Inter, Arial, sans-serif"
+       font-size="5.36384px"
+       fill="#9dbecf"
+       id="text20"
+       style="stroke-width:0.446986">ixventure.studio/ai · founder: lesa.law</text>
+    <text
+       x="-634.41022"
+       y="127.37379"
+       font-family="Inter, Arial, sans-serif"
+       font-size="6.7048px"
+       fill="#19638a"
+       id="text7"
+       style="stroke-width:0.446986"><tspan
+         sodipodi:role="line"
+         id="tspan2"
+         x="-634.41022"
+         y="127.37379"
+         style="stroke-width:0.446986">No Cap is an AI-first investor betting that AI tools allow</tspan><tspan
+         sodipodi:role="line"
+         id="tspan3"
+         x="-634.41022"
+         y="135.75479"
+         style="stroke-width:0.446986">a single human to run a startup end-to-end.</tspan></text>
+    <text
+       x="-634.41022"
+       y="144.35922"
+       font-family="Inter, Arial, sans-serif"
+       font-size="6.25781px"
+       fill="#19638a"
+       id="text8"
+       style="stroke-width:0.446986"><tspan
+         sodipodi:role="line"
+         id="tspan4"
+         x="-634.41022"
+         y="144.35922"
+         style="stroke-width:0.446986">That implies tools will substitute for co-founders, legal authority,</tspan><tspan
+         sodipodi:role="line"
+         id="tspan5"
+         x="-634.41022"
+         y="152.18149"
+         style="stroke-width:0.446986">and accountable signatories.</tspan></text>
   </g>
 </svg>
