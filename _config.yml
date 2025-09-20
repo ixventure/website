@@ -8,7 +8,7 @@ baseurl: ""
 theme: minima
 
 # Site version
-version: 0.1.15
+version: 0.2.0
 
 collections:
   projects:
