@@ -1,123 +1,74 @@
-# Line-by-line explanation of `project-b.md`
+# project-b.md Explanation
 
-This file is a Jekyll project page written in Markdown with YAML front matter.
+## Front Matter (YAML)
 
-## Source
+```yaml
+---
+title: Project B
+slug: project-b
+layout: project
+description: This is where the project description should go!
+---
+```
+
+- `title: Project B` → The human-readable title of the page.  
+- `slug: project-b` → The short name / identifier used in URLs and includes (e.g. `/projects/project-b`).  
+- `layout: project` → Tells Jekyll which layout template to use (likely `project.html`).  
+- `description:` → Short meta description for SEO and preview text.  
+
+This block defines metadata that Jekyll will use when rendering the page.
+
+---
+
+## Page Content
 
 ```markdown
----
-title: Project B
-slug: project-b
-layout: project
-description: This is where the project description should go!
----
-
 This is **Project B**, another example project.
+```
 
+- Adds an introductory line of text.  
+- `**Project B**` → Bold emphasis for the project name.  
+
+---
+
+### Paragraph
+
+```markdown
 Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin.
+```
 
+- Placeholder filler text (“lorem ipsum” style).  
+- Intended as a description or body copy for the project.  
+
+---
+
+### List of Benefits
+
+```markdown
 - Benefit 1
 - Benefit 2
 - Benefit 3
-
 ```
 
-## Line-by-line explanation
+- Renders as a bullet point list.  
+- Each item highlights a feature or advantage of Project B.  
 
-### 1
-
-```
 ---
-```
-Start of the YAML front matter block. Everything between the opening and closing `---` is metadata.
 
-### 2
+✅ **Summary**:  
+This file defines a project page with metadata in front matter and simple content: a description paragraph and a benefits list. When built, it will be wrapped inside the `project` layout and styled according to your site’s theme.
 
-```
-title: Project B
-```
-YAML key `title` sets the page title to 'Project B'. This is used in layouts and navigation.
+# Critiques & Next Steps for project-b.md
 
-### 3
+## Critiques
+- **Generic description**: The placeholder text (“Cras sit amet…”) doesn’t tell the reader anything meaningful about the project.  
+- **Benefits list is vague**: “Benefit 1 / 2 / 3” should be replaced with real, specific advantages of the project.  
+- **No media or visuals**: There are no screenshots, diagrams, or links to demonstrate the project.  
+- **SEO could be stronger**: The `description` metadata is generic and not optimized for search or sharing.  
 
-```
-slug: project-b
-```
-YAML key `slug` defines the unique identifier 'project-b'. Useful for URLs and includes.
-
-### 4
-
-```
-layout: project
-```
-YAML key `layout` specifies the layout template to use. Here it uses the `project` layout.
-
-### 5
-
-```
-description: This is where the project description should go!
-```
-YAML key `description` provides a human-readable description of the project. Shown in listings or metadata.
-
-### 6
-
-```
----
-```
-End of the YAML front matter block. After this, normal Markdown content begins.
-
-### 7
-
-```
-(blank line)
-```
-Blank line, separates sections in Markdown.
-
-### 8
-
-```
-This is **Project B**, another example project.
-```
-Markdown paragraph introducing Project B. Uses `**` around 'Project B' to bold it.
-
-### 9
-
-```
-(blank line)
-```
-Blank line, separates sections in Markdown.
-
-### 10
-
-```
-Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin.
-```
-Another Markdown paragraph with placeholder (Lorem Ipsum–style) filler text.
-
-### 11
-
-```
-(blank line)
-```
-Blank line, separates sections in Markdown.
-
-### 12
-
-```
-- Benefit 1
-```
-Markdown list item showing a project benefit. Rendered as a bullet point in HTML.
-
-### 13
-
-```
-- Benefit 2
-```
-Markdown list item showing a project benefit. Rendered as a bullet point in HTML.
-
-### 14
-
-```
-- Benefit 3
-```
-Markdown list item showing a project benefit. Rendered as a bullet point in HTML.
+## Suggested Next Steps (v0.2)
+1. Replace placeholder text with an actual project summary (what it does, who it’s for, why it matters).  
+2. Expand the benefits list with concrete, specific points.  
+3. Add optional visuals (e.g., an image tag, diagram, or screenshot).  
+4. Improve the `description` in the front matter to make it SEO-friendly.  
+5. Consider linking to related projects or external resources.  
