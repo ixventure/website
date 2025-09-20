@@ -1,30 +1,26 @@
-# Line-by-Line Review of `_projects/test.md`
-
-**Commit reviewed:** `e86f009e403cc2a4466c2f9a0548902e47511c96`
+# `test.md` Explanation
 
 ---
 
-## 1. Front Matter
+## Front Matter
 
-```markdown
+```yaml
 ---
-title: Project B
+title: TEST
 slug: test
 layout: project
 ---
 ```
-- YAML front matter declaring metadata.
-- **title**: `Project B` (note: mismatch with filename "test.md"; may be intentional placeholder).
-- **slug**: `test` — this sets the URL/permalink segment for this project.
-- **layout**: `project` — uses `_layouts/project.html` for rendering.
+
+- **`title: TEST`** → Defines the page title shown in templates and metadata.
+- **`slug: test`** → URL-friendly identifier for this page (used for galleries, paths, or permalinks).
+- **`layout: project`** → Tells Jekyll to render this page using the `project` layout.
 
 ---
 
-## 2. Content (body)
+## Page Content
 
 ```markdown
-# Test
-
 This is **Test**, another example project.
 
 Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin.
@@ -33,27 +29,41 @@ Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante so
 - Benefit 2
 - Benefit 3
 ```
-
-Line-by-line notes:
-- `# Test` — Top-level heading. Redundant with `title: Project B`; clarify naming consistency (Project B vs Test).
-- `This is **Test**, another example project.` — Short introduction with bold formatting.
-- Placeholder Latin content (“Cras sit amet…”). Replace with actual descriptive text for production.
-- Unordered list of benefits is valid Markdown; will render as a bullet list.
+- Begins with a short introduction in Markdown.
+- Text demonstrates emphasis (`**Test**`) and typical body copy.
+- Paragraph in Latin placeholder text (`lorem ipsum`-style filler).
+- Ends with a bulleted list highlighting benefits.
 
 ---
 
-## 3. Rendering / Integration
+## Function in Site
 
-- Layout will be provided by `_layouts/project.html`, which is consistent with the other projects.
-- The slug is `test`; unless you want a permanent `/test/` URL, consider aligning slug and filename with the actual project name for consistency.
+- Serves as a **demo project page** in the Jekyll site.
+- Likely paired with assets in `/assets/projects/test/` (for galleries or screenshots).
+- Uses the `project` layout to ensure consistent styling with other project pages.
 
 ---
 
-## Summary
+## Critique
 
-This file builds correctly but has some inconsistencies:
-- **Title vs. filename vs. heading mismatch**: Title is "Project B", filename is `test.md`, heading is `# Test`. Standardize one naming convention.
-- Replace placeholder content with a real description and benefits.
-- Metadata is structurally correct, but should be cleaned up for clarity.
+✅ **Strengths**:
+- Minimal front matter (clear and sufficient for project context).
+- Shows how Markdown is rendered (bold, paragraph, lists).
+- Works well as a test or demo file for theme validation.
 
-**Ready for review and teaching purposes!**
+⚠️ **Weaknesses**:
+- Placeholder text provides little real content (not useful beyond testing).
+- Benefits list is generic — not meaningful without context.
+- No images, metadata, or links to showcase real functionality.
+
+💡 **Suggestions for Improvement**:
+1. Replace placeholder Latin text with an actual project description.
+2. Expand benefits into concrete features or outcomes.
+3. Add screenshots (`/assets/projects/test/`) and pair with `gallery.html` include.
+4. Consider front matter fields like `description:` or `tags:` for better indexing.
+5. Add external links (e.g., GitHub repo, live demo) to make the project page functional.
+
+---
+
+✅ **Summary**:  
+`test.md` is a simple placeholder project page. It verifies that the `project` layout works, demonstrates Markdown rendering, and provides a foundation for real project content, though it lacks meaningful details and assets.
