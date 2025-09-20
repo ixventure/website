@@ -1,0 +1,85 @@
+<svg width="1200" height="675" viewBox="0 0 1200 675" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="No Cap's leap of faith — light">
+  <defs>
+    <linearGradient id="lightBg" x1="0" x2="1">
+      <stop offset="0" stop-color="#ffffff"></stop>
+      <stop offset="1" stop-color="#f6fbff"></stop>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" x2="1">
+      <stop offset="0" stop-color="#0ea5e9"></stop>
+      <stop offset="1" stop-color="#0369a1"></stop>
+    </linearGradient>
+    <!-- clip area to prevent any overflow -->
+    <clipPath id="frame">
+      <rect x="0" y="0" width="1200" height="675" rx="0" ry="0"></rect>
+    </clipPath>
+  </defs>
+
+  <!-- apply safe clip to entire content -->
+  <g clip-path="url(#frame)">
+
+    <!-- Background -->
+    <rect width="100%" height="100%" fill="url(#lightBg)"></rect>
+
+    <!-- Header -->
+    <text x="64" y="84" font-family="Inter, Arial, sans-serif" font-size="28" fill="#073046" font-weight="700">No Cap’s leap of faith</text>
+
+    <!-- Two-column safe layout: left explain, right visual -->
+    <!-- Left container (safe margin) -->
+    <g transform="translate(64,120)">
+      <rect width="520" height="320" rx="10" fill="#ffffff" stroke="#e6f4fb"></rect>
+      <text x="24" y="40" font-family="Inter, Arial, sans-serif" font-size="18" fill="#074a63" font-weight="700">What’s the bet?</text>
+      <text x="24" y="80" font-family="Inter, Arial, sans-serif" font-size="15" fill="#19638a">
+        No Cap is an AI-first investor betting that AI tools allow a single human to run a startup end-to-end.
+      </text>
+      <text x="24" y="110" font-family="Inter, Arial, sans-serif" font-size="14" fill="#19638a">
+        That implies tools will substitute for co-founders, legal authority, and accountable signatories.
+      </text>
+      <text x="24" y="160" font-family="Inter, Arial, sans-serif" font-size="13" fill="#0f3f4f">
+        Risk: deals executed without durable signing and identity rails expose founders, investors, and partners.
+      </text>
+
+      <!-- small footer label within left card (keeps inside card) -->
+      <rect x="24" y="200" width="320" height="34" rx="6" fill="#f0fbff" stroke="#d9f2fb"></rect>
+      <text x="36" y="224" font-family="Inter, Arial, sans-serif" font-size="12" fill="#0369a1">ixventure.studio/ai · founder: lesa.law</text>
+    </g>
+
+    <!-- Right container (safe margin) -->
+    <g transform="translate(616,120)">
+      <rect width="520" height="320" rx="10" fill="#ffffff" stroke="#e6f4fb"></rect>
+
+      <!-- left block inside right container: TOOLS -->
+      <rect x="28" y="44" width="160" height="108" rx="8" fill="#f0fbff" stroke="#d9f2fb"></rect>
+      <text x="46" y="78" font-family="Inter, Arial, sans-serif" font-size="13" fill="#0369a1" font-weight="700">TOOLS</text>
+      <text x="46" y="98" font-family="Inter, Arial, sans-serif" font-size="12" fill="#19638a">automation • prompts • assistants</text>
+
+      <!-- right block inside right container: SCALE -->
+      <rect x="332" y="44" width="160" height="108" rx="8" fill="#f0fbff" stroke="#d9f2fb"></rect>
+      <text x="350" y="78" font-family="Inter, Arial, sans-serif" font-size="13" fill="#0369a1" font-weight="700">SCALE</text>
+      <text x="350" y="98" font-family="Inter, Arial, sans-serif" font-size="12" fill="#19638a">legal authority • signing • accountability</text>
+
+      <!-- central 'gap' box — explicitly constrained to container -->
+      <rect x="208" y="84" width="96" height="36" fill="#ffffff" stroke="#f0f7fa" rx="6"></rect>
+      <text x="236" y="107" font-family="Inter, Arial, sans-serif" font-size="12" fill="#8aaec1">the gap</text>
+
+      <!-- founder arc — constrained coordinates so it stays inside the right container -->
+      <path d="M150 166 C 230 70, 280 70, 360 166" fill="none" stroke="#0ea5e9" stroke-width="4" stroke-linecap="round"></path>
+      <circle cx="360" cy="166" r="9" fill="#0ea5e9"></circle>
+      <text x="120" y="136" font-family="Inter, Arial, sans-serif" font-size="12" fill="#19638a">solo founder</text>
+
+      <!-- rail (IxVentures) - placed low inside container -->
+      <rect x="196" y="210" width="200" height="10" rx="5" fill="url(#accent)"></rect>
+      <text x="210" y="240" font-family="Inter, Arial, sans-serif" font-size="12" fill="#0f3f4f">IxVentures — IdP, Entities, Signature Economies</text>
+
+      <!-- small badge inside right container -->
+      <rect x="340" y="12" rx="6" width="140" height="28" fill="#ff6b6b"></rect>
+      <text x="356" y="32" font-family="Inter, Arial, sans-serif" font-size="13" fill="#fff" font-weight="700">Leap = Risk</text>
+    </g>
+
+    <!-- footer line (safe area) -->
+    <text x="64" y="520" font-family="Inter, Arial, sans-serif" font-size="13" fill="#075b73">
+      Bottom line: investors funding “solo + AI” need identity + signing rails — IxVentures builds those rails.
+    </text>
+    <text x="64" y="544" font-family="Inter, Arial, sans-serif" font-size="12" fill="#9dbecf">ixventure.studio/ai · founder: lesa.law</text>
+
+  </g>
+</svg>
