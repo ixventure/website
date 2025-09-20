@@ -2,12 +2,8 @@ title: IxVenture
 description: Building something amazing with AI
 
 # Repo-mode settings
-url: ""
+url: "https://ixventure.studio"
 baseurl: ""
-
-# Use empty baseurl by default, but allow GitHub Pages to override
-# baseurl: "" 
-# url: "https://ixventure.studio" 
 
 theme: minima
 
