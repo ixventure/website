@@ -1,100 +1,132 @@
-# Line-by-Line Review of `_layouts/project.html`
+# project.html Line-by-Line Explanation
 
-**Commit reviewed:** `feed96c10b049cb4085d35aab23c5a15044d7bc2`
-
----
-
-## 1. Front Matter
+> Detailed breakdown of the template structure and behavior.
 
 ```html
 ---
+```
+YAML front matter delimiter (start).
+
+```html
 layout: default
+```
+Specifies this template uses the `default.html` layout.
+
+```html
 ---
 ```
-- YAML front matter for Jekyll.
-- Sets the base layout to `default.html`, so this template inherits from it.
-
----
-
-## 2. Article Container
+YAML front matter delimiter (end).
 
 ```html
 <article class="project">
 ```
-- Starts an HTML `<article>` with class "project" for semantic grouping and styling.
-
----
-
-## 3. Project Title
+Main article container with class `project`. Wraps all project content.
 
 ```html
-  <header>
-    <h1>{{ page.title }}</h1>
-  </header>
+<header>
 ```
-- Header section with the project’s title, pulled from page metadata.
-
----
-
-## 4. Main Project Content
+Header section of the project.
 
 ```html
-  <section class="project-content">
-    {{ content }}
-  </section>
+<h1>{{ page.title }}</h1>
 ```
-- Section for the main body/text of the project.
-- Displays the page’s Markdown or HTML content.
-
----
-
-## 5. Project Gallery
+Project title is dynamically inserted from the page's front matter.
 
 ```html
-  <section class="project-gallery">
-    {% include gallery.html slug=page.slug title=page.title %}
-  </section>
+</header>
 ```
-- Section for a gallery of images.
-- Uses the reusable `gallery.html` include, passing the page’s slug and title.
-
----
-
-## 6. Benefits Section (Conditional)
+Closes project header.
 
 ```html
-  {% if page.benefits %}
-  <section class="project-benefits">
-    <h2>Benefits</h2>
-    <ul>
-      {% for benefit in page.benefits %}
-        <li>{{ benefit }}</li>
-      {% endfor %}
-    </ul>
-  </section>
-  {% endif %}
+<section class="project-gallery">
 ```
-- If `benefits` are defined on the page, renders a section titled "Benefits".
-- Loops through each benefit and displays as a list item.
+Section to display the project gallery.
 
----
+```html
+{% include gallery.html slug=page.slug title=page.title %}
+```
+Includes the reusable `gallery.html` partial, passing the current page slug and title as parameters.
 
-## 7. End of Article
+```html
+</section>
+```
+Closes gallery section.
+
+```html
+<section class="project-content">
+```
+Section for main project content.
+
+```html
+{{ content }}
+```
+Dynamic Markdown/HTML content of the project page is injected here.
+
+```html
+</section>
+```
+Closes content section.
+
+```html
+{% if page.benefits %}
+```
+Conditional: Only render if `benefits` are defined in front matter.
+
+```html
+<section class="project-benefits">
+```
+Section for listing project benefits.
+
+```html
+<h2>Benefits</h2>
+```
+Heading for the benefits section.
+
+```html
+<ul>
+```
+Unordered list for benefits.
+
+```html
+{% for benefit in page.benefits %}
+```
+Loop through each benefit defined in front matter.
+
+```html
+<li>{{ benefit }}</li>
+```
+List item for each benefit.
+
+```html
+{% endfor %}
+```
+End of benefits loop.
+
+```html
+</ul>
+```
+Closes unordered list.
+
+```html
+</section>
+```
+Closes project benefits section.
+
+```html
+{% endif %}
+```
+Closes the conditional statement for benefits.
 
 ```html
 </article>
 ```
-- Closes the main article element.
+Closes the main project article.
 
----
+## Next Steps Critique
 
-## Summary
-
-This layout:
-- Inherits navigation, header, footer, and other global elements from `default.html`.
-- Displays the project title and main content.
-- Shows a gallery of project images using the gallery include.
-- Optionally lists benefits provided in the page’s front matter.
-- Uses clean semantic HTML for accessibility and styling.
-
-**Ready for student review and documentation!**
+- Accessibility: Consider adding ARIA roles (e.g., `role='main'`) for better accessibility.
+- SEO: Add meta tags (e.g., Open Graph, Twitter cards) for individual projects if needed.
+- Gallery: Ensure `gallery.html` handles missing or empty `slug` gracefully.
+- Benefits: If benefits can be long, consider supporting Markdown inside `<li>` for formatting.
+- Styling: Ensure consistent styling between gallery, content, and benefits sections.
+- Error handling: Consider a default message if no content or gallery exists.
