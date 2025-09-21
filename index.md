@@ -4,7 +4,9 @@ title: Home
 ---
 
 # Welcome to IxVenture, a Legal Technologies Studio
-***Legal formalism as software** - <ins>bringing humanitarian peace & joy to the world</ins>.*
+***We Believe in Legal formalism as software:***
+
+*<ins>Bringing humanitarian peace & joy to the world with lawcare-abundance</ins>.*
 
 ## Our Projects
 
