@@ -12,6 +12,6 @@ links:
 
 ## Trustless VCs for the Network State Era
 
-Bad actor VCs are a major problem for LPs and founders. Decile Group, from the LP side, created the Mensarius Oath and already get more than half of all new VCs to sign it.
+Bad actor VCs are a major problem for LPs and founders. Decile Group, from the LP side, created the Mensarius Oath and already gets more than half of all new VCs to sign it.
 
 By giving the Oath teeth via Kleros, we can quickly vet VCs, which is all the more important when the VC is investing in new cities around the world, not just new ventures in USA.
