@@ -4,7 +4,19 @@ title: Home
 ---
 
 # Welcome to IxVenture
-Legal formalism to change the world within the Goldfarb (Markup Language) and Szabo (Smart Contract) inventor-class lawyer tradition.
+***Legal formalism** to change the world within the Goldfarb (Markup Language) and Szabo (Smart Contract) inventor-class lawyer tradition.*
+
+## Why? 
+
+Legal is hyperinflationary and scarce nowadays: 
+
+* But a world that enjoys legal abundance is **a humanitarian world filled with peace & joy**. (As we now enjoy with transport abundance compared to the scarcity of 200 years ago).
+
+## Sovtech
+
+Solutions touch on existing investment categories -- **AI**, **blockchain**, **legaltech** -- but the common **deeptech** category is actually sovtech: 
+
+* **Sovtech** reinforces our rights to sovereignty along the entire **individual -> multistate** vertical, because a break anywhere along the verticle can lead to catastrophy
 
 ## Our Projects
 
