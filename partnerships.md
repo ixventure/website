@@ -7,16 +7,16 @@ permalink: /partnerships/
 # Partnerships
 
 <div class="project-grid">
-  {% for project in site.projects %}
-    {% assign project_slug = project.slug | default: project.name | split: "." | first %}
-    {% assign project_path = '/assets/projects/' | append: project_slug %}
+  {% for partner in site.partnerships %}
+    {% assign partner_slug = partner.slug | default: partner.name | split: "." | first %}
+    {% assign partner_path = '/assets/partnerships/' | append: partner_slug %}
 
     <div class="project-card">
-      <a href="{{ project.url | relative_url }}">
+      <a href="{{ partner.url | relative_url }}">
         {%- assign found_thumb = "" -%}
-        {%- assign project_files = site.static_files | where_exp: "f", "f.path contains project_path" | sort: "path" -%}
+        {%- assign partner_files = site.static_files | where_exp: "f", "f.path contains partner_path" | sort: "path" -%}
 
-        {%- for f in project_files -%}
+        {%- for f in partner_files -%}
           {%- assign name_no_ext = f.name | remove: f.extname | remove: "." | downcase -%}
           {%- assign parts = name_no_ext | split: "-" -%}
           {%- assign last_part = parts | last | plus: 0 -%}
@@ -29,7 +29,7 @@ permalink: /partnerships/
         {% if found_thumb != "" %}
           <img class="project-thumb"
                src="{{ found_thumb | relative_url }}?v={{ site.time | date: '%s' }}"
-               alt="{{ project.title }} thumbnail"
+               alt="{{ partner.title }} thumbnail"
                loading="lazy">
         {% else %}
           <img class="project-thumb"
@@ -38,9 +38,9 @@ permalink: /partnerships/
                loading="lazy">
         {% endif %}
 
-        <div class="project-title">{{ project.title }}</div>
-        {% if project.description %}
-          <div class="muted project-desc">{{ project.description }}</div>
+        <div class="project-title">{{ partner.title }}</div>
+        {% if partner.description %}
+          <div class="muted project-desc">{{ partner.description }}</div>
         {% endif %}
       </a>
     </div>
