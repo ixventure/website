@@ -4,7 +4,7 @@ title: About Us
 permalink: /about-us/
 ---
 
-# about
+# About Us
 
 ## What are We Obsessed With?
 
