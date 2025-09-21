@@ -3,10 +3,15 @@ title: SERIOUS
 slug: serious
 layout: project
 description: Working with Kleros to give Decile Group's Mensarius Oath teeth.
+links:
+  - name: demo-only EAS attest.org dapp
+    url:
+  - name: Sept 17, 2025 presentation on X.com
+    url: https://x.com/Kleros_io/status/1968714300534505551
 ---
 
-## IxVenture’s Position on DOMs
+## Trustless VCs for the Network State Era
 
-IxVenture is investing in multiple **Document Object Model (DOM) formats** because we believe DOMs represent the **next stage after digital-analog legal formalization**.
+Bad actor VCs are a major problem for LPs and founders. Decile Group, from the LP side, created the Mensarius Oath and already get more than half of all new VCs to sign it.
 
-The historical progression has been:  
+By giving the Oath teeth via Kleros, we can quickly vet VCs, which is all the more important when the VC is investing in new cities around the world, not just new ventures in USA.
