@@ -2,7 +2,7 @@
 title: DOM
 slug: dom
 layout: project
-description: Treating the DOM as a digital legal formalism "document" object.
+description: Treating the DOM as a digital legal formalism "'document' object."
 ---
 
 ## IxVenture’s Position on DOMs
