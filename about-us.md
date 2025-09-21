@@ -4,8 +4,6 @@ title: About Us
 permalink: /about-us/
 ---
 
-# About Us
-
 ## What are We Obsessed With?
 
 Continuing the inventor-class lawyer traditions of **juris doctor linguists** who have hyperdeflated legal costs worldwide:
@@ -18,9 +16,13 @@ Note that the Internet and the Blockchain are both legal expresions. They are a 
 
 ## Why are We Obsessed With It? 
 
-Legal is hyperinflationary _and_ scarce nowadays: 
+The practice of law is hyperinflationary _and_ scarce nowadays: 
 
 * But a world that enjoys legal abundance is **a humanitarian world filled with peace & joy**. (As we now enjoy with transport abundance compared to the scarcity of 200 years ago).
+  
+* Witnessing that many business opportunities do not begin only because legal costs are too high. This applies to many other prosocial chilling effects, many not normally capitalized so not well documented either.
+
+* And perhaps digital legal formalism has mostly been expressed globally, not locally, so the balance between global disintermediation and local mediaries is off kilter.
 
 ## Our Sovtech Investment Category
 
