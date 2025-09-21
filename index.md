@@ -6,8 +6,6 @@ title: Home
 # Welcome to IxVenture
 ***Legal formalism as software** - <ins>bringing humanitarian peace & joy to the world</ins>.*
 
----
-
 ## Our Projects
 
 <div class="project-grid">
@@ -90,10 +88,7 @@ title: Home
       </a>
     </div>
   {% endfor %}
-<br></br>
 </div> 
-
----
 
 ## What?
 
