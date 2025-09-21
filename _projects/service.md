@@ -2,7 +2,7 @@
 title: SERVICE
 slug: service
 layout: project
-description: Robots as realtime cosmolocol locus-of-control entertainment.
+description: Robots as realtime cosmolocal locus-of-control entertainment.
 ---
 
 ## Simple but Powerful Robots are Remote Vending Machines.
