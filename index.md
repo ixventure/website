@@ -4,7 +4,7 @@ title: Home
 ---
 
 # Welcome to IxVenture
-Building something amazing with AI.
+Legal formalism to change the world within the Goldfarb (Markup Language) and Szabo (Smart Contract) inventor-class lawyer tradition.
 
 ## Our Projects
 
