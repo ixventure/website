@@ -1,15 +1,15 @@
 ---
 layout: default
-title: Productions
-permalink: /productions/
+title: Products
+permalink: /products/
 ---
 
-# productions
+# products
 
 <div class="project-grid">
-  {% for partner in site.productions %}
+  {% for partner in site.products %}
     {% assign partner_slug = partner.slug | default: partner.name | split: "." | first %}
-    {% assign partner_path = '/assets/productions/' | append: partner_slug %}
+    {% assign partner_path = '/assets/products/' | append: partner_slug %}
 
     <div class="project-card">
       <a href="{{ partner.url | relative_url }}">
