@@ -96,9 +96,8 @@ Continuing the inventor-class lawyer traditions of **juris doctor linguists**:
       </a>
     </div>
   {% endfor %}
-</div>
-
-</br >
+<br></br>
+</div> 
 
 ---
 
