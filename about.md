@@ -1,7 +1,7 @@
 ---
 layout: default
-title: About
-permalink: /about/
+title: About Us
+permalink: /about-us/
 ---
 
 # about
@@ -29,9 +29,9 @@ Solutions touch on existing investment categories -- **AI**, **blockchain**, **l
 * **Sovtech** reinforces our rights to _sovereignty_ along the entire **individual -> multistate** vertical, because a break anywhere along the verticle can lead to catastrophy!
 
 <div class="project-grid">
-  {% for partner in site.about %}
+  {% for partner in site.about-us %}
     {% assign partner_slug = partner.slug | default: partner.name | split: "." | first %}
-    {% assign partner_path = '/assets/about/' | append: partner_slug %}
+    {% assign partner_path = '/assets/about-us/' | append: partner_slug %}
 
     <div class="project-card">
       <a href="{{ partner.url | relative_url }}">
