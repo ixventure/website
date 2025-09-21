@@ -6,6 +6,8 @@ permalink: /products/
 
 # Products
 
+{% include products.md %}
+
 <div class="project-grid">
   {% for partner in site.products %}
     {% assign partner_slug = partner.slug | default: partner.name | split: "." | first %}
