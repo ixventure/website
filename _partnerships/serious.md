@@ -5,7 +5,7 @@ layout: project
 description: Working with Kleros to give Decile Group's Mensarius Oath teeth.
 links:
   - name: demo-only EAS attest.org dapp
-    url:
+    url: https://mensarius.vercel.app
   - name: Sept 17, 2025 presentation on X.com
     url: https://x.com/Kleros_io/status/1968714300534505551
 ---
