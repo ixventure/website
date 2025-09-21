@@ -8,6 +8,8 @@ permalink: /about-us/
 
 {% include about-us.md %}
 
+---
+
 ## Team Resources
 
 <div class="project-grid">
