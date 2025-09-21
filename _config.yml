@@ -17,6 +17,12 @@ collections:
   partnerships:
     output: true
     permalink: /partnerships/:path/
+  operations:
+    output: true
+    permalink: /operations/:path/
+  products:
+    output: true
+    permalink: /products/:path/
 
 # Ensure static images are included
 include:
