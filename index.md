@@ -4,7 +4,9 @@ title: Home
 ---
 
 # Welcome to IxVenture
-***Legal formalism** to change the world within the Goldfarb (Markup Language) and Szabo (Smart Contract) inventor-class lawyer tradition.*
+***Legal formalism as software** to bring humanitarian peace & joy to the world.*
+
+*Continuing the inventor-class lawyer traditions of **juris doctor linguists** Goldfarb (Markup Language) and Szabo (Smart-Contract Language).*
 
 ## Our Projects
 
