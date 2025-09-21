@@ -8,6 +8,8 @@ permalink: /about-us/
 
 {% include about-us.md %}
 
+## Team Resources
+
 <div class="project-grid">
   {% for partner in site.about-us %}
     {% assign partner_slug = partner.slug | default: partner.name | split: "." | first %}
