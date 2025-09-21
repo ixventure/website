@@ -106,7 +106,7 @@ Legal is hyperinflationary and scarce nowadays:
 
 ---
 
-## Sovtech
+## Our Sovtech Investment Category
 
 Solutions touch on existing investment categories -- **AI**, **blockchain**, **legaltech** -- but the common **deeptech** category is sovtech: 
 
