@@ -18,6 +18,8 @@ Solutions touch on existing investment categories -- **AI**, **blockchain**, **l
 
 * **Sovtech** reinforces our rights to sovereignty along the entire **individual -> multistate** vertical, because a break anywhere along the verticle can lead to catastrophy
 
+---
+
 ## Our Projects
 
 <div class="project-grid">
@@ -27,9 +29,6 @@ Solutions touch on existing investment categories -- **AI**, **blockchain**, **l
 
     <div class="project-card">
       <a href="{{ project.url | relative_url }}">
-        {%- comment -%}
-          Find the first image in the project folder (any name, robust, sorted by filename)
-        {%- endcomment -%}
         {%- assign found_thumb = "" -%}
         {%- assign extensions = "png,jpg,jpeg,svg" | split: "," -%}
         {%- assign project_files = site.static_files | where_exp: "f", "f.path contains project_path" | sort: "path" -%}
@@ -57,6 +56,50 @@ Solutions touch on existing investment categories -- **AI**, **blockchain**, **l
         <div class="project-title">{{ project.title }}</div>
         {% if project.description %}
           <div class="muted project-desc">{{ project.description }}</div>
+        {% endif %}
+      </a>
+    </div>
+  {% endfor %}
+</div>
+
+---
+
+## Our Partnerships
+
+<div class="project-grid">
+  {% for partner in site.partnerships %}
+    {% assign partner_slug = partner.slug | default: partner.name | split: "." | first %}
+    {% assign partner_path = '/assets/partnerships/' | append: partner_slug %}
+
+    <div class="project-card">
+      <a href="{{ partner.url | relative_url }}">
+        {%- assign found_thumb = "" -%}
+        {%- assign extensions = "png,jpg,jpeg,svg" | split: "," -%}
+        {%- assign partner_files = site.static_files | where_exp: "f", "f.path contains partner_path" | sort: "path" -%}
+
+        {%- for f in partner_files -%}
+          {%- assign ext = f.extname | remove: "." | downcase -%}
+          {%- if extensions contains ext -%}
+            {%- assign found_thumb = f.path -%}
+            {%- break -%}
+          {%- endif -%}
+        {%- endfor -%}
+
+        {% if found_thumb != "" %}
+          <img class="project-thumb"
+               src="{{ found_thumb | relative_url }}?v={{ site.time | date: '%s' }}"
+               alt="{{ partner.title }} thumbnail"
+               loading="lazy">
+        {% else %}
+          <img class="project-thumb"
+               src="{{ '/assets/images/logo.png' | relative_url }}?v={{ site.time | date: '%s' }}"
+               alt="IxVenture logo (fallback)"
+               loading="lazy">
+        {% endif %}
+
+        <div class="project-title">{{ partner.title }}</div>
+        {% if partner.description %}
+          <div class="muted project-desc">{{ partner.description }}</div>
         {% endif %}
       </a>
     </div>
