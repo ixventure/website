@@ -11,7 +11,77 @@
     <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
 
     <style>
-      /* small toast styles */
+      /* --- Header Styles --- */
+      .site-header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background: #fff;
+        border-bottom: 1px solid #eee;
+        z-index: 1000;
+      }
+      .header-flex {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0.75rem 1rem;
+      }
+      .site-title {
+        font-weight: bold;
+        font-size: 1.2rem;
+        text-decoration: none;
+        color: #000;
+      }
+
+      /* --- Burger Toggle --- */
+      .nav-toggle {
+        font-size: 1.8rem;
+        cursor: pointer;
+        background: none;
+        border: none;
+        display: none; /* hidden on desktop */
+      }
+
+      /* --- Nav Links --- */
+      .site-nav {
+        display: flex;
+        gap: 1rem;
+      }
+      .site-nav a {
+        text-decoration: none;
+        color: #333;
+        font-weight: 500;
+      }
+
+      /* --- Mobile Dropdown --- */
+      @media (max-width: 768px) {
+        .nav-toggle {
+          display: block; /* show burger */
+        }
+        .site-nav {
+          display: none; /* hide menu by default */
+          flex-direction: column;
+          position: absolute;
+          top: 100%;
+          right: 0;
+          background: #fff;
+          border: 1px solid #ddd;
+          border-radius: 0.5rem;
+          box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+          padding: 1rem;
+        }
+        .site-nav.open {
+          display: flex; /* show when toggled */
+        }
+      }
+
+      /* --- Push content down so header doesn't overlap --- */
+      .page-content {
+        margin-top: 4rem;
+      }
+
+      /* --- Update Toast (unchanged) --- */
       #update-toast {
         display: none;
         position: fixed;
@@ -46,6 +116,7 @@
     <header class="site-header" role="banner">
       <div class="wrapper header-flex">
         <a class="site-title" rel="author" href="{{ '/' | relative_url }}">{{ site.title | escape }}</a>
+        <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
         <nav class="site-nav">
           <a href="{{ '/projects/' | relative_url }}">Projects</a>
           <a href="{{ '/partnerships/' | relative_url }}">Partnerships</a>
@@ -65,8 +136,7 @@
       <div class="wrapper">
         <p>
           © IxAcc Ventures, Inc. 2025<br>
-          Powered by Jekyll: theme is a FLOSS fork of Minima<br>
-          Contributions welcome: github.com/ixventure/dom-jekyll<br>
+          Powered by Jekyll: this "DOM-Jekyll" theme is a FLOSS fork of Minima ([contributions welcome](https://github.com/ixventure/dom-jekyll)!).<br>
           Version: {{ site.version }}
         </p>
       </div>
@@ -79,6 +149,12 @@
     </div>
 
     <script>
+      // --- Burger Menu ---
+      document.querySelector('.nav-toggle').addEventListener('click', () => {
+        document.querySelector('.site-nav').classList.toggle('open');
+      });
+
+      // --- Update check (unchanged) ---
       document.addEventListener('DOMContentLoaded', function () {
         const toast = document.getElementById('update-toast');
         const reloadBtn = document.getElementById('reload-btn');
