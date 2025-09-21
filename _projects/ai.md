@@ -1,6 +1,6 @@
 ---
-title: AI
-slug: ai
+title: PUPIL
+slug: pupil
 layout: project
 description: Structuring AI-Human interactions as Entrepreneur-Founder interactions.
 ---
