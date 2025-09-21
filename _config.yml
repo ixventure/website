@@ -23,6 +23,9 @@ collections:
   products:
     output: true
     permalink: /products/:path/
+  about:
+    output: true
+    permalink: /about/:path/
 
 # Ensure static images are included
 include:
