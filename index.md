@@ -14,9 +14,9 @@ Legal is hyperinflationary and scarce nowadays:
 
 ## Sovtech
 
-Solutions touch on existing investment categories -- **AI**, **blockchain**, **legaltech** -- but the common **deeptech** category is actually sovtech: 
+Solutions touch on existing investment categories -- **AI**, **blockchain**, **legaltech** -- but the common **deeptech** category is sovtech: 
 
-* **Sovtech** reinforces our rights to sovereignty along the entire **individual -> multistate** vertical, because a break anywhere along the verticle can lead to catastrophy
+* **Sovtech** reinforces our rights to _sovereignty_ along the entire **individual -> multistate** vertical, because a break anywhere along the verticle can lead to catastrophy
 
 ## Our Projects
 
