@@ -4,7 +4,7 @@ title: Home
 ---
 
 # Welcome to IxVenture
-***Legal formalism as software** to <ins>bring humanitarian peace & joy to the world</ins>.*
+***Legal formalism as software** <ins>bringing humanitarian peace & joy to the world</ins>.*
 
 Continuing the inventor-class lawyer traditions of **juris doctor linguists**: 
 
