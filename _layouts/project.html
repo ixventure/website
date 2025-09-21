@@ -15,12 +15,12 @@ layout: default
     {{ content }}
   </section>
 
-  {% if page.benefits %}
-  <section class="project-benefits">
-    <h2>Benefits</h2>
+  {% if page.links %}
+  <section class="project-links">
+    <h2>Links</h2>
     <ul>
-      {% for benefit in page.benefits %}
-        <li>{{ benefit }}</li>
+      {% for link in page.links %}
+        <li><a href="{{ link.url }}" target="_blank" rel="noopener">{{ link.name }}</a></li>
       {% endfor %}
     </ul>
   </section>
