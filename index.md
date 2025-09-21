@@ -18,8 +18,6 @@ Solutions touch on existing investment categories -- **AI**, **blockchain**, **l
 
 * **Sovtech** reinforces our rights to sovereignty along the entire **individual -> multistate** vertical, because a break anywhere along the verticle can lead to catastrophy
 
----
-
 ## Our Projects
 
 <div class="project-grid">
@@ -61,8 +59,6 @@ Solutions touch on existing investment categories -- **AI**, **blockchain**, **l
     </div>
   {% endfor %}
 </div>
-
----
 
 ## Our Partnerships
 
