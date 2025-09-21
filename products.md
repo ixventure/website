@@ -4,7 +4,7 @@ title: Products
 permalink: /products/
 ---
 
-# products
+# Products
 
 <div class="project-grid">
   {% for partner in site.products %}
