@@ -1,5 +1,3 @@
-# About Us
-
 ## What are We Obsessed With?
 
 Continuing the inventor-class lawyer traditions of **juris doctor linguists** who have hyperdeflated legal costs worldwide:
