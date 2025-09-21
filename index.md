@@ -6,12 +6,6 @@ title: Home
 # Welcome to IxVenture
 ***Legal formalism as software** - <ins>bringing humanitarian peace & joy to the world</ins>.*
 
-Continuing the inventor-class lawyer traditions of **juris doctor linguists**: 
-
-* **Goldfarb**, the Internet's grandpa by inventing **Markup Language** _digital legal formalization_
-  
-* **Szabo**, the Blockchain's grandpa by inventing **Smart-Contract Language** _digital legal formalization_
-
 ---
 
 ## Our Projects
@@ -100,6 +94,14 @@ Continuing the inventor-class lawyer traditions of **juris doctor linguists**:
 </div> 
 
 ---
+
+## What?
+
+Continuing the inventor-class lawyer traditions of **juris doctor linguists**: 
+
+* **Goldfarb**, the Internet's grandpa by inventing **Markup Language** _digital legal formalization_
+  
+* **Szabo**, the Blockchain's grandpa by inventing **Smart-Contract Language** _digital legal formalization_
 
 ## Why? 
 
