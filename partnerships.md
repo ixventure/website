@@ -4,7 +4,7 @@ title: Partnerships
 permalink: /partnerships/
 ---
 
-# Projects
+# Partnerships
 
 <div class="project-grid">
   {% for project in site.projects %}
