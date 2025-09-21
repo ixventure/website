@@ -1,6 +1,6 @@
 ---
-title: DOM
-slug: dom
+title: THIS
+slug: this
 layout: project
 description: Treating the DOM as a digital legal formalism "'document' object."
 ---
