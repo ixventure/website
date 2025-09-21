@@ -8,6 +8,8 @@ title: Home
 
 *Continuing the inventor-class lawyer traditions of **juris doctor linguists** Goldfarb (Markup Language) and Szabo (Smart-Contract Language).*
 
+---
+
 ## Our Projects
 
 <div class="project-grid">
@@ -91,6 +93,8 @@ title: Home
     </div>
   {% endfor %}
 </div>
+
+---
 
 ## Why? 
 
