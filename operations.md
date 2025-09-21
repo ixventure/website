@@ -4,7 +4,7 @@ title: Operations
 permalink: /operations/
 ---
 
-# operations
+# Operations
 
 <div class="project-grid">
   {% for partner in site.operations %}
