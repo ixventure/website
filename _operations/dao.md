@@ -2,7 +2,7 @@
 title: DAO
 slug: dao
 layout: project
-description: DAO Coalition believes the vision of DAOs can only be achieved when lawyers become literate in digital legal formalism.
+description: DAO Coalition, a 501(c)4, believes the vision of DAOs can only be achieved when lawyers become literate in digital legal formalism.
 links:
   - name: website
     url: https://www.daocoalition.org
