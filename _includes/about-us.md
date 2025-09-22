@@ -1,14 +1,14 @@
 ## What are We Obsessed With?
 
-Continuing the inventor-class lawyer traditions of **juris doctor linguists** who have hyperdeflated legal costs worldwide:
+Continuing the inventor-class lawyer traditions of **juris doctor linguists** who have *hyperdeflated* legal costs worldwide:
 
 * **Goldfarb**, the Internet's grandpa by inventing **Markup Language** _digital legal formalization_
   
 * **Szabo**, the Blockchain's grandpa by inventing **Smart-Contract Language** _digital legal formalization_
 
-Note that the Internet and the Blockchain are both legal expressions. They are a Commons of real-world relationships formalized through XML, Solidity, etc.
+Note that the Internet and the Blockchain are both legal expressions. They are a "Commons" of real-world relationships formalized through XML, Solidity, etc.
 
-## Why are We Obsessed With It?
+## Why are We Obsessed With This?
 
 Legal is hyperinflationary _and_ scarce nowadays: 
 
