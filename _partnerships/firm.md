@@ -2,7 +2,7 @@
 title: FIRM
 slug: firm
 layout: project
-description: A legal & legal engineering firm specializing in polycentric and special economic city-state zone legal needs.
+description: Ixian.tech is our legal & legal engineering firm specializing in polycentric and special economic city-state zone legal needs.
 links:
   - name: website
     url: https://ixian.tech
