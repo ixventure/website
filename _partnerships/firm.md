@@ -10,4 +10,4 @@ links:
 
 ## A great place to understand pain-points and how to automate.
 
-Clients willing to pay expensive manual legal fees have a real demand that IxVenture Studio uses to understand what to build next.
+Clients willing to pay expensive manual legal fees have a real demand that **IxVenture Studio** uses to understand what to build next.
