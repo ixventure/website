@@ -7,23 +7,61 @@ layout: default
     <h1>{{ page.title }}</h1>
   </header>
 
-  <section class="project-gallery">
-    {% comment %}
-      Detect collection type from page.path
-      and map it to the right asset folder
-    {% endcomment %}
-    {% if page.path contains '_projects/' %}
-      {% assign folder = 'projects' %}
-    {% elsif page.path contains '_partnerships/' %}
-      {% assign folder = 'partnerships' %}
-    {% elsif page.path contains '_operations/' %}
-      {% assign folder = 'operations' %}
-    {% elsif page.path contains '_products/' %}
-      {% assign folder = 'products' %}
-    {% else %}
-      {% assign folder = 'projects' %} {# default fallback #}
-    {% endif %}
+  {%- comment -%}
+    Detect collection type from page.path and map to the right asset folder
+  {%- endcomment -%}
+  {% if page.path contains '_projects/' %}
+    {% assign folder = 'projects' %}
+  {% elsif page.path contains '_partnerships/' %}
+    {% assign folder = 'partnerships' %}
+  {% elsif page.path contains '_operations/' %}
+    {% assign folder = 'operations' %}
+  {% elsif page.path contains '_products/' %}
+    {% assign folder = 'products' %}
+  {% else %}
+    {% assign folder = 'projects' %} {# default fallback #}
+  {% endif %}
 
+  {%- comment -%}
+    Auto-detect the lowest-numbered screenshot for thumbnail
+  {%- endcomment -%}
+  {% assign gallery_slug = page.slug %}
+  {% assign gallery_folder = folder %}
+  {% assign gallery_path = '/assets/' | append: gallery_folder | append: '/' | append: gallery_slug %}
+
+  {%- assign extensions = "png,jpg,jpeg,svg" | split: "," -%}
+  {%- assign screenshots = site.static_files | where_exp: "file", "file.path contains gallery_path" -%}
+  {%- assign numbered_files = "" | split: "" -%}
+
+  {%- for file in screenshots -%}
+    {%- assign ext = file.extname | remove: "." | downcase -%}
+    {%- assign name_no_ext = file.name | remove: file.extname | remove: "." -%}
+    {%- assign parts = name_no_ext | split: "-" -%}
+
+    {%- assign number_val = 0 -%}
+    {%- for p in parts reversed -%}
+      {%- assign try_num = p | plus: 0 -%}
+      {%- if try_num > 0 -%}
+        {%- assign number_val = try_num -%}
+        {%- break -%}
+      {%- endif -%}
+    {%- endfor -%}
+
+    {%- if extensions contains ext and number_val > 0 -%}
+      {%- assign padded = number_val | plus: 100000 -%}
+      {%- assign padded_str = padded | slice: 1,5 -%}
+      {%- assign item = padded_str | append: "|" | append: file.path -%}
+      {%- assign numbered_files = numbered_files | push: item -%}
+    {%- endif -%}
+  {%- endfor -%}
+
+  {%- assign sorted_files = numbered_files | sort_natural -%}
+  {%- if sorted_files.size > 0 -%}
+    {%- assign first_file_parts = sorted_files | first | split: "|" -%}
+    {% assign page.thumbnail = first_file_parts[1] %}
+  {%- endif -%}
+
+  <section class="project-gallery">
     {% include gallery.html slug=page.slug title=page.title folder=folder %}
   </section>
   
