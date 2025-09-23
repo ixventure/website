@@ -1,11 +1,11 @@
 ---
-title: EXTITUTION
-slug: extitution
+title: EXTITUTE
+slug: extitute
 layout: project
 description: Ethereum Community Fund and other decentralized workforce team-ups.
 links:
   - name: Memo with Ethereum Community Fund
-    url: https://ethsign.xyz/share/4foav2uoblir
+    url: https://mobile.ethsign.xyz/share/4foav2uoblir
 ---
 
 ## Various partnerships leaning heavily on FLOSS community tools.
