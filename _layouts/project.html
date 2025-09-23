@@ -20,6 +20,8 @@ layout: default
       {% assign folder = 'operations' %}
     {% elsif page.path contains '_products/' %}
       {% assign folder = 'products' %}
+    {% elsif page.path contains 'about-us/' %}
+      {% assign folder = 'about-us' %}
     {% else %}
       {% assign folder = 'projects' %} {# default fallback #}
     {% endif %}
