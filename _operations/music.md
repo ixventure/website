@@ -1,6 +1,6 @@
 ---
-title: W3M
-slug: w3m
+title: MUSIC
+slug: music
 layout: project
 description: Ambassadors bridge the gap between the music industry and Web3.
 links:
