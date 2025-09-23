@@ -2,18 +2,19 @@
 Gallery include
 ----------------------------------
 Usage:
-  {% include gallery.html slug="project-a" title="Project A" %}
-If omitted, it will use page.slug or page.name as a fallback.
+  {% include gallery.html slug="thing" title="Thing" folder="projects" %}
+If omitted, it will try page.slug/page.name and default to "projects".
 {%- endcomment -%}
 
-{%- assign project_slug = include.slug | default: page.slug | default: page.name | split: "." | first -%}
-{%- assign project_path = '/assets/projects/' | append: project_slug -%}
+{%- assign gallery_slug = include.slug | default: page.slug | default: page.name | split: "." | first -%}
+{%- assign gallery_folder = include.folder | default: "projects" -%}
+{%- assign gallery_path = '/assets/' | append: gallery_folder | append: '/' | append: gallery_slug -%}
 
 <div class="gallery">
   <div class="swiper gallery-swiper">
     <div class="swiper-wrapper">
       {%- assign extensions = "png,jpg,jpeg,svg" | split: "," -%}
-      {%- assign screenshots = site.static_files | where_exp: "file", "file.path contains project_path" -%}
+      {%- assign screenshots = site.static_files | where_exp: "file", "file.path contains gallery_path" -%}
 
       {%- assign numbered_files = "" | split: "" -%}
 
@@ -57,7 +58,7 @@ document.addEventListener("DOMContentLoaded", function () {
   if (wrapper.querySelectorAll(".swiper-slide").length === 0) {
     const msg = document.createElement("p");
     msg.innerHTML =
-      `<em>No gallery images found. Please add files matching <code>-NUMBER.png|.jpg|.jpeg|.svg</code> to <code>{{ project_path }}</code>.</em>`;
+      `<em>No gallery images found. Please add files matching <code>-NUMBER.png|.jpg|.jpeg|.svg</code> to <code>{{ gallery_path }}</code>.</em>`;
     wrapper.parentNode.insertBefore(msg, wrapper);
     wrapper.remove();
     return;
@@ -69,14 +70,14 @@ document.addEventListener("DOMContentLoaded", function () {
     pagination: { el: wrapperSelector + ' .swiper-pagination', clickable: true },
     slidesPerView: 1,
     spaceBetween: 10,
-    keyboard: { enabled: true, onlyInViewport: true } // ← enable arrow key navigation
+    keyboard: { enabled: true, onlyInViewport: true }
   });
 
   // click on image: left half = prev, right half = next
   wrapper.addEventListener("click", function (e) {
     if (e.target.tagName.toLowerCase() === "img") {
       const rect = e.target.getBoundingClientRect();
-      const clickX = e.clientX - rect.left; // click position relative to image
+      const clickX = e.clientX - rect.left;
       if (clickX < rect.width / 2) {
         swiper.slidePrev();
       } else {
