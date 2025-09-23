@@ -6,43 +6,49 @@ permalink: /about-us/
 
 # About Us
 
-Welcome to IxVenture, a Legal Technologies Studio.  
-We believe in **Legal Formalism as Software** and aim to bring humanitarian peace & joy to the world through lawcare-abundance.
-
----
-
-## Our Story
-
-IxVenture was founded to formalize legal and organizational logic in a programmable, transparent, and verifiable way. Our projects, partnerships, operations, and products embody this philosophy.
-
----
-
-## Team Gallery
-
-{% include gallery.html slug="about-us" title="About Us" folder="projects" %}
-
-*Images above are ordered by number and display the first-numbered image as the thumbnail.*
+{% include about-us.md %}
 
 ---
 
 ## Team Resources
 
 <div class="project-grid">
-  {% assign folder = 'projects' %}
-  {% assign about_files = site.static_files | where_exp: "f", "f.path contains '/assets/projects/about-us/'" | sort: "path" %}
+  {% for partner in site.about-us %}
+    {% assign partner_slug = partner.slug | default: partner.name | split: "." | first %}
+    {% assign partner_path = '/assets/about-us/' | append: partner_slug %}
 
-  {% for f in about_files %}
-    {% assign ext = f.extname | remove: "." | downcase %}
-    {% if ext == "png" or ext == "jpg" or ext == "jpeg" or ext == "svg" %}
-      <div class="project-card">
-        <a href="{{ f.path | relative_url }}">
+    <div class="project-card">
+      <a href="{{ partner.url | relative_url }}">
+        {%- assign found_thumb = "" -%}
+        {%- assign partner_files = site.static_files | where_exp: "f", "f.path contains partner_path" | sort: "path" -%}
+
+        {%- for f in partner_files -%}
+          {%- assign name_no_ext = f.name | remove: f.extname | remove: "." | downcase -%}
+          {%- assign parts = name_no_ext | split: "-" -%}
+          {%- assign last_part = parts | last | plus: 0 -%}
+          {%- if last_part > 0 -%}
+            {%- assign found_thumb = f.path -%}
+            {%- break -%}
+          {%- endif -%}
+        {%- endfor -%}
+
+        {% if found_thumb != "" %}
           <img class="project-thumb"
-               src="{{ f.path | relative_url }}?v={{ site.time | date: '%s' }}"
-               alt="About Us image"
+               src="{{ found_thumb | relative_url }}?v={{ site.time | date: '%s' }}"
+               alt="{{ partner.title }} thumbnail"
                loading="lazy">
-          <div class="project-title">{{ f.name | remove: f.extname }}</div>
-        </a>
-      </div>
-    {% endif %}
+        {% else %}
+          <img class="project-thumb"
+               src="{{ '/assets/images/logo.png' | relative_url }}?v={{ site.time | date: '%s' }}"
+               alt="IxVenture logo (fallback)"
+               loading="lazy">
+        {% endif %}
+
+        <div class="project-title">{{ partner.title }}</div>
+        {% if partner.description %}
+          <div class="muted project-desc">{{ partner.description }}</div>
+        {% endif %}
+      </a>
+    </div>
   {% endfor %}
 </div>
