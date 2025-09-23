@@ -22,11 +22,24 @@ If omitted, it will try page.slug/page.name and default to "projects".
         {%- assign ext = file.extname | remove: "." | downcase -%}
         {%- assign name_no_ext = file.name | remove: file.extname | remove: "." -%}
         {%- assign parts = name_no_ext | split: "-" -%}
+
+        {%- comment -%} Try last token first, fall back to first token if last isn't numeric. {%- endcomment -%}
         {%- assign last_part = parts | last -%}
         {%- assign number_val = last_part | plus: 0 -%}
+        {%- if number_val <= 0 -%}
+          {%- assign first_part = parts[0] | plus: 0 -%}
+          {%- assign number_val = first_part -%}
+        {%- endif -%}
 
         {%- if extensions contains ext and number_val > 0 -%}
-          {%- assign item = file.path | append: "|" | append: number_val | append: "|" | append: ext -%}
+          {%- comment -%}
+            zero-pad the number to 5 digits by adding 100000 and slicing off the leading '1'
+            (safe up to 99999 images)
+          {%- endcomment -%}
+          {%- assign padded = number_val | plus: 100000 -%}
+          {%- assign padded_str = padded | slice: 1,5 -%}
+
+          {%- assign item = padded_str | append: "|" | append: file.path | append: "|" | append: ext -%}
           {%- assign numbered_files = numbered_files | push: item -%}
         {%- endif -%}
       {%- endfor -%}
@@ -35,8 +48,9 @@ If omitted, it will try page.slug/page.name and default to "projects".
 
       {%- for item in sorted_files -%}
         {%- assign parts = item | split: "|" -%}
+        {%- assign file_path = parts[1] -%}
         <div class="swiper-slide">
-          <img src="{{ parts[0] | relative_url }}?v={{ site.time | date: '%s' }}"
+          <img src="{{ file_path | relative_url }}?v={{ site.time | date: '%s' }}"
                alt="{{ include.title | default: page.title }} screenshot">
         </div>
       {%- endfor -%}
