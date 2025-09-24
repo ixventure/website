@@ -24,10 +24,10 @@ links:
 
 ## IxVenture’s Position on DOM iFrames
 
-IxVenture is investing in multiple recursive (iFrame) **Document Object Model (DOM) formats** because we believe DOMs represent the **next stage after print-digitized legal formalization: natively-digital legal formalization**.
+IxVenture is investing in multiple recursive (iFrame) **Document Object Model (DOM) formats** because we believe DOMs represent the **next stage after print-digitized legal formalization: <ins>natively-digital legal formalization</ins>**.
 
 By supporting the development of **multiple legally meaningful DOM formats**, IxVenture is building toward a world where organizational and contractual logic can be expressed as interoperable objects.
 
-Many of the DOM stacks we're building uses the Hierarchical Script-Database "**SeedTree**" kernel-not-framework solution invented by IxVenture co-founder, bestape.
+Many of the DOM stacks we're building use the Hierarchical Script-Database "**SeedTree**" kernel-not-framework solution invented by IxVenture co-founder, bestape.
 
 From this object orientation, we believe very much that iFrames should be expressed as NFT interdata objects.
