@@ -5,7 +5,7 @@
 
 /* ========================
    Base tweaks for IxVenture
-   ======================== */
+   ========================= */
 
 body {
   font-family: system-ui, sans-serif;
@@ -52,7 +52,7 @@ p, li {
 
 /* ========================
    Header tweaks
-   ======================== */
+   ========================= */
 .site-nav a {
   padding: 0.5rem 0.75rem;
   display: inline-block;
@@ -60,7 +60,7 @@ p, li {
 
 /* ========================
    Project grid + cards
-   ======================== */
+   ========================= */
 
 .project-grid {
   display: grid;
@@ -110,7 +110,7 @@ p, li {
 
 /* ========================
    Swiper tweaks (gallery)
-   ======================== */
+   ========================= */
 
 .swiper {
   width: 100%;
@@ -139,7 +139,7 @@ p, li {
 
 /* ========================
    Gallery tweaks
-   ======================== */
+   ========================= */
 
 /* Hide arrows completely */
 .swiper-button-prev,
@@ -154,38 +154,46 @@ p, li {
   text-align: center;
 }
 
-/* pagination dots */
-.gallery .swiper-pagination-bullet {
-  background-color: gray;   /* default */
-  opacity: 0.6;             /* slightly transparent */
-}
-
-/* active dot */
-.gallery .swiper-pagination-bullet-active {
-  background-color: #555;   /* darker gray for the active slide */
-  opacity: 1;
-}
-
 /* ========================
    Responsive pagination dots
-   (auto-shrink if they would overflow)
-   ======================== */
+   (auto-shrink with active dot emphasis)
+   ========================= */
 .gallery .swiper-pagination {
   display: flex;
   justify-content: center;
   flex-wrap: nowrap;
-  gap: 6px;              /* space between dots */
-  overflow: hidden;      /* prevent wrapping to new line */
+  gap: 6px;
 }
 
 .gallery .swiper-pagination-bullet {
-  flex: 1 1 auto;        /* allow shrinking */
-  max-width: 10px;       /* normal size */
-  max-height: 10px;
-  min-width: 4px;        /* don’t shrink too far */
-  min-height: 4px;
-  width: 10px;
+  flex: 0 1 auto;           /* allow shrinking */
+  width: 10px;               /* normal size */
   height: 10px;
+  min-width: 4px;            /* shrink limit */
+  min-height: 4px;
   border-radius: 50%;
-  transition: transform 0.2s ease;
+  background-color: gray;
+  opacity: 0.6;
+  transition: all 0.2s ease;
+}
+
+/* Active dot slightly larger, shrinks proportionally */
+.gallery .swiper-pagination-bullet-active {
+  background-color: #555;
+  opacity: 1;
+  transform: scale(1.3);      /* slightly bigger than others */
+}
+
+/* Optional: shrink all dots proportionally if container is too narrow */
+@media (max-width: 400px) {
+  .gallery .swiper-pagination-bullet {
+    width: 8px;
+    height: 8px;
+    min-width: 3px;
+    min-height: 3px;
+  }
+
+  .gallery .swiper-pagination-bullet-active {
+    transform: scale(1.3); /* keeps it slightly larger */
+  }
 }
