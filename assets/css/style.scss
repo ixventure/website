@@ -10,8 +10,9 @@
 body {
   font-family: system-ui, sans-serif;
   line-height: 1.6;
-  background: #fff;
+  background-color: #fff;
   color: #222;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 h1, h2, h3 {
@@ -26,11 +27,12 @@ p, li {
 
 /* Header + Footer */
 .site-header, .site-footer {
-  background: #fafafa;
+  background-color: #fafafa;
   border-top: 1px solid #e0e0e0;
   border-bottom: 1px solid #e0e0e0;
   padding: 1em 0;
   text-align: center;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
 .site-footer p {
@@ -56,6 +58,7 @@ p, li {
 .site-nav a {
   padding: 0.5rem 0.75rem;
   display: inline-block;
+  transition: color 0.3s ease;
 }
 
 /* ========================
@@ -73,10 +76,10 @@ p, li {
   border: 1px solid #e0e0e0;
   border-radius: 8px;
   overflow: hidden;
-  background: #fff;
+  background-color: #fff;
   text-align: center;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-  padding: 1rem; /* Added inner spacing */
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.3s ease, border-color 0.3s ease;
+  padding: 1rem;
 }
 
 .project-card:hover {
@@ -94,7 +97,8 @@ p, li {
   width: 100%;
   height: 160px;
   object-fit: cover;
-  background: #f8f8f8;
+  background-color: #f8f8f8;
+  transition: background-color 0.3s ease;
 }
 
 .project-title {
@@ -102,6 +106,7 @@ p, li {
   font-weight: 600;
   font-size: 1rem;
   color: #222;
+  transition: color 0.3s ease;
 }
 
 .project-card p {
@@ -119,11 +124,11 @@ p, li {
 
 .swiper .swiper-slide {
   position: relative;
-  aspect-ratio: 16 / 9;     /* lock slides to a fixed ratio */
+  aspect-ratio: 16 / 9;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: transparent;  /* padding stays transparent */
+  background: transparent;
 }
 
 .swiper .swiper-slide img {
@@ -132,7 +137,7 @@ p, li {
   left: 0;
   width: 100%;
   height: 100%;
-  object-fit: contain;      /* fit without cropping */
+  object-fit: contain;
   border-radius: 6px;
   background-color: transparent;
 }
@@ -165,8 +170,8 @@ p, li {
 }
 
 .gallery .swiper-pagination-bullet {
-  flex: 0 1 auto !important;       /* allow shrinking */
-  width: auto !important;           /* auto to let flex shrink */
+  flex: 0 1 auto !important;
+  width: auto !important;
   height: auto !important;
   min-width: 4px !important;
   min-height: 4px !important;
@@ -181,7 +186,7 @@ p, li {
 .gallery .swiper-pagination-bullet-active {
   background-color: #555 !important;
   opacity: 1 !important;
-  transform: scale(1.3) !important;   /* active dot slightly bigger */
+  transform: scale(1.3) !important;
 }
 
 /* Optional: tiny screens */
@@ -190,4 +195,47 @@ p, li {
     min-width: 3px !important;
     min-height: 3px !important;
   }
+}
+
+/* ========================
+   Night mode toggle
+   ========================= */
+body.dark-mode {
+  background-color: #111;
+  color: #eee;
+}
+
+body.dark-mode .site-header,
+body.dark-mode .site-footer {
+  background-color: #222;
+  border-color: #333;
+}
+
+body.dark-mode .site-footer p {
+  color: #aaa;
+}
+
+body.dark-mode .project-card {
+  background-color: #1a1a1a;
+  border-color: #333;
+}
+
+body.dark-mode .project-title {
+  color: #eee;
+}
+
+body.dark-mode .project-thumb {
+  background-color: #222;
+}
+
+body.dark-mode .site-nav a {
+  color: #ddd;
+}
+
+body.dark-mode .gallery .swiper-pagination-bullet {
+  background-color: #666 !important;
+}
+
+body.dark-mode .gallery .swiper-pagination-bullet-active {
+  background-color: #fff !important;
 }
