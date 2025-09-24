@@ -18,8 +18,6 @@ An in-frame collectible tabletop robot the entertainer lets livestreamers contro
 
 It's much easier to deploy recursive solutions on permissionless networks, hence Web3.
 
----
+### The friendly ghost in the dShell.
 
-The friendly ghost in the dShell.
-
-That's Cheerbot.
+#### That's Cheerbot.
