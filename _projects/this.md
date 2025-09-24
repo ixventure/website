@@ -2,40 +2,32 @@
 title: THIS
 slug: this
 layout: project
-description: Treating the DOM as a digital legal formalism "'document' object."
+description: Treating the DOM iFrame as a digital legal formalism "'document' object."
+links:
+  - name: Hierarchical Script-Database
+    link: https://patentscope.wipo.int/search/en/WO2020160021
+  - name: SeedTree
+    link: https://seedtreedb.com
+  - name: Lex.Clinic Research uses a GitHub hosted DOM sans-framework
+    link: https://github.com/lexclinic/research
+  - name: IxVenture.Studio uses a GitHub hosted DOM with a Jekyll framework
+    link: https://github.com/ixventure/website
+  - name: This DOM uses IPFS but is also an NFT (OpenSea etc. hosted) DOM sans-framework | note: now blocked by OpenSea's CORS policy
+    link: https://opensea.io/item/polygon/0xc6a81ff731dcb0f75bf6d8526fc660939a5f8241/16
+  - name: The IPFS NFT DOM shared above still hosted by OpenSea (they must, to render the iFrame) but the unblocked raw hosting
+    link: https://openseauserdata.com/files/803edb8f982f0f3a75d0a92bb7a4b7cf.html
+  - name: This work-in-progress uses an NFT (OpenSea etc. hosted) DOM sans-framework but with a SeedTree-kernel | note: blocked by iFrame policy
+    link: https://opensea.io/item/polygon/0xc6a81ff731dcb0f75bf6d8526fc660939a5f8241/23
+  - name: The SeedTree NFT DOM shared above still hosted by OpenSea (they must, to render the iFrame) but the unblocked raw hosting
+    link: https://raw2.seadn.io/polygon/0xc6a81ff731dcb0f75bf6d8526fc660939a5f8241/911810aa17b5ee449681ab55a316c8/b1911810aa17b5ee449681ab55a316c8.html
 ---
 
-## IxVenture’s Position on DOMs
+## IxVenture’s Position on DOM iFrames
 
-IxVenture is investing in multiple **Document Object Model (DOM) formats** because we believe DOMs represent the **next stage after digital-analog legal formalization**.
+IxVenture is investing in multiple recursive (iFrame) **Document Object Model (DOM) formats** because we believe DOMs represent the **next stage after digital-analog legal formalization**.
 
-The historical progression has been:  
+By supporting the development of **multiple legally meaningful DOM formats**, IxVenture is building toward a world where organizational and contractual logic can be expressed as interoperable objects.
 
-<details markdown="1">
-<summary>Continued...</summary>
+Many of the DOM stacks we're building uses the Hierarchical Script-Database "**SeedTree**" kernel-not-framework solution invented by IxVenture co-founder, bestape.
 
-1. **Oral** – agreements spoken and remembered
-2. **Papyrus** – agreements codified on paper
-3. **Print** – agreements widely disseminated
-4. **Digital-Print** – agreements stored as digital files but still interpreted by analog legal systems
-5. **Digital-DOM** – agreements expressed as structured, machine-readable objects
-
-DOMs shift organizational and legal logic into programmable structures, making them transparent, verifiable, and extensible across platforms. Unlike past approaches that relied on occasional snapshots, DOMs treat legal formalization as a continuous stream of events with ongoing recording and accountability.
-
-## DOM Categories
-
-### GitHub-Hosted DOMs
-- **No Framework** – e.g. [research.lex.clinic](https://research.lex.clinic)  
-- **Jekyll Framework** – e.g. [ixventure.studio](https://ixventure.studio)  
-
-### Raspberry Pi-Hosted DOMs
-- **SeedTree Kernel** – e.g. [github.com/cheerbotme](https://github.com/cheerbotme)  
-
-### NFT Platform-Hosted DOMs
-- **iNFTs** – some info at [Ape Mirror article](https://ape.mirror.xyz/FjUVEcUrDmQISEmcVarGEDHt6mLK9VOjLbxXgFy4edE)  
-- **uxNFTs** – some info at [ERC-7827 proposal](https://ethereum-magicians.org/t/erc-7827-json-smart-contract-with-value-version-control/21865)  
-
-## Why This Matters
-By supporting **multiple DOM formats**, IxVenture is building toward a world where organizational and contractual logic can be expressed as interoperable objects.  
-
-</details>
+From this object orientation, we believe very much that iFrames should be expressed as NFT interdata objects.
