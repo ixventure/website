@@ -165,3 +165,27 @@ p, li {
   background-color: #555;   /* darker gray for the active slide */
   opacity: 1;
 }
+
+/* ========================
+   Responsive pagination dots
+   (auto-shrink if they would overflow)
+   ======================== */
+.gallery .swiper-pagination {
+  display: flex;
+  justify-content: center;
+  flex-wrap: nowrap;
+  gap: 6px;              /* space between dots */
+  overflow: hidden;      /* prevent wrapping to new line */
+}
+
+.gallery .swiper-pagination-bullet {
+  flex: 1 1 auto;        /* allow shrinking */
+  max-width: 10px;       /* normal size */
+  max-height: 10px;
+  min-width: 4px;        /* don’t shrink too far */
+  min-height: 4px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  transition: transform 0.2s ease;
+}
