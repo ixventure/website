@@ -24,7 +24,7 @@ links:
 
 ## IxVenture’s Position on DOM iFrames
 
-IxVenture is investing in multiple recursive (iFrame) **Document Object Model (DOM) formats** because we believe DOMs represent the **next stage after digital-analog legal formalization**.
+IxVenture is investing in multiple recursive (iFrame) **Document Object Model (DOM) formats** because we believe DOMs represent the **next stage after print-digitized legal formalization: natively-digital legal formalization**.
 
 By supporting the development of **multiple legally meaningful DOM formats**, IxVenture is building toward a world where organizational and contractual logic can be expressed as interoperable objects.
 
