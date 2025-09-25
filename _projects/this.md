@@ -4,9 +4,9 @@ slug: this
 layout: project
 description: Treating the DOM iFrame as a universal digital legal formalism "'document' object" UI.
 links:
-  - name: <strong><u>Hierarchical Script-Database kernel</u></strong> invention
+  - name: <strong>Hierarchical Script-Database <u>kernel</u></strong> invention
     url: https://patentscope.wipo.int/search/en/WO2020160021
-  - name: <strong><u>SeedTree syntax</u></strong> invention
+  - name: <strong>SeedTree <u>syntax</u></strong> invention
     url: https://seedtreedb.com
   - name: Lex.Clinic Research uses a <strong><u>GitHub hosted DOM sans-framework</u></strong> 
     url: https://github.com/lexclinic/research
@@ -14,11 +14,11 @@ links:
     url: https://github.com/ixventure/website
   - name: "This DOM uses IPFS but is also an NFT (OpenSea etc. hosted) DOM sans-framework | note: now blocked by OpenSea's CORS policy"
     url: https://opensea.io/item/polygon/0xc6a81ff731dcb0f75bf6d8526fc660939a5f8241/16
-  - name: "⤷ The <stong><u>IPFS NFT DOM</u></strong> shared above still hosted by OpenSea (they must, to render the iFrame) but the unblocked raw hosting"
+  - name: "⤷ The <strong>IPFS NFT <u>DOM</u></strong> shared above still hosted by OpenSea (they must, to render the iFrame) but the unblocked raw hosting"
     url: https://openseauserdata.com/files/803edb8f982f0f3a75d0a92bb7a4b7cf.html
   - name: "This work-in-progress uses an NFT (OpenSea etc. hosted) DOM sans-framework but with a SeedTree-kernel | note: blocked by iFrame policy"
     url: https://opensea.io/item/polygon/0xc6a81ff731dcb0f75bf6d8526fc660939a5f8241/23
-  - name: "⤷ The <strong><u>SeedTree NFT DOM</u></strong> shared above still hosted by OpenSea (they must, to render the iFrame) but the unblocked raw hosting"
+  - name: "⤷ The <strong>SeedTree NFT <u>DOM</u></strong> shared above still hosted by OpenSea (they must, to render the iFrame) but the unblocked raw hosting"
     url: https://raw2.seadn.io/polygon/0xc6a81ff731dcb0f75bf6d8526fc660939a5f8241/911810aa17b5ee449681ab55a316c8/b1911810aa17b5ee449681ab55a316c8.html
 ---
 
