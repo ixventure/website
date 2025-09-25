@@ -15,13 +15,13 @@ links:
   - name: "Supported project 4: ReiZen"
     url: https://reizen.xyz
   - name: "Supported project 5: House of the Future"
-    url: https://Jupiterblock.ventures
+    url: 
   - name: "Supported project 6: DAO345"
     url: https://dao345.org
   - name: "Supported project 7: Magical Earth Academy"
     url: https://magicalearth.tech
   - name: "Supported project 8: IX Techno-Art"
-    url: https://Jupiterblock.ventures
+    url: 
   - name: "Supported project 9: Solarpunk Futures"
     url: https://solarpunkfutures.xyz
   - name: "Solar Punk Pirates Fund on Artizen.Fund"
