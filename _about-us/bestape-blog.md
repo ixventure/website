@@ -1,5 +1,5 @@
 ---
-title: bestape's blog
+title: BESTAPE'S BLOG
 slug: bestape-blog
 layout: project
 description: Field notes, mostly of legal engineering explorations.
