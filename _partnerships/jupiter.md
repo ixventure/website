@@ -24,7 +24,7 @@ links:
     url: https://Jupiterblock.ventures
   - name: Supported project 9: Solarpunk Futures
     url: https://solarpunkfutures.xyz
-  - name: Solar Punk Pirates Fund on Artizen.Fund
+  - name: "Solar Punk Pirates Fund on Artizen.Fund"
     url: https://artizen.fund/index/mf/solarpunk-pirate-fund-for-regen-rebels
 ---
 
