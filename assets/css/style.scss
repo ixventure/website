@@ -278,3 +278,90 @@ body.dark-mode .gallery .swiper-pagination-bullet {
 body.dark-mode .gallery .swiper-pagination-bullet-active {
   background-color: #fff !important;
 }
+
+/* =========================
+   Small fixes: nav link states + hamburger in dark mode
+   Add this at the END of assets/css/style.scss (or style.css)
+   ========================= */
+
+/* ----- Normalize link states so they don't turn black on click ----- */
+.site-nav a,
+.site-nav a:link,
+.site-nav a:visited {
+  color: #333; /* default (light mode) */
+  -webkit-tap-highlight-color: rgba(0,0,0,0); /* reduce mobile tap flash */
+  transition: color 0.18s ease;
+}
+
+/* Make sure active/focus states don't force black text */
+.site-nav a:active,
+.site-nav a:focus,
+.site-nav a:focus-visible {
+  color: inherit;
+  outline: none;
+}
+
+/* ----- Dark mode: make links light in all states ----- */
+body.dark-mode .site-nav,
+body.dark-mode .site-nav.open {
+  background-color: #222;   /* dark popout background */
+  border-color: #333;
+}
+
+/* All link states in dark mode */
+body.dark-mode .site-nav a,
+body.dark-mode .site-nav a:link,
+body.dark-mode .site-nav a:visited,
+body.dark-mode .site-nav a:active,
+body.dark-mode .site-nav a:focus,
+body.dark-mode .site-nav a:focus-visible {
+  color: #e6e6e6;           /* readable light text */
+  -webkit-tap-highlight-color: rgba(255,255,255,0.04);
+}
+
+/* Slightly stronger hover in dark mode */
+body.dark-mode .site-nav a:hover {
+  color: #fff;
+}
+
+/* ----- Hamburger button color ----- */
+/* Use inherited color by default; override in dark-mode to be light */
+.nav-toggle,
+#dark-toggle {
+  color: inherit;
+}
+
+/* Make hamburger visible in dark mode */
+body.dark-mode .nav-toggle {
+  color: #ddd;
+}
+
+/* If nav-toggle uses borders/background on mobile, ensure contrast */
+@media (max-width: 768px) {
+  body.dark-mode .site-nav {
+    background-color: #222;
+    box-shadow: 0 8px 18px rgba(0,0,0,0.6);
+  }
+  body.dark-mode .nav-toggle {
+    color: #ddd;
+  }
+}
+
+/* ----- Accessible focus ring that adapts to theme ----- */
+.site-nav a:focus-visible,
+.nav-toggle:focus-visible,
+#dark-toggle:focus-visible {
+  outline: 3px solid rgba(255,255,255,0.08);
+  outline-offset: 3px;
+}
+
+/* ----- Fallback: force override if other styles keep winning ----- */
+/* Uncomment only if you still see black links after the above. */
+/*
+body.dark-mode .site-nav a { color: #e6e6e6 !important; }
+body.dark-mode .site-nav a:active,
+body.dark-mode .site-nav a:visited,
+body.dark-mode .site-nav a:focus { color: #e6e6e6 !important; }
+body.dark-mode .nav-toggle { color: #ddd !important; }
+*/
+
