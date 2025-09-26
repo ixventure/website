@@ -281,19 +281,16 @@ body.dark-mode .gallery .swiper-pagination-bullet-active {
 
 /* =========================
    Small fixes: nav link states + hamburger in dark mode
-   Add this at the END of assets/css/style.scss (or style.css)
    ========================= */
 
-/* ----- Normalize link states so they don't turn black on click ----- */
+/* Normalize basic nav link states (light mode baseline) */
 .site-nav a,
 .site-nav a:link,
 .site-nav a:visited {
-  color: #333; /* default (light mode) */
-  -webkit-tap-highlight-color: rgba(0,0,0,0); /* reduce mobile tap flash */
+  color: #333;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
   transition: color 0.18s ease;
 }
-
-/* Make sure active/focus states don't force black text */
 .site-nav a:active,
 .site-nav a:focus,
 .site-nav a:focus-visible {
@@ -301,66 +298,111 @@ body.dark-mode .gallery .swiper-pagination-bullet-active {
   outline: none;
 }
 
-/* ----- Dark mode: make links light in all states ----- */
-body.dark-mode .site-nav,
-body.dark-mode .site-nav.open {
-  background-color: #222;   /* dark popout background */
-  border-color: #333;
+/* Project links baseline (targets your .project-links container) */
+.project-links a,
+.project-links a:link,
+.project-links a:visited {
+  color: #222;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  transition: color 0.16s ease;
+}
+.project-links a:active,
+.project-links a:focus,
+.project-links a:focus-visible {
+  color: inherit;
+  background: transparent;
+  outline: none;
 }
 
-/* All link states in dark mode */
+/* Dark mode: nav & project links readable in all states */
+body.dark-mode .site-nav,
+body.dark-mode .site-nav.open {
+  background-color: #222;
+  border-color: #333;
+}
 body.dark-mode .site-nav a,
 body.dark-mode .site-nav a:link,
 body.dark-mode .site-nav a:visited,
 body.dark-mode .site-nav a:active,
 body.dark-mode .site-nav a:focus,
 body.dark-mode .site-nav a:focus-visible {
-  color: #e6e6e6;           /* readable light text */
+  color: #e6e6e6;
   -webkit-tap-highlight-color: rgba(255,255,255,0.04);
 }
+body.dark-mode .site-nav a:hover { color: #fff; }
 
-/* Slightly stronger hover in dark mode */
-body.dark-mode .site-nav a:hover {
-  color: #fff;
+body.dark-mode .project-links,
+body.dark-mode .project-links a,
+body.dark-mode .project-links a:link,
+body.dark-mode .project-links a:visited,
+body.dark-mode .project-links a:active,
+body.dark-mode .project-links a:focus,
+body.dark-mode .project-links a:focus-visible {
+  color: #e6e6e6;
+  background: transparent;
+  -webkit-tap-highlight-color: rgba(255,255,255,0.06);
 }
+body.dark-mode .project-links a:hover { color: #fff; }
 
-/* ----- Hamburger button color ----- */
-/* Use inherited color by default; override in dark-mode to be light */
+/* Make hamburger and toggle follow inherited color, but force light in dark-mode */
 .nav-toggle,
-#dark-toggle {
-  color: inherit;
-}
+#dark-toggle { color: inherit; }
+body.dark-mode .nav-toggle,
+body.dark-mode #dark-toggle { color: #ddd; }
 
-/* Make hamburger visible in dark mode */
-body.dark-mode .nav-toggle {
-  color: #ddd;
-}
-
-/* If nav-toggle uses borders/background on mobile, ensure contrast */
 @media (max-width: 768px) {
-  body.dark-mode .site-nav {
-    background-color: #222;
-    box-shadow: 0 8px 18px rgba(0,0,0,0.6);
-  }
-  body.dark-mode .nav-toggle {
-    color: #ddd;
-  }
+  body.dark-mode .site-nav { background-color: #222; box-shadow: 0 8px 18px rgba(0,0,0,0.6); }
+  body.dark-mode .nav-toggle { color: #ddd; }
 }
 
-/* ----- Accessible focus ring that adapts to theme ----- */
+/* Accessible focus ring that adapts to theme */
 .site-nav a:focus-visible,
 .nav-toggle:focus-visible,
-#dark-toggle:focus-visible {
+#dark-toggle:focus-visible,
+.project-links a:focus-visible {
   outline: 3px solid rgba(255,255,255,0.08);
   outline-offset: 3px;
 }
 
-/* ----- Fallback: force override if other styles keep winning ----- */
-/* Uncomment only if you still see black links after the above. */
+/* =========================
+   Dark-mode selection + active-link fixes
+   ========================= */
+
+/* Make selected text readable in dark mode */
+body.dark-mode ::selection,
+body.dark-mode ::-moz-selection {
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+}
+
+/* Ensure links keep readable color when selected */
+body.dark-mode a::selection,
+body.dark-mode a::-moz-selection {
+  background: rgba(255,255,255,0.12);
+  color: #fff;
+}
+
+/* Prevent anchors from getting a dark background when clicked/active */
+body.dark-mode a:active,
+body.dark-mode a:focus {
+  background: transparent;
+  color: #fff;
+}
+
+/* Guard against mobile tap highlight making link text dark */
+body.dark-mode .site-nav a,
+body.dark-mode .project-links a {
+  -webkit-tap-highlight-color: rgba(255,255,255,0.06);
+}
+
+/* =========================
+   Fallbacks (uncomment ONLY if some other stylesheet still overrides)
+   ========================= */
 /*
 body.dark-mode .site-nav a { color: #e6e6e6 !important; }
 body.dark-mode .site-nav a:active,
 body.dark-mode .site-nav a:visited,
 body.dark-mode .site-nav a:focus { color: #e6e6e6 !important; }
+body.dark-mode .project-links a { color: #e6e6e6 !important; background: transparent !important; }
 body.dark-mode .nav-toggle { color: #ddd !important; }
 */
