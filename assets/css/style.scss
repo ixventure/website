@@ -1,312 +1,308 @@
 ---
-
 ---
 
 @import "minima";
 
-/\* ========================
-Base tweaks for IxVenture
-\========================= \*/
+/* ========================
+   Base tweaks for IxVenture
+   ========================= */
 
 body {
-font-family: system-ui, sans-serif;
-line-height: 1.6;
-background-color: #fff;
-color: #222;
-transition: background-color 0.3s ease, color 0.3s ease;
+  font-family: system-ui, sans-serif;
+  line-height: 1.6;
+  background-color: #fff;
+  color: #222;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 h1, h2, h3 {
-margin-top: 1.4em;
-margin-bottom: 0.6em;
-font-weight: 600;
+  margin-top: 1.4em;
+  margin-bottom: 0.6em;
+  font-weight: 600;
 }
 
 p, li {
-margin-bottom: 0.8em;
+  margin-bottom: 0.8em;
 }
 
-/\* Header + Footer \*/
+/* Header + Footer */
 .site-header, .site-footer {
-background-color: #fafafa;
-border-top: 1px solid #e0e0e0;
-border-bottom: 1px solid #e0e0e0;
-padding: 1em 0;
-text-align: center;
-transition: background-color 0.3s ease, border-color 0.3s ease;
+  background-color: #fafafa;
+  border-top: 1px solid #e0e0e0;
+  border-bottom: 1px solid #e0e0e0;
+  padding: 1em 0;
+  text-align: center;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
 .site-footer p {
-font-size: 0.9em;
-color: #666;
+  font-size: 0.9em;
+  color: #666;
 }
 
 .wrapper {
-max-width: 960px;
-margin: 0 auto;
-padding: 0 1em;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 1em;
 }
 
 .header-flex {
-display: flex;
-justify-content: space-between;
-align-items: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-/\* ========================
-Header tweaks
-\========================= \*/
+/* ========================
+   Header tweaks
+   ========================= */
 .site-nav a {
-padding: 0.5rem 0.75rem;
-display: inline-block;
-transition: color 0.3s ease;
+  padding: 0.5rem 0.75rem;
+  display: inline-block;
+  transition: color 0.3s ease;
 }
 
-/\* ========================
-Links (global defaults, excludes project tiles)
-\========================= */
+/* ========================
+   Links (global defaults, excludes project tiles)
+   ========================= */
 a {
-color: #007acc; /* standard blue \*/
-text-decoration: underline;
-transition: color 0.2s ease;
+  color: #007acc; /* standard blue */
+  text-decoration: underline;
+  transition: color 0.2s ease;
 }
 
-a\:visited {
-color: #005999; /\* darker blue when visited \*/
+a:visited {
+  color: #005999; /* darker blue when visited */
 }
 
-/\* Make hover/focus distinct from visited in light mode \*/
-a\:hover,
-a\:focus {
-color: #0090e6;
+a:hover,
+a:focus {
+  color: #0090e6; /* distinct from visited in light mode */
 }
 
-a\:active {
-color: #003f73;
+a:active {
+  color: #003f73;
 }
 
-/\* Don't affect project card links \*/
+/* Don't affect project card links */
 .project-card a {
-text-decoration: none;
-color: inherit;
-display: block;
+  text-decoration: none;
+  color: inherit;
+  display: block;
 }
 
-/\* Ensure project tile text changes shade after click (visited) \*/
-.project-card a\:visited .project-title {
-color: #555;
+/* Text in the tiles (lab, pupil, etc.), once clicked, should change shade */
+.project-card a:visited .project-title {
+  color: #555;
 }
 
-/\* ========================
-Project grid + cards
-\========================= \*/
+/* ========================
+   Project grid + cards
+   ========================= */
 
 .project-grid {
-display: grid;
-grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-gap: 1.5rem;
-margin-top: 1.5rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
 }
 
 .project-card {
-border: 1px solid #e0e0e0;
-border-radius: 8px;
-overflow: hidden;
-background-color: #fff;
-text-align: center;
-transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.3s ease, border-color 0.3s ease;
-padding: 1rem;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: #fff;
+  text-align: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.3s ease, border-color 0.3s ease;
+  padding: 1rem;
 }
 
-.project-card\:hover {
-transform: translateY(-4px);
-box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+.project-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.1);
 }
 
 .project-thumb {
-width: 100%;
-height: 160px;
-object-fit: cover;
-background-color: #f8f8f8;
-transition: background-color 0.3s ease;
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  background-color: #f8f8f8;
+  transition: background-color 0.3s ease;
 }
 
 .project-title {
-padding: 0.75rem;
-font-weight: 600;
-font-size: 1rem;
-color: #222;
-transition: color 0.3s ease;
+  padding: 0.75rem;
+  font-weight: 600;
+  font-size: 1rem;
+  color: #222;
+  transition: color 0.3s ease;
 }
 
 .project-card p {
-margin: 0.5rem 0 1rem;
+  margin: 0.5rem 0 1rem;
 }
 
-/\* ========================
-Swiper tweaks (gallery)
-\========================= \*/
+/* ========================
+   Swiper tweaks (gallery)
+   ========================= */
 
 .swiper {
-width: 100%;
-margin: 1.2rem 0;
+  width: 100%;
+  margin: 1.2rem 0;
 }
 
 .swiper .swiper-slide {
-position: relative;
-aspect-ratio: 16 / 9;
-display: flex;
-align-items: center;
-justify-content: center;
-background: transparent;
+  position: relative;
+  aspect-ratio: 16 / 9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
 }
 
 .swiper .swiper-slide img {
-position: absolute;
-top: 0;
-left: 0;
-width: 100%;
-height: 100%;
-object-fit: contain;
-border-radius: 6px;
-background-color: transparent;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 6px;
+  background-color: transparent;
 }
 
-/\* ========================
-Gallery tweaks
-\========================= \*/
+/* ========================
+   Gallery tweaks
+   ========================= */
 
-/\* Hide arrows completely \*/
+/* Hide arrows completely */
 .swiper-button-prev,
 .swiper-button-next {
-display: none !important;
+  display: none !important;
 }
 
-/\* Move dots below slides \*/
+/* Move dots below slides */
 .swiper-pagination {
-position: relative !important;
-margin-top: 12px;
-text-align: center;
+  position: relative !important;
+  margin-top: 12px;
+  text-align: center;
 }
 
-/\* ========================
-Responsive Swiper pagination (Jekyll-safe)
-\========================= \*/
+/* Responsive Swiper pagination (Jekyll-safe) */
 .gallery .swiper-pagination {
-display: flex !important;
-justify-content: center !important;
-flex-wrap: nowrap !important;
-gap: 6px;
+  display: flex !important;
+  justify-content: center !important;
+  flex-wrap: nowrap !important;
+  gap: 6px;
 }
 
 .gallery .swiper-pagination-bullet {
-flex: 0 1 auto !important;
-width: auto !important;
-height: auto !important;
-min-width: 4px !important;
-min-height: 4px !important;
-max-width: 10px !important;
-max-height: 10px !important;
-border-radius: 50% !important;
-background-color: gray !important;
-opacity: 0.6 !important;
-transition: all 0.2s ease !important;
+  flex: 0 1 auto !important;
+  width: auto !important;
+  height: auto !important;
+  min-width: 4px !important;
+  min-height: 4px !important;
+  max-width: 10px !important;
+  max-height: 10px !important;
+  border-radius: 50% !important;
+  background-color: gray !important;
+  opacity: 0.6 !important;
+  transition: all 0.2s ease !important;
 }
 
 .gallery .swiper-pagination-bullet-active {
-background-color: #555 !important;
-opacity: 1 !important;
-transform: scale(1.3) !important;
+  background-color: #555 !important;
+  opacity: 1 !important;
+  transform: scale(1.3) !important;
 }
 
-/\* Optional: tiny screens \*/
+/* Optional: tiny screens */
 @media (max-width: 400px) {
-.gallery .swiper-pagination-bullet {
-min-width: 3px !important;
-min-height: 3px !important;
-}
+  .gallery .swiper-pagination-bullet {
+    min-width: 3px !important;
+    min-height: 3px !important;
+  }
 }
 
-/\* ========================
-Night mode toggle
-\========================= \*/
+/* ========================
+   Night mode toggle
+   ========================= */
 body.dark-mode {
-background-color: #111;
-color: #eee;
+  background-color: #111;
+  color: #eee;
 }
 
 body.dark-mode .site-header,
 body.dark-mode .site-footer {
-background-color: #222;
-border-color: #333;
+  background-color: #222;
+  border-color: #333;
 }
 
 body.dark-mode .site-footer p {
-color: #aaa;
+  color: #aaa;
 }
 
 body.dark-mode .project-card {
-background-color: #1a1a1a;
-border-color: #333;
+  background-color: #1a1a1a;
+  border-color: #333;
 }
 
 body.dark-mode .project-title {
-color: #eee;
+  color: #eee;
 }
 
 body.dark-mode .project-thumb {
-background-color: #222;
+  background-color: #222;
 }
 
 body.dark-mode .site-nav a {
-color: #ddd;
+  color: #ddd;
 }
 
-/\* Prevent the IxVenture logo / brand links from being colored blue by global dark-mode link rules \*/
+/* Prevent the IxVenture logo / brand links from being colored blue */
 body.dark-mode .site-header .site-title a,
-body.dark-mode .site-header .site-title a\:visited,
+body.dark-mode .site-header .site-title a:visited,
 body.dark-mode .site-logo a,
-body.dark-mode .site-logo a\:visited,
+body.dark-mode .site-logo a:visited,
 body.dark-mode .brand a,
-body.dark-mode .brand a\:visited {
-color: inherit !important;
+body.dark-mode .brand a:visited {
+  color: inherit !important;
 }
 
-/\* Dark-mode pagination bullets \*/
+/* Dark-mode pagination bullets */
 body.dark-mode .gallery .swiper-pagination-bullet {
-background-color: #666 !important;
+  background-color: #666 !important;
 }
 
 body.dark-mode .gallery .swiper-pagination-bullet-active {
-background-color: #fff !important;
+  background-color: #fff !important;
 }
 
-/\* Ensure project tile visited shade in dark mode is slightly different \*/
-body.dark-mode .project-card a\:visited .project-title {
-color: #bbb;
+/* Ensure project tile visited shade in dark mode is slightly different */
+body.dark-mode .project-card a:visited .project-title {
+  color: #bbb;
 }
 
-/\* ========================
-Night mode link fixes
-\========================= */
+/* ========================
+   Night mode link fixes
+   ========================= */
 body.dark-mode a {
-color: #4da8ff; /* lighter blue \*/
+  color: #4da8ff; /* lighter blue */
 }
 
-body.dark-mode a\:visited {
-color: #80bfff;
+body.dark-mode a:visited {
+  color: #80bfff;
 }
 
-body.dark-mode a\:hover,
-body.dark-mode a\:focus {
-color: #cce6ff;
+body.dark-mode a:hover,
+body.dark-mode a:focus {
+  color: #cce6ff;
 }
 
-body.dark-mode a\:active {
-color: #99d1ff;
+body.dark-mode a:active {
+  color: #99d1ff;
 }
 
-/\* Keep project card links unchanged \*/
+/* Keep project card links unchanged */
 body.dark-mode .project-card a {
-color: inherit;
+  color: inherit;
 }
