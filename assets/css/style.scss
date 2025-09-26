@@ -1,8 +1,12 @@
+---
+---
+
 @import "minima";
 
 /* ========================
    Base tweaks for IxVenture
    ========================= */
+
 body {
   font-family: system-ui, sans-serif;
   line-height: 1.6;
@@ -17,7 +21,9 @@ h1, h2, h3 {
   font-weight: 600;
 }
 
-p, li { margin-bottom: 0.8em; }
+p, li {
+  margin-bottom: 0.8em;
+}
 
 /* Header + Footer */
 .site-header, .site-footer {
@@ -46,6 +52,9 @@ p, li { margin-bottom: 0.8em; }
   align-items: center;
 }
 
+/* ========================
+   Header tweaks
+   ========================= */
 .site-title {
   font-weight: bold;
   font-size: 1.2rem;
