@@ -8,7 +8,7 @@ links:
     url: https://patentscope.wipo.int/search/en/WO2020160021
   - name: <strong>SeedTree <u>syntax</u></strong> invention
     url: https://seedtreedb.com
-  - name: Lex.Clinic Research uses a <strong><u>GitHub hosted <u>DOM</u> sans-framework</strong> 
+  - name: Lex.Clinic Research uses a <strong>GitHub hosted <u>DOM</u> sans-framework</strong> 
     url: https://github.com/lexclinic/research
   - name: IxVenture.Studio uses a <strong>GitHub hosted <u>DOM</u> with a Jekyll framework</strong> 
     url: https://github.com/ixventure/website
