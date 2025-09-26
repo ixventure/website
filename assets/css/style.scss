@@ -1,6 +1,3 @@
----
----
-
 @import "minima";
 
 /* ========================
@@ -74,9 +71,10 @@ a:visited {
   color: #005999; /* darker blue when visited */
 }
 
+/* changed hover/focus to be distinct from visited in light mode */
 a:hover,
 a:focus {
-  color: #005999;
+  color: #0090e6;
 }
 
 a:active {
@@ -88,6 +86,14 @@ a:active {
   text-decoration: none;
   color: inherit;
   display: block;
+}
+
+/* ensure project tile text changes shade after click (light + dark) */
+.project-card a:visited .project-title {
+  color: #555;
+}
+body.dark-mode .project-card a:visited .project-title {
+  color: #bbb;
 }
 
 /* ========================
@@ -255,6 +261,17 @@ body.dark-mode .site-nav a {
   color: #ddd;
 }
 
+/* ensure IxVenture logo (header-brand/title) is not forced blue in dark mode */
+body.dark-mode .site-header .site-title a,
+body.dark-mode .site-header .site-title a:visited,
+body.dark-mode .site-logo a,
+body.dark-mode .site-logo a:visited,
+body.dark-mode .brand a,
+body.dark-mode .brand a:visited {
+  color: inherit !important;
+}
+
+/* dark-mode pagination bullets */
 body.dark-mode .gallery .swiper-pagination-bullet {
   background-color: #666 !important;
 }
