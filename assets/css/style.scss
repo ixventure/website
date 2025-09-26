@@ -114,19 +114,28 @@ p, li {
 .page-content { margin-top: 4rem; }
 
 /* ========================
-   Content links (restored blue)
-   Targets links in page content (.wrapper / .page-content)
-   Leaves nav and project links untouched
+   Content links (blue everywhere)
    ========================= */
 .wrapper a,
 .page-content a {
-  color: #0066cc;               /* restored blue for content links */
+  color: #0066cc;
   text-decoration: underline;
   transition: color 0.16s ease;
 }
+.wrapper a:visited,
+.page-content a:visited {
+  color: #004999; /* slightly darker blue when visited */
+}
 .wrapper a:hover,
 .page-content a:hover {
-  color: #004999;               /* darker blue on hover in light mode */
+  color: #004999; /* darker blue hover in light mode */
+}
+.wrapper a:active,
+.page-content a:active,
+.wrapper a:focus,
+.page-content a:focus {
+  color: #004999;
+  outline: none;
 }
 
 /* ========================
@@ -304,7 +313,6 @@ body.dark-mode .gallery .swiper-pagination-bullet-active {
 .site-nav a:link,
 .site-nav a:visited {
   color: #333;
-  -webkit-tap-highlight-color: rgba(0,0,0,0);
   transition: color 0.18s ease;
 }
 .site-nav a:active,
@@ -314,12 +322,11 @@ body.dark-mode .gallery .swiper-pagination-bullet-active {
   outline: none;
 }
 
-/* Project links baseline (targets your .project-links container) */
+/* Project links baseline */
 .project-links a,
 .project-links a:link,
 .project-links a:visited {
   color: #222;
-  -webkit-tap-highlight-color: rgba(0,0,0,0);
   transition: color 0.16s ease;
 }
 .project-links a:active,
@@ -330,7 +337,7 @@ body.dark-mode .gallery .swiper-pagination-bullet-active {
   outline: none;
 }
 
-/* Dark mode: nav & project links readable in all states */
+/* Dark mode: nav & project links */
 body.dark-mode .site-nav,
 body.dark-mode .site-nav.open {
   background-color: #222;
@@ -343,7 +350,6 @@ body.dark-mode .site-nav a:active,
 body.dark-mode .site-nav a:focus,
 body.dark-mode .site-nav a:focus-visible {
   color: #e6e6e6;
-  -webkit-tap-highlight-color: rgba(255,255,255,0.04);
 }
 body.dark-mode .site-nav a:hover { color: #fff; }
 
@@ -356,11 +362,10 @@ body.dark-mode .project-links a:focus,
 body.dark-mode .project-links a:focus-visible {
   color: #e6e6e6;
   background: transparent;
-  -webkit-tap-highlight-color: rgba(255,255,255,0.06);
 }
 body.dark-mode .project-links a:hover { color: #fff; }
 
-/* Make hamburger and toggle follow inherited color, but force light in dark-mode */
+/* Make hamburger and toggle inherit color */
 .nav-toggle,
 #dark-toggle { color: inherit; }
 body.dark-mode .nav-toggle,
@@ -371,7 +376,7 @@ body.dark-mode #dark-toggle { color: #ddd; }
   body.dark-mode .nav-toggle { color: #ddd; }
 }
 
-/* Accessible focus ring that adapts to theme */
+/* Focus ring */
 .site-nav a:focus-visible,
 .nav-toggle:focus-visible,
 #dark-toggle:focus-visible,
@@ -383,50 +388,34 @@ body.dark-mode #dark-toggle { color: #ddd; }
 /* =========================
    Dark-mode selection + active-link fixes
    ========================= */
-
-/* Make selected text readable in dark mode */
 body.dark-mode ::selection,
 body.dark-mode ::-moz-selection {
   background: rgba(255, 255, 255, 0.12);
   color: #fff;
 }
-
-/* Ensure links keep readable color when selected */
 body.dark-mode a::selection,
 body.dark-mode a::-moz-selection {
   background: rgba(255,255,255,0.12);
   color: #fff;
 }
-
-/* Prevent anchors from getting a dark background when clicked/active */
 body.dark-mode a:active,
 body.dark-mode a:focus {
   background: transparent;
   color: #fff;
 }
 
-/* Guard against mobile tap highlight making link text dark */
-body.dark-mode .site-nav a,
-body.dark-mode .project-links a {
-  -webkit-tap-highlight-color: rgba(255,255,255,0.06);
-}
-
 /* =========================
-   IMPORTANT: Avoid black hover for content blue links in dark mode
-   This is the tiny, targeted addition you requested: when hovering
-   a blue content link in dark-mode, use a lighter-blue hover color
-   instead of black.
+   Dark-mode hover for content links (fix)
    ========================= */
+body.dark-mode .wrapper a,
+body.dark-mode .page-content a {
+  color: #8ab4ff;
+}
+body.dark-mode .wrapper a:visited,
+body.dark-mode .page-content a:visited {
+  color: #5f9eff;
+}
 body.dark-mode .wrapper a:hover,
 body.dark-mode .page-content a:hover {
-  color: #8ab4ff; /* light blue hover in dark mode (readable) */
+  color: #cfe4ff; /* lighter blue hover */
 }
-
-/* =========================
-   Fallbacks (uncomment ONLY if some other stylesheet still overrides)
-   ========================= */
-/*
-body.dark-mode .site-nav a { color: #e6e6e6 !important; }
-body.dark-mode .project-links a { color: #e6e6e6 !important; background: transparent !important; }
-body.dark-mode .nav-toggle { color: #ddd !important; }
-*/
