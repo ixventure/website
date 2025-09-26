@@ -1,5 +1,5 @@
 ---
-title: PROPAGANDA
+title: PROPAGANDA POSTERS
 slug: propaganda
 layout: project
 description: Memes and posters communicating our narrative.
