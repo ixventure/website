@@ -55,92 +55,45 @@ p, li {
 /* ========================
    Header tweaks
    ========================= */
-.site-title {
-  font-weight: bold;
-  font-size: 1.2rem;
-  text-decoration: none;
-  color: #000;
-  transition: color 0.3s ease;
-}
-
-#dark-toggle {
-  background: none;
-  border: none;
-  cursor: pointer;
-  font-size: 1.2rem;
-  margin-left: 1rem;
-  color: inherit;
-  transition: color 0.3s ease;
-}
-#dark-toggle:hover { color: #ff0; }
-
-.nav-toggle {
-  font-size: 1.8rem;
-  cursor: pointer;
-  background: none;
-  border: none;
-  display: none;
-}
-
-.site-nav {
-  display: flex;
-  gap: 1rem;
-}
-
 .site-nav a {
-  text-decoration: none;
-  color: #333;
-  font-weight: 500;
+  padding: 0.5rem 0.75rem;
+  display: inline-block;
   transition: color 0.3s ease;
 }
-
-@media (max-width: 768px) {
-  .nav-toggle { display: block; }
-  .site-nav {
-    display: none;
-    flex-direction: column;
-    position: absolute;
-    top: 100%;
-    right: 0;
-    background: #fff;
-    border: 1px solid #ddd;
-    border-radius: 0.5rem;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    padding: 1rem;
-  }
-  .site-nav.open { display: flex; }
-}
-
-.page-content { margin-top: 4rem; }
 
 /* ========================
-   Content links (blue everywhere)
+   Links (global defaults, excludes project tiles)
    ========================= */
-.wrapper a,
-.page-content a {
-  color: #0066cc;
+a {
+  color: #007acc; /* standard blue */
   text-decoration: underline;
-  transition: color 0.16s ease;
+  transition: color 0.2s ease;
 }
-.wrapper a:visited,
-.page-content a:visited {
-  color: #004999; /* slightly darker blue when visited */
+
+a:visited {
+  color: #005999; /* darker blue when visited */
 }
-.wrapper a:hover,
-.page-content a:hover {
-  color: #004999; /* darker blue hover in light mode */
+
+a:hover,
+a:focus {
+  color: #005999;
 }
-.wrapper a:active,
-.page-content a:active,
-.wrapper a:focus,
-.page-content a:focus {
-  color: #004999;
-  outline: none;
+
+a:active {
+  color: #003f73;
+}
+
+/* Don't affect project card links */
+.project-card a {
+  text-decoration: none;
+  color: inherit;
+  display: block;
 }
 
 /* ========================
    Project grid + cards
    ========================= */
+
 .project-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -163,12 +116,6 @@ p, li {
   box-shadow: 0 6px 16px rgba(0,0,0,0.1);
 }
 
-.project-card a {
-  text-decoration: none;
-  color: inherit;
-  display: block;
-}
-
 .project-thumb {
   width: 100%;
   height: 160px;
@@ -185,11 +132,14 @@ p, li {
   transition: color 0.3s ease;
 }
 
-.project-card p { margin: 0.5rem 0 1rem; }
+.project-card p {
+  margin: 0.5rem 0 1rem;
+}
 
 /* ========================
-   Swiper + Gallery
+   Swiper tweaks (gallery)
    ========================= */
+
 .swiper {
   width: 100%;
   margin: 1.2rem 0;
@@ -215,19 +165,26 @@ p, li {
   background-color: transparent;
 }
 
-/* Hide arrows */
+/* ========================
+   Gallery tweaks
+   ========================= */
+
+/* Hide arrows completely */
 .swiper-button-prev,
 .swiper-button-next {
   display: none !important;
 }
 
-/* Dots below */
+/* Move dots below slides */
 .swiper-pagination {
   position: relative !important;
   margin-top: 12px;
   text-align: center;
 }
 
+/* ========================
+   Responsive Swiper pagination (Jekyll-safe)
+   ========================= */
 .gallery .swiper-pagination {
   display: flex !important;
   justify-content: center !important;
@@ -255,6 +212,7 @@ p, li {
   transform: scale(1.3) !important;
 }
 
+/* Optional: tiny screens */
 @media (max-width: 400px) {
   .gallery .swiper-pagination-bullet {
     min-width: 3px !important;
@@ -263,7 +221,7 @@ p, li {
 }
 
 /* ========================
-   Night mode
+   Night mode toggle
    ========================= */
 body.dark-mode {
   background-color: #111;
@@ -276,25 +234,26 @@ body.dark-mode .site-footer {
   border-color: #333;
 }
 
-body.dark-mode .site-title { color: #fff; }
-
-body.dark-mode .site-footer p { color: #aaa; }
+body.dark-mode .site-footer p {
+  color: #aaa;
+}
 
 body.dark-mode .project-card {
   background-color: #1a1a1a;
   border-color: #333;
 }
 
-body.dark-mode .project-title { color: #eee; }
-
-body.dark-mode .project-thumb { background-color: #222; }
-
-body.dark-mode .site-nav {
-  background-color: #222;
-  border-color: #333;
+body.dark-mode .project-title {
+  color: #eee;
 }
 
-body.dark-mode .site-nav a { color: #ddd; }
+body.dark-mode .project-thumb {
+  background-color: #222;
+}
+
+body.dark-mode .site-nav a {
+  color: #ddd;
+}
 
 body.dark-mode .gallery .swiper-pagination-bullet {
   background-color: #666 !important;
@@ -304,118 +263,27 @@ body.dark-mode .gallery .swiper-pagination-bullet-active {
   background-color: #fff !important;
 }
 
-/* =========================
-   Small fixes: nav link states + hamburger in dark mode
+/* ========================
+   Night mode link fixes
    ========================= */
-
-/* Normalize basic nav link states (light mode baseline) */
-.site-nav a,
-.site-nav a:link,
-.site-nav a:visited {
-  color: #333;
-  transition: color 0.18s ease;
-}
-.site-nav a:active,
-.site-nav a:focus,
-.site-nav a:focus-visible {
-  color: inherit;
-  outline: none;
+body.dark-mode a {
+  color: #4da8ff; /* lighter blue */
 }
 
-/* Project links baseline */
-.project-links a,
-.project-links a:link,
-.project-links a:visited {
-  color: #222;
-  transition: color 0.16s ease;
-}
-.project-links a:active,
-.project-links a:focus,
-.project-links a:focus-visible {
-  color: inherit;
-  background: transparent;
-  outline: none;
+body.dark-mode a:visited {
+  color: #80bfff;
 }
 
-/* Dark mode: nav & project links */
-body.dark-mode .site-nav,
-body.dark-mode .site-nav.open {
-  background-color: #222;
-  border-color: #333;
-}
-body.dark-mode .site-nav a,
-body.dark-mode .site-nav a:link,
-body.dark-mode .site-nav a:visited,
-body.dark-mode .site-nav a:active,
-body.dark-mode .site-nav a:focus,
-body.dark-mode .site-nav a:focus-visible {
-  color: #e6e6e6;
-}
-body.dark-mode .site-nav a:hover { color: #fff; }
-
-body.dark-mode .project-links,
-body.dark-mode .project-links a,
-body.dark-mode .project-links a:link,
-body.dark-mode .project-links a:visited,
-body.dark-mode .project-links a:active,
-body.dark-mode .project-links a:focus,
-body.dark-mode .project-links a:focus-visible {
-  color: #e6e6e6;
-  background: transparent;
-}
-body.dark-mode .project-links a:hover { color: #fff; }
-
-/* Make hamburger and toggle inherit color */
-.nav-toggle,
-#dark-toggle { color: inherit; }
-body.dark-mode .nav-toggle,
-body.dark-mode #dark-toggle { color: #ddd; }
-
-@media (max-width: 768px) {
-  body.dark-mode .site-nav { background-color: #222; box-shadow: 0 8px 18px rgba(0,0,0,0.6); }
-  body.dark-mode .nav-toggle { color: #ddd; }
-}
-
-/* Focus ring */
-.site-nav a:focus-visible,
-.nav-toggle:focus-visible,
-#dark-toggle:focus-visible,
-.project-links a:focus-visible {
-  outline: 3px solid rgba(255,255,255,0.08);
-  outline-offset: 3px;
-}
-
-/* =========================
-   Dark-mode selection + active-link fixes
-   ========================= */
-body.dark-mode ::selection,
-body.dark-mode ::-moz-selection {
-  background: rgba(255, 255, 255, 0.12);
-  color: #fff;
-}
-body.dark-mode a::selection,
-body.dark-mode a::-moz-selection {
-  background: rgba(255,255,255,0.12);
-  color: #fff;
-}
-body.dark-mode a:active,
+body.dark-mode a:hover,
 body.dark-mode a:focus {
-  background: transparent;
-  color: #fff;
+  color: #cce6ff;
 }
 
-/* =========================
-   Dark-mode hover for content links (fix)
-   ========================= */
-body.dark-mode .wrapper a,
-body.dark-mode .page-content a {
-  color: #8ab4ff;
+body.dark-mode a:active {
+  color: #99d1ff;
 }
-body.dark-mode .wrapper a:visited,
-body.dark-mode .page-content a:visited {
-  color: #5f9eff;
-}
-body.dark-mode .wrapper a:hover,
-body.dark-mode .page-content a:hover {
-  color: #cfe4ff; /* lighter blue hover */
+
+/* Keep project card links unchanged */
+body.dark-mode .project-card a {
+  color: inherit;
 }
