@@ -114,6 +114,22 @@ p, li {
 .page-content { margin-top: 4rem; }
 
 /* ========================
+   Content links (restored blue)
+   Targets links in page content (.wrapper / .page-content)
+   Leaves nav and project links untouched
+   ========================= */
+.wrapper a,
+.page-content a {
+  color: #0066cc;               /* restored blue for content links */
+  text-decoration: underline;
+  transition: color 0.16s ease;
+}
+.wrapper a:hover,
+.page-content a:hover {
+  color: #004999;               /* darker blue on hover in light mode */
+}
+
+/* ========================
    Project grid + cards
    ========================= */
 .project-grid {
@@ -396,13 +412,21 @@ body.dark-mode .project-links a {
 }
 
 /* =========================
+   IMPORTANT: Avoid black hover for content blue links in dark mode
+   This is the tiny, targeted addition you requested: when hovering
+   a blue content link in dark-mode, use a lighter-blue hover color
+   instead of black.
+   ========================= */
+body.dark-mode .wrapper a:hover,
+body.dark-mode .page-content a:hover {
+  color: #8ab4ff; /* light blue hover in dark mode (readable) */
+}
+
+/* =========================
    Fallbacks (uncomment ONLY if some other stylesheet still overrides)
    ========================= */
 /*
 body.dark-mode .site-nav a { color: #e6e6e6 !important; }
-body.dark-mode .site-nav a:active,
-body.dark-mode .site-nav a:visited,
-body.dark-mode .site-nav a:focus { color: #e6e6e6 !important; }
 body.dark-mode .project-links a { color: #e6e6e6 !important; background: transparent !important; }
 body.dark-mode .nav-toggle { color: #ddd !important; }
 */
