@@ -117,6 +117,21 @@ a.project-card:visited .project-thumb,
   background-color: #e9f4ff; /* subtle light-mode visited background */
 }
 
+/* ------------------------
+   NEW: muted project-desc visited states (light mode)
+   - covers common DOM structures:
+     .project-card a > .muted.project-desc
+     a.project-card > .muted.project-desc
+     .collection-item a > .muted.project-desc
+   This makes the small muted description text change color once the project link is visited,
+   both on the home (collection) and when the card is used as a link on parent pages.
+   ------------------------ */
+.project-card a:visited .muted.project-desc,
+a.project-card:visited .muted.project-desc,
+.collection-item a:visited .muted.project-desc {
+  color: #555;
+}
+
 /* ========================
    Project grid + cards
    ========================= */
@@ -284,7 +299,7 @@ body.dark-mode a.site-title:hover {
 }
 
 /* Prevent IxVenture logo from turning blue when clicked:
-   note: target the anchor that *has* class "site-title" (a.site-title) */
+   targets the anchor that has class "site-title" (a.site-title) */
 body.dark-mode a.site-title,
 body.dark-mode a.site-title:visited,
 body.dark-mode a.site-title:active {
@@ -303,6 +318,13 @@ body.dark-mode .project-card a:visited .project-thumb,
 body.dark-mode a.project-card:visited .project-thumb,
 body.dark-mode .collection-item a:visited .project-thumb {
   background-color: #333;
+}
+
+/* Dark-mode: muted project-desc visited color */
+body.dark-mode .project-card a:visited .muted.project-desc,
+body.dark-mode a.project-card:visited .muted.project-desc,
+body.dark-mode .collection-item a:visited .muted.project-desc {
+  color: #bbb;
 }
 
 /* Dark-mode pagination bullets */
