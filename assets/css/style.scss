@@ -407,3 +407,27 @@ body.dark-mode a:active {
 body.dark-mode .project-card a {
 
 }
+
+/* ========================
+   Extra tweaks
+   ========================= */
+
+/* Unvisited (default) thumbnail/project descriptions */
+.project-card .muted.project-desc,
+a.project-card .muted.project-desc,
+.collection-item a .muted.project-desc {
+  color: #444; /* more readable than bright link blue */
+}
+
+body.dark-mode .project-card .muted.project-desc,
+body.dark-mode a.project-card .muted.project-desc,
+body.dark-mode .collection-item a .muted.project-desc {
+  color: #ccc;
+}
+
+/* Ensure hamburger lines are always light in dark mode */
+body.dark-mode .hamburger span,
+body.dark-mode .menu-toggle span {
+  background-color: #eee !important;
+}
+
