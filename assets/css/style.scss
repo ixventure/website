@@ -1,6 +1,3 @@
----
----
-
 @import "minima";
 
 /* ========================
@@ -99,11 +96,10 @@ a:active {
 /* Don't affect project card links */
 .project-card a {
   text-decoration: none;
-
   display: block;
 }
 
-/* Text in the tiles changes shade when clicked (covers anchor-wrapped title and anchor-wrapped card variants) */
+/* Text in the tiles changes shade when clicked */
 .project-card a:visited .project-title,
 a.project-card:visited .project-title,
 .collection-item a:visited .project-title {
@@ -117,15 +113,7 @@ a.project-card:visited .project-thumb,
   background-color: #e9f4ff; /* subtle light-mode visited background */
 }
 
-/* ------------------------
-   NEW: muted project-desc visited states (light mode)
-   - covers common DOM structures:
-     1) anchor wraps the whole card: .project-card a > .muted.project-desc
-     2) anchor is the card element: a.project-card > .muted.project-desc
-     3) collection listing variant: .collection-item a > .muted.project-desc
-     4) sibling case: anchor followed by .muted.project-desc (a:visited + .muted.project-desc)
-   Use color-only changes (allowed for :visited).
-   ------------------------ */
+/* Muted project-desc visited states (light mode) */
 .project-card a:visited .muted.project-desc,
 a.project-card:visited .muted.project-desc,
 .collection-item a:visited .muted.project-desc,
@@ -320,16 +308,14 @@ body.dark-mode a.site-title:hover {
   color: #cce6ff;
 }
 
-/* Prevent IxVenture logo from turning blue when clicked:
-   targets the anchor that has class "site-title" (a.site-title) */
+/* Prevent IxVenture logo from turning blue when clicked */
 body.dark-mode a.site-title,
 body.dark-mode a.site-title:visited,
 body.dark-mode a.site-title:active {
   color: #ddd !important;
 }
 
-/* Dark-mode project tile visited shade (title & thumb) */
-/* covers anchor-wrapped title, anchor-wrapped card, and collection-item variants */
+/* Dark-mode project tile visited shade */
 body.dark-mode .project-card a:visited .project-title,
 body.dark-mode a.project-card:visited .project-title,
 body.dark-mode .collection-item a:visited .project-title {
@@ -343,7 +329,6 @@ body.dark-mode .collection-item a:visited .project-thumb {
 }
 
 /* Dark-mode: muted project-desc visited color */
-/* covers anchor-wrapped card, anchor-as-card, collection-item and sibling variations */
 body.dark-mode .project-card a:visited .muted.project-desc,
 body.dark-mode a.project-card:visited .muted.project-desc,
 body.dark-mode .collection-item a:visited .muted.project-desc,
@@ -352,6 +337,7 @@ body.dark-mode .collection-item a:visited + .muted.project-desc,
 body.dark-mode a.project-card:visited + .muted.project-desc {
   color: #888 !important;
 }
+
 body.dark-mode .project-card .muted.project-desc,
 body.dark-mode a.project-card:visited .muted.project-desc,
 body.dark-mode .collection-item a:visited .muted.project-desc,
@@ -363,11 +349,8 @@ body.dark-mode a.project-card:visited + .muted.project-desc {
 
 /* ------------------------
    Mobile hamburger (dark mode)
-   - many themes implement the toggle differently: SVG icon, spans, pseudo-elements, or background-image.
-   - the rules below try to cover common cases used by Minima / Jekyll themes:
-     .menu-toggle, .navbar-toggler, .hamburger, .menu-toggle span, .hamburger span, .navbar-toggler-icon
-   - set line color / fill / background so the three lines remain light in dark mode.
-   ------------------------ */
+   - ensure toggle lines are light
+------------------------ */
 body.dark-mode .menu-toggle,
 body.dark-mode .site-header .menu-toggle,
 body.dark-mode .navbar-toggler,
@@ -382,14 +365,12 @@ body.dark-mode .navbar-toggler-icon {
   fill: #ddd !important;
 }
 
-/* Many implementations use small span bars; target those explicitly */
 body.dark-mode .menu-toggle span,
 body.dark-mode .hamburger span,
 body.dark-mode .menu-toggle .icon-bar {
   background-color: #ddd !important;
 }
 
-/* If the toggle is an SVG background-image (bootstrap-like .navbar-toggler-icon), invert it */
 body.dark-mode .navbar-toggler-icon {
   filter: invert(1) brightness(150%) !important;
 }
