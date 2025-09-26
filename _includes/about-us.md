@@ -20,4 +20,4 @@ Note that the Internet and the Blockchain are both legal expressions. They are a
 
 Legal is hyperinflationary _and_ scarce nowadays: 
 
-* But a world that enjoys legal abundance is **a humanitarian world filled with peace & joy**. (As we now enjoy with transport abundance compared to the scarcity of 200 years ago).
+* But a world that enjoys legal abundance is **a humanitarian world filled with peace & joy**. (As we now enjoy with transport abundance compared to the "oregon trail" scarcity of 200 years ago).
