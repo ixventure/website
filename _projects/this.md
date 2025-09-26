@@ -14,11 +14,11 @@ links:
     url: https://github.com/ixventure/website
   - name: "This DOM uses IPFS but is also an NFT (OpenSea etc. hosted) DOM sans-framework | note: now blocked by OpenSea's CORS policy"
     url: https://opensea.io/item/polygon/0xc6a81ff731dcb0f75bf6d8526fc660939a5f8241/16
-  - name: "⤷ The 'iNFT' <strong>IPFS NFT <u>DOM</u></strong> shared above still hosted by OpenSea (they must, to render the iFrame) but the unblocked raw hosting"
+  - name: "⤷ The '<em>iNFT</em>' <strong>IPFS NFT <u>DOM</u></strong> shared above still hosted by OpenSea (they must, to render the iFrame) but the unblocked raw hosting"
     url: https://openseauserdata.com/files/803edb8f982f0f3a75d0a92bb7a4b7cf.html
   - name: "This work-in-progress uses an NFT (OpenSea etc. hosted) DOM sans-framework but with a SeedTree-kernel | note: blocked by iFrame policy"
     url: https://opensea.io/item/polygon/0xc6a81ff731dcb0f75bf6d8526fc660939a5f8241/23
-  - name: "⤷ The 'uxNFT' <strong>SeedTree NFT <u>DOM</u></strong> shared above still hosted by OpenSea (they must, to render the iFrame) but the unblocked raw hosting | note: inspect and run 'x' on console to interact with the SeedTree object"
+  - name: "⤷ The '<em>uxNFT</em>' <strong>SeedTree NFT <u>DOM</u></strong> shared above still hosted by OpenSea (they must, to render the iFrame) but the unblocked raw hosting | note: inspect and run 'x' on console to interact with the SeedTree object"
     url: https://raw2.seadn.io/polygon/0xc6a81ff731dcb0f75bf6d8526fc660939a5f8241/911810aa17b5ee449681ab55a316c8/b1911810aa17b5ee449681ab55a316c8.html
 ---
 
