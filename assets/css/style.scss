@@ -1,3 +1,6 @@
+---
+---
+
 @import "minima";
 
 /* ========================
@@ -140,22 +143,6 @@ a.project-card:visited .project-thumb,
 .collection-item a:visited + .project-thumb,
 a.project-card:visited + .project-thumb {
   background-color: #e9f4ff !important; /* subtle light-mode visited background */
-}
-
-/* ========================
-   Unvisited (default) muted project descriptions
-   - sets a neutral/readable color instead of inheriting link blue
-   ========================= */
-.project-card .muted.project-desc,
-a.project-card .muted.project-desc,
-.collection-item a .muted.project-desc {
-  color: #444; /* more readable than bright link blue */
-}
-
-body.dark-mode .project-card .muted.project-desc,
-body.dark-mode a.project-card .muted.project-desc,
-body.dark-mode .collection-item a .muted.project-desc {
-  color: #ccc;
 }
 
 /* ========================
@@ -372,17 +359,17 @@ body.dark-mode .menu-toggle .icon,
 body.dark-mode .menu-toggle span,
 body.dark-mode .hamburger span,
 body.dark-mode .navbar-toggler-icon {
-  color: #eee !important;
+  color: #ddd !important;
   background-color: transparent !important;
-  border-color: #eee !important;
-  fill: #eee !important;
+  border-color: #ddd !important;
+  fill: #ddd !important;
 }
 
 /* Many implementations use small span bars; target those explicitly */
 body.dark-mode .menu-toggle span,
 body.dark-mode .hamburger span,
 body.dark-mode .menu-toggle .icon-bar {
-  background-color: #eee !important;
+  background-color: #ddd !important;
 }
 
 /* If the toggle is an SVG background-image (bootstrap-like .navbar-toggler-icon), invert it */
