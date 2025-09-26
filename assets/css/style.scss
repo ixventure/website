@@ -1,12 +1,8 @@
----
----
-
 @import "minima";
 
 /* ========================
    Base tweaks for IxVenture
    ========================= */
-
 body {
   font-family: system-ui, sans-serif;
   line-height: 1.6;
@@ -21,9 +17,7 @@ h1, h2, h3 {
   font-weight: 600;
 }
 
-p, li {
-  margin-bottom: 0.8em;
-}
+p, li { margin-bottom: 0.8em; }
 
 /* Header + Footer */
 .site-header, .site-footer {
@@ -52,19 +46,67 @@ p, li {
   align-items: center;
 }
 
-/* ========================
-   Header tweaks
-   ========================= */
-.site-nav a {
-  padding: 0.5rem 0.75rem;
-  display: inline-block;
+.site-title {
+  font-weight: bold;
+  font-size: 1.2rem;
+  text-decoration: none;
+  color: #000;
   transition: color 0.3s ease;
 }
+
+#dark-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.2rem;
+  margin-left: 1rem;
+  color: inherit;
+  transition: color 0.3s ease;
+}
+#dark-toggle:hover { color: #ff0; }
+
+.nav-toggle {
+  font-size: 1.8rem;
+  cursor: pointer;
+  background: none;
+  border: none;
+  display: none;
+}
+
+.site-nav {
+  display: flex;
+  gap: 1rem;
+}
+
+.site-nav a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+@media (max-width: 768px) {
+  .nav-toggle { display: block; }
+  .site-nav {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    padding: 1rem;
+  }
+  .site-nav.open { display: flex; }
+}
+
+.page-content { margin-top: 4rem; }
 
 /* ========================
    Project grid + cards
    ========================= */
-
 .project-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -109,14 +151,11 @@ p, li {
   transition: color 0.3s ease;
 }
 
-.project-card p {
-  margin: 0.5rem 0 1rem;
-}
+.project-card p { margin: 0.5rem 0 1rem; }
 
 /* ========================
-   Swiper tweaks (gallery)
+   Swiper + Gallery
    ========================= */
-
 .swiper {
   width: 100%;
   margin: 1.2rem 0;
@@ -142,26 +181,19 @@ p, li {
   background-color: transparent;
 }
 
-/* ========================
-   Gallery tweaks
-   ========================= */
-
-/* Hide arrows completely */
+/* Hide arrows */
 .swiper-button-prev,
 .swiper-button-next {
   display: none !important;
 }
 
-/* Move dots below slides */
+/* Dots below */
 .swiper-pagination {
   position: relative !important;
   margin-top: 12px;
   text-align: center;
 }
 
-/* ========================
-   Responsive Swiper pagination (Jekyll-safe)
-   ========================= */
 .gallery .swiper-pagination {
   display: flex !important;
   justify-content: center !important;
@@ -189,7 +221,6 @@ p, li {
   transform: scale(1.3) !important;
 }
 
-/* Optional: tiny screens */
 @media (max-width: 400px) {
   .gallery .swiper-pagination-bullet {
     min-width: 3px !important;
@@ -198,7 +229,7 @@ p, li {
 }
 
 /* ========================
-   Night mode toggle
+   Night mode
    ========================= */
 body.dark-mode {
   background-color: #111;
@@ -211,26 +242,25 @@ body.dark-mode .site-footer {
   border-color: #333;
 }
 
-body.dark-mode .site-footer p {
-  color: #aaa;
-}
+body.dark-mode .site-title { color: #fff; }
+
+body.dark-mode .site-footer p { color: #aaa; }
 
 body.dark-mode .project-card {
   background-color: #1a1a1a;
   border-color: #333;
 }
 
-body.dark-mode .project-title {
-  color: #eee;
-}
+body.dark-mode .project-title { color: #eee; }
 
-body.dark-mode .project-thumb {
+body.dark-mode .project-thumb { background-color: #222; }
+
+body.dark-mode .site-nav {
   background-color: #222;
+  border-color: #333;
 }
 
-body.dark-mode .site-nav a {
-  color: #ddd;
-}
+body.dark-mode .site-nav a { color: #ddd; }
 
 body.dark-mode .gallery .swiper-pagination-bullet {
   background-color: #666 !important;
