@@ -26,7 +26,11 @@ layout: default
       {% assign folder = 'projects' %} {# default fallback #}
     {% endif %}
 
-    {% include gallery.html slug=page.slug title=page.title folder=folder %}
+    {% comment %}
+      Use the same slug logic as default.html so `-1.filename` works
+    {% endcomment %}
+    {% assign project_slug = page.slug | default: page.name | split: "." | first %}
+    {% include gallery.html slug=project_slug title=page.title folder=folder %}
   </section>
   
   <section class="project-content">
