@@ -99,7 +99,7 @@ a:active {
 /* Don't affect project card links */
 .project-card a {
   text-decoration: none;
-  color: inherit;
+
   display: block;
 }
 
@@ -405,5 +405,5 @@ body.dark-mode a:active {
 }
 
 body.dark-mode .project-card a {
-  color: inherit;
+
 }
