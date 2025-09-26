@@ -132,7 +132,7 @@ a.project-card:visited .muted.project-desc,
 .project-card a:visited + .muted.project-desc,
 .collection-item a:visited + .muted.project-desc,
 a.project-card:visited + .muted.project-desc {
-  color: #555 !important;
+  color: #888 !important;
 }
 
 .project-card .muted.project-desc,
@@ -350,7 +350,7 @@ body.dark-mode .collection-item a:visited .muted.project-desc,
 body.dark-mode .project-card a:visited + .muted.project-desc,
 body.dark-mode .collection-item a:visited + .muted.project-desc,
 body.dark-mode a.project-card:visited + .muted.project-desc {
-  color: #bbb !important;
+  color: #888 !important;
 }
 body.dark-mode .project-card .muted.project-desc,
 body.dark-mode a.project-card:visited .muted.project-desc,
