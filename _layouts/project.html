@@ -27,9 +27,10 @@ layout: default
     {% endif %}
 
     {% comment %}
-      Let gallery.html compute the correct slug itself so -1.filename is preserved
+      Use the filename (page.name) so any -1 suffix from the filename is preserved
     {% endcomment %}
-    {% include gallery.html title=page.title folder=folder %}
+    {% assign project_slug = page.name | split: "." | first %}
+    {% include gallery.html slug=project_slug title=page.title folder=folder %}
   </section>
   
   <section class="project-content">
