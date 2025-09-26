@@ -10,6 +10,8 @@ links:
     url: https://cheerbot.org
   - name: Cheerbot GitHub
     url: https://github.com/cheerbotme
+  - name: Cheerbot YouTube
+    url: https://www.youtube.com/watch?v=M1TirTWCOgs&list=PLL0gyjXno6ejvzUw1SOfmKHFN6gPNjHfI&index=7
 ---
 
 ## Simple but Powerful dShell Robots with GPIO are Remote Vending Machine Microinstances.
