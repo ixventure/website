@@ -11,130 +11,6 @@
     <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
     <link rel="icon" type="image/x-icon" href="{{ '/assets/images/favicon.ico' | relative_url }}">
     <link rel="shortcut icon" type="image/x-icon" href="{{ '/assets/images/favicon.ico' | relative_url }}">
-
-    <style>
-      /* =========================
-         Header + layout
-         ========================= */
-      .site-header {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        background: #fff;
-        border-bottom: 1px solid #eee;
-        z-index: 1000;
-        transition: background-color 0.3s ease, border-color 0.3s ease;
-      }
-      .header-flex {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 0.75rem 1rem;
-      }
-      .site-title {
-        font-weight: bold;
-        font-size: 1.2rem;
-        text-decoration: none;
-        color: #000;
-      }
-      #dark-toggle {
-        background: none;
-        border: none;
-        cursor: pointer;
-        font-size: 1.2rem;
-        color: inherit;
-        margin-left: 1rem;
-        transition: color 0.3s ease;
-      }
-      #dark-toggle:hover { color: #ff0; }
-      .nav-toggle {
-        font-size: 1.8rem;
-        cursor: pointer;
-        background: none;
-        border: none;
-        display: none; /* hidden on desktop */
-      }
-      .site-nav {
-        display: flex;
-        gap: 1rem;
-      }
-      .site-nav a {
-        text-decoration: none;
-        color: #333;
-        font-weight: 500;
-        transition: color 0.3s ease;
-      }
-      @media (max-width: 768px) {
-        .nav-toggle { display: block; }
-        .site-nav {
-          display: none;
-          flex-direction: column;
-          position: absolute;
-          top: 100%;
-          right: 0;
-          background: #fff;
-          border: 1px solid #ddd;
-          border-radius: 0.5rem;
-          box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-          padding: 1rem;
-        }
-        .site-nav.open { display: flex; }
-      }
-
-      .page-content { margin-top: 4rem; }
-
-      /* =========================
-         Update toast
-         ========================= */
-      #update-toast {
-        display: none;
-        position: fixed;
-        top: 1rem;
-        right: 1rem;
-        background: #222;
-        color: #fff;
-        padding: 0.75rem 1rem;
-        border-radius: 0.5rem;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-        z-index: 9999;
-        animation: slideDown 0.3s ease-out;
-      }
-      #update-toast button {
-        margin-left: 1rem;
-        background: #4CAF50;
-        border: none;
-        padding: 0.4rem 0.75rem;
-        border-radius: 0.25rem;
-        color: white;
-        cursor: pointer;
-      }
-      #update-toast button:hover { background: #45a049; }
-      @keyframes slideDown {
-        from { transform: translateY(-20px); opacity: 0; }
-        to { transform: translateY(0); opacity: 1; }
-      }
-
-      /* =========================
-         Dark mode styles
-         ========================= */
-      body.dark-mode {
-        background-color: #111;
-        color: #eee;
-      }
-      body.dark-mode .site-header,
-      body.dark-mode .site-footer {
-        background-color: #222;
-        border-color: #333;
-      }
-      body.dark-mode .site-footer p { color: #aaa; }
-      body.dark-mode .site-nav a { color: #ddd; }
-      body.dark-mode .project-card { background-color: #1a1a1a; border-color: #333; }
-      body.dark-mode .project-title { color: #eee; }
-      body.dark-mode .project-thumb { background-color: #222; }
-      body.dark-mode .gallery .swiper-pagination-bullet { background-color: #666 !important; }
-      body.dark-mode .gallery .swiper-pagination-bullet-active { background-color: #fff !important; }
-    </style>
   </head>
 
   <body>
@@ -146,6 +22,7 @@
         <!-- Dark mode toggle -->
         <button id="dark-toggle" aria-label="Toggle dark mode">🌙</button>
 
+        <!-- Burger -->
         <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
 
         <nav class="site-nav">
@@ -204,7 +81,6 @@
             if (!data.build) return;
 
             const lastBuild = localStorage.getItem('lastBuild');
-
             if (!lastBuild) {
               localStorage.setItem('lastBuild', data.build);
               return;
@@ -231,14 +107,21 @@
 
       // Dark mode toggle
       const darkToggle = document.getElementById('dark-toggle');
-      darkToggle.addEventListener('click', () => {
-        document.body.classList.toggle('dark-mode');
-        localStorage.setItem('dark-mode', document.body.classList.contains('dark-mode'));
-      });
-      // Load saved preference
-      if (localStorage.getItem('dark-mode') === 'true') {
-        document.body.classList.add('dark-mode');
+
+      function setIcon(isDark) {
+        darkToggle.textContent = isDark ? '☀️' : '🌙';
       }
+
+      darkToggle.addEventListener('click', () => {
+        const isDark = document.body.classList.toggle('dark-mode');
+        localStorage.setItem('dark-mode', isDark);
+        setIcon(isDark);
+      });
+
+      // Load saved preference
+      const prefersDark = localStorage.getItem('dark-mode') === 'true';
+      if (prefersDark) document.body.classList.add('dark-mode');
+      setIcon(prefersDark);
     </script>
   </body>
 </html>
