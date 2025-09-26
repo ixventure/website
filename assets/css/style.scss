@@ -55,10 +55,17 @@ p, li {
 /* ========================
    Header tweaks
    ========================= */
-.site-nav a {
+.site-nav a,
+.site-title a {
   padding: 0.5rem 0.75rem;
   display: inline-block;
   transition: color 0.3s ease;
+}
+
+.site-title a {
+  font-weight: 700;
+  font-size: 1.2em;
+  text-decoration: none;
 }
 
 /* ========================
@@ -93,6 +100,11 @@ a:active {
 /* Text in the tiles (lab, pupil, etc.), once clicked, should change shade */
 .project-card a:visited .project-title {
   color: #555;
+}
+
+/* Thumbnail changes shade once clicked */
+.project-card a:visited .project-thumb {
+  background-color: #e6f2ff; /* light bluish shade for light mode */
 }
 
 /* ========================
@@ -254,18 +266,21 @@ body.dark-mode .project-thumb {
   background-color: #222;
 }
 
-body.dark-mode .site-nav a {
+body.dark-mode .site-nav a,
+body.dark-mode .site-title a {
   color: #ddd;
 }
 
-/* Prevent the IxVenture logo / brand links from being colored blue */
-body.dark-mode .site-header .site-title a,
-body.dark-mode .site-header .site-title a:visited,
-body.dark-mode .site-logo a,
-body.dark-mode .site-logo a:visited,
-body.dark-mode .brand a,
-body.dark-mode .brand a:visited {
-  color: inherit !important;
+body.dark-mode .site-nav a:hover,
+body.dark-mode .site-title a:hover {
+  color: #cce6ff; /* same hover color across header links */
+}
+
+/* Prevent IxVenture logo from turning blue when clicked */
+body.dark-mode .site-title a,
+body.dark-mode .site-title a:visited,
+body.dark-mode .site-title a:active {
+  color: #ddd !important;
 }
 
 /* Dark-mode pagination bullets */
@@ -280,6 +295,11 @@ body.dark-mode .gallery .swiper-pagination-bullet-active {
 /* Ensure project tile visited shade in dark mode is slightly different */
 body.dark-mode .project-card a:visited .project-title {
   color: #bbb;
+}
+
+/* Thumbnail visited shade in dark mode */
+body.dark-mode .project-card a:visited .project-thumb {
+  background-color: #333;
 }
 
 /* ========================
