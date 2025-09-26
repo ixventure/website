@@ -103,14 +103,18 @@ a:active {
   display: block;
 }
 
-/* Text in the tiles changes shade when clicked */
-.project-card a:visited .project-title {
+/* Text in the tiles changes shade when clicked (covers anchor-wrapped title and anchor-wrapped card variants) */
+.project-card a:visited .project-title,
+a.project-card:visited .project-title,
+.collection-item a:visited .project-title {
   color: #555;
 }
 
-/* Thumbnail changes shade once clicked */
-.project-card a:visited .project-thumb {
-  background-color: #e6f2ff; /* light mode */
+/* Thumbnail changes shade once clicked (light mode) */
+.project-card a:visited .project-thumb,
+a.project-card:visited .project-thumb,
+.collection-item a:visited .project-thumb {
+  background-color: #e9f4ff; /* subtle light-mode visited background */
 }
 
 /* ========================
@@ -268,29 +272,36 @@ body.dark-mode .project-thumb {
   background-color: #222;
 }
 
+/* header links (nav + title) in dark mode */
 body.dark-mode .site-nav a,
-body.dark-mode .site-title a {
+body.dark-mode a.site-title {
   color: #ddd;
 }
 
 body.dark-mode .site-nav a:hover,
-body.dark-mode .site-title a:hover {
+body.dark-mode a.site-title:hover {
   color: #cce6ff;
 }
 
-/* Prevent IxVenture logo from turning blue when clicked */
-body.dark-mode .site-title a,
-body.dark-mode .site-title a:visited,
-body.dark-mode .site-title a:active {
+/* Prevent IxVenture logo from turning blue when clicked:
+   note: target the anchor that *has* class "site-title" (a.site-title) */
+body.dark-mode a.site-title,
+body.dark-mode a.site-title:visited,
+body.dark-mode a.site-title:active {
   color: #ddd !important;
 }
 
-/* Dark-mode project tile visited shade */
-body.dark-mode .project-card a:visited .project-title {
+/* Dark-mode project tile visited shade (title & thumb) */
+/* covers anchor-wrapped title, anchor-wrapped card, and collection-item variants */
+body.dark-mode .project-card a:visited .project-title,
+body.dark-mode a.project-card:visited .project-title,
+body.dark-mode .collection-item a:visited .project-title {
   color: #bbb;
 }
 
-body.dark-mode .project-card a:visited .project-thumb {
+body.dark-mode .project-card a:visited .project-thumb,
+body.dark-mode a.project-card:visited .project-thumb,
+body.dark-mode .collection-item a:visited .project-thumb {
   background-color: #333;
 }
 
