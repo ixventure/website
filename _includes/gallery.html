@@ -45,11 +45,7 @@ If omitted, it will try page.slug/page.name and default to "projects".
   <img src="{{ thumb_path | relative_url }}" alt="{{ include.title | default: page.title }} thumbnail" style="display:none;">
 {%- endif -%}
 
-<div class="gallery">
-  <!-- Minimal fullscreen button -->
-  <button class="gallery-fullscreen-btn" aria-label="Toggle fullscreen" title="Fullscreen" type="button">
-    ⛶
-  </button>
+
 
   <div class="swiper gallery-swiper">
     <div class="swiper-wrapper">
@@ -62,6 +58,7 @@ If omitted, it will try page.slug/page.name and default to "projects".
         </div>
       {%- endfor -%}
     </div>
+    <button class="gallery-fullscreen-btn" aria-label="Toggle fullscreen" title="Fullscreen" type="button">⛶</button>
     <div class="swiper-pagination"></div>
   </div>
 </div>
