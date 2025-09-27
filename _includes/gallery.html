@@ -19,7 +19,6 @@ If omitted, it will try page.slug/page.name and default to "projects".
   {%- assign name_no_ext = file.name | remove: file.extname | remove: "." -%}
   {%- assign parts = name_no_ext | split: "-" -%}
 
-  {%- comment -%} Walk backward to pick the last numeric part {%- endcomment -%}
   {%- assign number_val = 0 -%}
   {%- for p in parts reversed -%}
     {%- assign try_num = p | plus: 0 -%}
@@ -39,7 +38,6 @@ If omitted, it will try page.slug/page.name and default to "projects".
 
 {%- assign sorted_files = numbered_files | sort_natural -%}
 
-{%- comment -%} Emit hidden thumbnail for main page / index preview {%- endcomment -%}
 {%- if sorted_files.size > 0 -%}
   {%- assign thumb_item = sorted_files | first -%}
   {%- assign thumb_parts = thumb_item | split: "|" -%}
@@ -48,6 +46,11 @@ If omitted, it will try page.slug/page.name and default to "projects".
 {%- endif -%}
 
 <div class="gallery">
+  <!-- Fullscreen toggle button -->
+  <button class="ixv-gallery-fullscreen-btn" aria-label="Toggle fullscreen" title="Fullscreen" type="button">
+    <span class="ixv-fs-icon" aria-hidden="true">⤢</span>
+  </button>
+
   <div class="swiper gallery-swiper">
     <div class="swiper-wrapper">
       {%- for item in sorted_files -%}
@@ -59,7 +62,6 @@ If omitted, it will try page.slug/page.name and default to "projects".
         </div>
       {%- endfor -%}
     </div>
-
     <div class="swiper-pagination"></div>
   </div>
 </div>
@@ -101,5 +103,53 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     }
   });
+
+  // ---- Fullscreen toggle ----
+  const gallery = document.querySelector(".gallery");
+  const btn = document.querySelector(".ixv-gallery-fullscreen-btn");
+
+  if (btn && gallery) {
+    function updateBtn() {
+      const isFs = !!document.fullscreenElement;
+      btn.classList.toggle("is-fullscreen", isFs);
+      btn.setAttribute("aria-pressed", isFs ? "true" : "false");
+      btn.title = isFs ? "Exit fullscreen" : "Fullscreen";
+      btn.querySelector(".ixv-fs-icon").textContent = isFs ? "⤡" : "⤢";
+    }
+
+    btn.addEventListener("click", async () => {
+      try {
+        if (!document.fullscreenElement) {
+          if (gallery.requestFullscreen) {
+            await gallery.requestFullscreen();
+          } else if (gallery.webkitRequestFullscreen) {
+            await gallery.webkitRequestFullscreen();
+          } else if (gallery.mozRequestFullScreen) {
+            await gallery.mozRequestFullScreen();
+          } else if (gallery.msRequestFullscreen) {
+            await gallery.msRequestFullscreen();
+          }
+        } else {
+          if (document.exitFullscreen) {
+            await document.exitFullscreen();
+          } else if (document.webkitExitFullscreen) {
+            await document.webkitExitFullscreen();
+          } else if (document.mozCancelFullScreen) {
+            await document.mozCancelFullScreen();
+          } else if (document.msExitFullscreen) {
+            await document.msExitFullscreen();
+          }
+        }
+      } catch (err) {
+        console.warn("Fullscreen toggle error:", err);
+      }
+    });
+
+    document.addEventListener("fullscreenchange", updateBtn);
+    document.addEventListener("webkitfullscreenchange", updateBtn);
+    document.addEventListener("mozfullscreenchange", updateBtn);
+    document.addEventListener("MSFullscreenChange", updateBtn);
+    updateBtn();
+  }
 });
 </script>
