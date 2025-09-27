@@ -1,6 +1,6 @@
 ---
-title: SOCIAL
-slug: social
+title: CULTURE
+slug: culture
 layout: project
 description: With a background in musical performance and publishing, we enjoy our deeptech ecosystem of network effects.
 links:
