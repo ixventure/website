@@ -4,6 +4,8 @@ title: About Us
 permalink: /about-us/
 ---
 
+# About Us
+
 ## Team Resources
 
 <div class="project-grid">
@@ -69,9 +71,5 @@ permalink: /about-us/
     </div>
   {% endfor %}
 </div>
-
----
-
-# About Us
 
 {% include about-us.md %}
