@@ -19,6 +19,7 @@ If omitted, it will try page.slug/page.name and default to "projects".
   {%- assign name_no_ext = file.name | remove: file.extname | remove: "." -%}
   {%- assign parts = name_no_ext | split: "-" -%}
 
+  {%- comment -%} Walk backward to pick the last numeric part {%- endcomment -%}
   {%- assign number_val = 0 -%}
   {%- for p in parts reversed -%}
     {%- assign try_num = p | plus: 0 -%}
@@ -38,6 +39,7 @@ If omitted, it will try page.slug/page.name and default to "projects".
 
 {%- assign sorted_files = numbered_files | sort_natural -%}
 
+{%- comment -%} Emit hidden thumbnail for main page / index preview {%- endcomment -%}
 {%- if sorted_files.size > 0 -%}
   {%- assign thumb_item = sorted_files | first -%}
   {%- assign thumb_parts = thumb_item | split: "|" -%}
@@ -45,8 +47,7 @@ If omitted, it will try page.slug/page.name and default to "projects".
   <img src="{{ thumb_path | relative_url }}" alt="{{ include.title | default: page.title }} thumbnail" style="display:none;">
 {%- endif -%}
 
-
-
+<div class="gallery">
   <div class="swiper gallery-swiper">
     <div class="swiper-wrapper">
       {%- for item in sorted_files -%}
@@ -58,11 +59,9 @@ If omitted, it will try page.slug/page.name and default to "projects".
         </div>
       {%- endfor -%}
     </div>
-    
+
     <div class="swiper-pagination"></div>
   </div>
-
-  <button class="gallery-fullscreen-btn" aria-label="Toggle fullscreen" title="Fullscreen" type="button">⛶</button>
 </div>
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
@@ -102,31 +101,5 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     }
   });
-
-  // ---- Minimal fullscreen button logic ----
-  const gallery = document.querySelector(".gallery");
-  const fsBtn = gallery.querySelector(".gallery-fullscreen-btn");
-
-  if (fsBtn && gallery) {
-    fsBtn.addEventListener("click", async () => {
-      try {
-        if (!document.fullscreenElement) {
-          await gallery.requestFullscreen?.();
-        } else {
-          await document.exitFullscreen?.();
-        }
-      } catch (err) {
-        console.warn("Fullscreen toggle failed:", err);
-      }
-    });
-
-    document.addEventListener("fullscreenchange", () => {
-      if (document.fullscreenElement) {
-        fsBtn.textContent = "⤡"; // exit fullscreen icon
-      } else {
-        fsBtn.textContent = "⛶"; // enter fullscreen icon
-      }
-    });
-  }
 });
 </script>
