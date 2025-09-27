@@ -8,6 +8,8 @@ links:
     url: https://mensarius.vercel.app
   - name: Sept 17, 2025 presentation on X.com
     url: https://x.com/Kleros_io/status/1968714300534505551
+  - name: presentation during Zuitzerland
+    url: https://www.youtube.com/watch?v=PH96wyYBUlg&list=PLmgM5u14bFq71Tpwg5DLje2JQiAfKX3sX&index=3
 ---
 
 ## Trustless VCs for the Network State Era

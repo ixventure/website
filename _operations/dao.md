@@ -8,6 +8,8 @@ links:
     url: https://www.daocoalition.org
   - name: repo
     url: https://github.com/daocoa
+  - name: DAO Coalition discussion at Zuitzerland.ch
+    url: https://www.youtube.com/watch?v=v2SENfDXhrw&list=PLmgM5u14bFq71Tpwg5DLje2JQiAfKX3sX&index=4
 ---
 
 ## Though Illiterate, We Need Lawyers Literate before DAOs can Truly Exist

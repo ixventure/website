@@ -4,8 +4,10 @@ slug: engineer
 layout: project
 description: Comparing legaltech with network states and legal engineering industries.
 links:
-  - name: recorded presentation
+  - name: "recorded presentation, first rendition"
     url: https://www.youtube.com/watch?v=wI7pE5dthII&list=PLmgM5u14bFq71Tpwg5DLje2JQiAfKX3sX&index=6
+  - name: "recorded presentation, second rendition"
+    url: https://www.youtube.com/watch?v=PhG_ZOrxXJk&list=PLmgM5u14bFq71Tpwg5DLje2JQiAfKX3sX&index=1
 ---
 
 ## Our Profession Has Changed Humanity, but Few Know About It
