@@ -1,5 +1,5 @@
 ---
-title: WHAT IS LEGAL ENGINEERING?
+title: LEGAL ENGINEERING
 slug: engineer
 layout: project
 description: Comparing legaltech with network states and legal engineering industries.
