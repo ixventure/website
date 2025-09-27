@@ -1,6 +1,3 @@
----
----
-
 @import "minima";
 
 /* ========================
@@ -99,7 +96,6 @@ a:active {
 /* Don't affect project card links */
 .project-card a {
   text-decoration: none;
-
   display: block;
 }
 
@@ -125,12 +121,6 @@ a.project-card:visited .project-thumb,
 
 /* ------------------------
    NEW: muted project-desc visited states (light mode)
-   - covers common DOM structures:
-     1) anchor wraps the whole card: .project-card a > .muted.project-desc
-     2) anchor is the card element: a.project-card > .muted.project-desc
-     3) collection listing variant: .collection-item a > .muted.project-desc
-     4) sibling case: anchor followed by .muted.project-desc (a:visited + .muted.project-desc)
-   Use color-only changes (allowed for :visited).
    ------------------------ */
 .project-card a:visited .muted.project-desc,
 a.project-card:visited .muted.project-desc,
@@ -142,21 +132,8 @@ a.project-card:visited + .muted.project-desc {
 }
 
 .project-card .muted.project-desc, .muted.project-desc,
-.collection-item .muted.project-desc,
-.project-card .muted.project-desc,
-.collection-item .muted.project-desc,
-.muted.project-desc {
+.collection-item .muted.project-desc {
   color: #000 !important;
-}
-
-/* Also cover thumbnail sibling cases and anchor-wrapped variants for light mode visited */
-.project-card a:visited .project-thumb,
-a.project-card:visited .project-thumb,
-.collection-item a:visited .project-thumb,
-.project-card a:visited + .project-thumb,
-.collection-item a:visited + .project-thumb,
-a.project-card:visited + .project-thumb {
-  background-color: #e9f4ff !important; /* subtle light-mode visited background */
 }
 
 /* ========================
@@ -215,23 +192,25 @@ a.project-card:visited + .project-thumb {
 }
 
 .swiper .swiper-slide {
-  position: relative;
-  aspect-ratio: 16 / 9;
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
+  width: auto;
+  height: auto;
   background: transparent;
 }
 
 .swiper .swiper-slide img {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
+  display: block;
+  width: auto;
+  max-width: 100%;
+  height: auto;
+  max-height: 100%;
+  margin: 0 auto;
   border-radius: 6px;
   background-color: transparent;
+  object-fit: contain;
+  position: relative;
 }
 
 /* ========================
@@ -247,6 +226,10 @@ a.project-card:visited + .project-thumb {
   position: relative !important;
   margin-top: 12px;
   text-align: center;
+}
+
+.gallery {
+  position: relative; /* for fullscreen button */
 }
 
 .gallery .swiper-pagination {
@@ -276,7 +259,10 @@ a.project-card:visited + .project-thumb {
   transform: scale(1.3) !important;
 }
 
-@media (max-width: 400px) {
+@media (max-width: 600px) {
+  .swiper .swiper-slide {
+    aspect-ratio: auto; /* slides scale naturally on mobile */
+  }
   .gallery .swiper-pagination-bullet {
     min-width: 3px !important;
     min-height: 3px !important;
@@ -325,8 +311,7 @@ body.dark-mode a.site-title:hover {
   color: #cce6ff;
 }
 
-/* Prevent IxVenture logo from turning blue when clicked:
-   targets the anchor that has class "site-title" (a.site-title) */
+/* Prevent IxVenture logo from turning blue when clicked */
 body.dark-mode a.site-title,
 body.dark-mode a.site-title:visited,
 body.dark-mode a.site-title:active {
@@ -334,12 +319,12 @@ body.dark-mode a.site-title:active {
 }
 
 /* Dark-mode project tile visited shade (title & thumb) */
-/* covers anchor-wrapped title, anchor-wrapped card, and collection-item variants */
 body.dark-mode .project-card a:visited .project-title,
 body.dark-mode a.project-card:visited .project-title,
 body.dark-mode .collection-item a:visited .project-title {
   color: #888;
 }
+
 body.dark-mode .project-card .project-title,
 body.dark-mode .project-title,
 body.dark-mode .collection-item .project-title {
@@ -353,7 +338,6 @@ body.dark-mode .collection-item a:visited .project-thumb {
 }
 
 /* Dark-mode: muted project-desc visited color */
-/* covers anchor-wrapped card, anchor-as-card, collection-item and sibling variations */
 body.dark-mode .project-card a:visited .muted.project-desc,
 body.dark-mode a.project-card:visited .muted.project-desc,
 body.dark-mode .collection-item a:visited .muted.project-desc,
@@ -362,21 +346,15 @@ body.dark-mode .collection-item a:visited + .muted.project-desc,
 body.dark-mode a.project-card:visited + .muted.project-desc {
   color: #888 !important;
 }
+
 body.dark-mode .project-card .muted.project-desc,
 body.dark-mode .muted.project-desc,
-body.dark-mode .collection-item .muted.project-desc,
-body.dark-mode .project-card .muted.project-desc,
-body.dark-mode .collection-item .muted.project-desc,
-body.dark-mode .muted.project-desc {
+body.dark-mode .collection-item .muted.project-desc {
   color: #fff !important;
 }
 
 /* ------------------------
    Mobile hamburger (dark mode)
-   - many themes implement the toggle differently: SVG icon, spans, pseudo-elements, or background-image.
-   - the rules below try to cover common cases used by Minima / Jekyll themes:
-     .menu-toggle, .navbar-toggler, .hamburger, .menu-toggle span, .hamburger span, .navbar-toggler-icon
-   - set line color / fill / background so the three lines remain light in dark mode.
    ------------------------ */
 body.dark-mode .menu-toggle,
 body.dark-mode .site-header .menu-toggle,
@@ -392,14 +370,12 @@ body.dark-mode .navbar-toggler-icon {
   fill: #ddd !important;
 }
 
-/* Many implementations use small span bars; target those explicitly */
 body.dark-mode .menu-toggle span,
 body.dark-mode .hamburger span,
 body.dark-mode .menu-toggle .icon-bar {
   background-color: #ddd !important;
 }
 
-/* If the toggle is an SVG background-image (bootstrap-like .navbar-toggler-icon), invert it */
 body.dark-mode .navbar-toggler-icon {
   filter: invert(1) brightness(150%) !important;
 }
@@ -429,10 +405,6 @@ body.dark-mode a:focus {
 
 body.dark-mode a:active {
   color: #99d1ff;
-}
-
-body.dark-mode .project-card a {
-
 }
 
 /* ========================
@@ -465,4 +437,3 @@ body.dark-mode .gallery-fullscreen-btn {
 body.dark-mode .gallery-fullscreen-btn:hover {
   background: rgba(255,255,255,0.4);
 }
-
