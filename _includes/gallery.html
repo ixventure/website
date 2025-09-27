@@ -1,69 +1,3 @@
-{%- comment -%}
-Gallery include
-----------------------------------
-Usage:
-  {% include gallery.html slug="thing" title="Thing" folder="projects" %}
-If omitted, it will try page.slug/page.name and default to "projects".
-{%- endcomment -%}
-
-{%- assign gallery_slug = include.slug | default: page.slug | default: page.name | split: "." | first -%}
-{%- assign gallery_folder = include.folder | default: "projects" -%}
-{%- assign gallery_path = '/assets/' | append: gallery_folder | append: '/' | append: gallery_slug -%}
-
-{%- assign extensions = "png,jpg,jpeg,svg" | split: "," -%}
-{%- assign screenshots = site.static_files | where_exp: "file", "file.path contains gallery_path" -%}
-{%- assign numbered_files = "" | split: "" -%}
-
-{%- for file in screenshots -%}
-  {%- assign ext = file.extname | remove: "." | downcase -%}
-  {%- assign name_no_ext = file.name | remove: file.extname | remove: "." -%}
-  {%- assign parts = name_no_ext | split: "-" -%}
-
-  {%- comment -%} Walk backward to pick the last numeric part {%- endcomment -%}
-  {%- assign number_val = 0 -%}
-  {%- for p in parts reversed -%}
-    {%- assign try_num = p | plus: 0 -%}
-    {%- if try_num > 0 -%}
-      {%- assign number_val = try_num -%}
-      {%- break -%}
-    {%- endif -%}
-  {%- endfor -%}
-
-  {%- if extensions contains ext and number_val > 0 -%}
-    {%- assign padded = number_val | plus: 100000 -%}
-    {%- assign padded_str = padded | slice: 1,5 -%}
-    {%- assign item = padded_str | append: "|" | append: file.path | append: "|" | append: ext -%}
-    {%- assign numbered_files = numbered_files | push: item -%}
-  {%- endif -%}
-{%- endfor -%}
-
-{%- assign sorted_files = numbered_files | sort_natural -%}
-
-{%- comment -%} Emit hidden thumbnail for main page / index preview {%- endcomment -%}
-{%- if sorted_files.size > 0 -%}
-  {%- assign thumb_item = sorted_files | first -%}
-  {%- assign thumb_parts = thumb_item | split: "|" -%}
-  {%- assign thumb_path = thumb_parts[1] -%}
-  <img src="{{ thumb_path | relative_url }}" alt="{{ include.title | default: page.title }} thumbnail" style="display:none;">
-{%- endif -%}
-
-<div class="gallery">
-  <div class="swiper gallery-swiper">
-    <div class="swiper-wrapper">
-      {%- for item in sorted_files -%}
-        {%- assign parts = item | split: "|" -%}
-        {%- assign file_path = parts[1] -%}
-        <div class="swiper-slide">
-          <img src="{{ file_path | relative_url }}?v={{ site.time | date: '%s' }}"
-               alt="{{ include.title | default: page.title }} screenshot">
-        </div>
-      {%- endfor -%}
-    </div>
-
-    <div class="swiper-pagination"></div>
-  </div>
-</div>
-
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
@@ -76,12 +10,13 @@ document.addEventListener("DOMContentLoaded", function () {
   if (wrapper.querySelectorAll(".swiper-slide").length === 0) {
     const msg = document.createElement("p");
     msg.innerHTML =
-      `<em>No gallery images found. Please add files matching <code>-NUMBER.png|.jpg|.jpeg|.svg</code> to <code>{{ gallery_path }}</code>.</em>`;
+      `<em>No gallery images found. Please add files matching <code>-NUMBER.png|.jpg|.jpeg|.svg</code> to the gallery folder.</em>`;
     wrapper.parentNode.insertBefore(msg, wrapper);
     wrapper.remove();
     return;
   }
 
+  // Initialize Swiper
   const swiper = new Swiper(wrapperSelector, {
     loop: true,
     pagination: { el: wrapperSelector + ' .swiper-pagination', clickable: true },
@@ -90,8 +25,28 @@ document.addEventListener("DOMContentLoaded", function () {
     keyboard: { enabled: true, onlyInViewport: true }
   });
 
+  // Single click vs double click detection
+  let clickTimer = null;
+
   wrapper.addEventListener("click", function (e) {
-    if (e.target.tagName.toLowerCase() === "img") {
+    if (e.target.tagName.toLowerCase() !== "img") return;
+
+    if (clickTimer !== null) {
+      // Double-click detected
+      clearTimeout(clickTimer);
+      clickTimer = null;
+
+      // Toggle browser fullscreen
+      if (!document.fullscreenElement) {
+        wrapper.requestFullscreen?.();
+      } else {
+        document.exitFullscreen?.();
+      }
+      return;
+    }
+
+    // Single click: slide prev/next
+    clickTimer = setTimeout(() => {
       const rect = e.target.getBoundingClientRect();
       const clickX = e.clientX - rect.left;
       if (clickX < rect.width / 2) {
@@ -99,6 +54,14 @@ document.addEventListener("DOMContentLoaded", function () {
       } else {
         swiper.slideNext();
       }
+      clickTimer = null;
+    }, 250); // 250ms delay to detect double-click
+  });
+
+  // Escape key exits fullscreen
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape" && document.fullscreenElement) {
+      document.exitFullscreen();
     }
   });
 });
