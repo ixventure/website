@@ -2,7 +2,7 @@
 title: PROPAGANDA POSTER
 slug: propaganda
 layout: project
-description: Memes and posters communicating our narrative.
+description: Memes and posters communicating our narrative to the Masses.
 ---
 
 ## The Populist Message that Legal is The Peoples' Construct
