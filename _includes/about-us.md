@@ -24,4 +24,6 @@ Legal is hyperinflationary _and_ scarce nowadays:
 
 ---
 
-A pro-tip for this website: **double-click on a gallery image to go full screen**.
+### Pro-tip to navigate this website
+
+Double-click on a gallery image to go full screen.
