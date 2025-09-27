@@ -46,9 +46,9 @@ If omitted, it will try page.slug/page.name and default to "projects".
 {%- endif -%}
 
 <div class="gallery">
-  <!-- Fullscreen toggle button -->
-  <button class="ixv-gallery-fullscreen-btn" aria-label="Toggle fullscreen" title="Fullscreen" type="button">
-    <span class="ixv-fs-icon" aria-hidden="true">⤢</span>
+  <!-- Minimal fullscreen button -->
+  <button class="gallery-fullscreen-btn" aria-label="Toggle fullscreen" title="Fullscreen" type="button">
+    ⛶
   </button>
 
   <div class="swiper gallery-swiper">
@@ -104,52 +104,30 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
-  // ---- Fullscreen toggle ----
+  // ---- Minimal fullscreen button logic ----
   const gallery = document.querySelector(".gallery");
-  const btn = document.querySelector(".ixv-gallery-fullscreen-btn");
+  const fsBtn = gallery.querySelector(".gallery-fullscreen-btn");
 
-  if (btn && gallery) {
-    function updateBtn() {
-      const isFs = !!document.fullscreenElement;
-      btn.classList.toggle("is-fullscreen", isFs);
-      btn.setAttribute("aria-pressed", isFs ? "true" : "false");
-      btn.title = isFs ? "Exit fullscreen" : "Fullscreen";
-      btn.querySelector(".ixv-fs-icon").textContent = isFs ? "⤡" : "⤢";
-    }
-
-    btn.addEventListener("click", async () => {
+  if (fsBtn && gallery) {
+    fsBtn.addEventListener("click", async () => {
       try {
         if (!document.fullscreenElement) {
-          if (gallery.requestFullscreen) {
-            await gallery.requestFullscreen();
-          } else if (gallery.webkitRequestFullscreen) {
-            await gallery.webkitRequestFullscreen();
-          } else if (gallery.mozRequestFullScreen) {
-            await gallery.mozRequestFullScreen();
-          } else if (gallery.msRequestFullscreen) {
-            await gallery.msRequestFullscreen();
-          }
+          await gallery.requestFullscreen?.();
         } else {
-          if (document.exitFullscreen) {
-            await document.exitFullscreen();
-          } else if (document.webkitExitFullscreen) {
-            await document.webkitExitFullscreen();
-          } else if (document.mozCancelFullScreen) {
-            await document.mozCancelFullScreen();
-          } else if (document.msExitFullscreen) {
-            await document.msExitFullscreen();
-          }
+          await document.exitFullscreen?.();
         }
       } catch (err) {
-        console.warn("Fullscreen toggle error:", err);
+        console.warn("Fullscreen toggle failed:", err);
       }
     });
 
-    document.addEventListener("fullscreenchange", updateBtn);
-    document.addEventListener("webkitfullscreenchange", updateBtn);
-    document.addEventListener("mozfullscreenchange", updateBtn);
-    document.addEventListener("MSFullscreenChange", updateBtn);
-    updateBtn();
+    document.addEventListener("fullscreenchange", () => {
+      if (document.fullscreenElement) {
+        fsBtn.textContent = "⤡"; // exit fullscreen icon
+      } else {
+        fsBtn.textContent = "⛶"; // enter fullscreen icon
+      }
+    });
   }
 });
 </script>
