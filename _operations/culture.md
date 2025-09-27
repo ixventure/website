@@ -7,7 +7,9 @@ links:
   - name: Web3 Music Coalition 
     url: https://web3coalition.xyz
   - name: FolkGG
-    url: https://folk.gg 
+    url: https://folk.gg
+  - name: DDEX Simple NFT
+    url: https://kb.ddex.net/implementing-each-standard/simple-music-nft/
 ---
 
 ## Folk, Especially Music, and How that Aligns with Web3 Values
