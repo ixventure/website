@@ -2,13 +2,13 @@ title: IxVenture
 description: Building something amazing with AI
 
 # Repo-mode settings
-url: "https://bestape.github.io"
-baseurl: "/ixventure"
+url: ""
+baseurl: ""
 
 theme: minima
 
 # Site version
-version: 0.2.0
+version: 0.2.1
 
 collections:
   projects:
