@@ -2,7 +2,7 @@
 title: JUPITER
 slug: jupiter
 layout: project
-description: At jupiterBlock.ventures, Ix is support a portfolio of nine projects, from the most serious Web3 + AI Legal Innovation.
+description: At jupiterBlock.ventures, we support a portfolio of nine projects, from the most serious Web3 + AI Legal Innovation.
 links:
   - name: JupiterBlock Ventures
     url: https://Jupiterblock.ventures
