@@ -8,7 +8,29 @@ layout: default
   </header>
 
   <section class="project-gallery">
-    {% include gallery.html slug=page.slug title=page.title %}
+    {% comment %}
+      Detect collection type from page.path
+      and map it to the right asset folder
+    {% endcomment %}
+    {% if page.path contains '_projects/' %}
+      {% assign folder = 'projects' %}
+    {% elsif page.path contains '_partnerships/' %}
+      {% assign folder = 'partnerships' %}
+    {% elsif page.path contains '_operations/' %}
+      {% assign folder = 'operations' %}
+    {% elsif page.path contains '_products/' %}
+      {% assign folder = 'products' %}
+    {% elsif page.path contains 'about-us/' %}
+      {% assign folder = 'about-us' %}
+    {% else %}
+      {% assign folder = 'projects' %} {# default fallback #}
+    {% endif %}
+
+    {% comment %}
+      Use the filename (page.name) so any -1 suffix from the filename is preserved
+    {% endcomment %}
+    {% assign project_slug = page.name | split: "." | first %}
+    {% include gallery.html slug=project_slug title=page.title folder=folder %}
   </section>
   
   <section class="project-content">

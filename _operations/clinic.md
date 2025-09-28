@@ -6,10 +6,15 @@ description: Free education to promote professional & layperson literacy in digi
 links:
   - name: website
     url: https://lex.clinic
+  - name: YouTube
+    url: https://youtube.com/@lexclinic
   - name: repo
     url: https://github.com/lexclinic
 ---
 
 ## An Online Apprentiship School that Explores What It Means to be A DAO.
 
-This season we're offering classes as well as our hands-on exploratory sessions with students.
+This season we're offering you're classes as well as our hands-on exploratory sessions with students:
+
+* "Digital Legal Literacy Basics"
+* "Legal Engineering Philosophy"

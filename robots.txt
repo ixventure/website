@@ -1,0 +1,25 @@
+# Allow all search engines to crawl the main site
+User-agent: *
+Disallow:
+
+# Block internal Jekyll folders
+Disallow: /_about-us/
+Disallow: /_includes/
+Disallow: /_layouts/
+Disallow: /_operations/
+Disallow: /_partnerships/
+Disallow: /_projects/
+
+# Block assets you don’t want indexed (optional)
+Disallow: /assets/about-us/bestape-blog/
+Disallow: /assets/operations/music/
+Disallow: /assets/partnerships/
+Disallow: /assets/projects/
+
+# Optional: block config and meta files
+Disallow: /_config.yml
+Disallow: /README.md
+Disallow: /version.json
+
+# Sitemap (if you generate one)
+# Sitemap: https://yourusername.github.io/sitemap.xml

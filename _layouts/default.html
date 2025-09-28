@@ -9,9 +9,14 @@
     <meta name="description" content="{{ page.excerpt | default: site.description | strip_html | normalize_whitespace | truncate: 160 | escape }}">
 
     <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+    <link rel="icon" type="image/x-icon" href="{{ '/assets/images/favicon.ico' | relative_url }}">
+    <link rel="shortcut icon" type="image/x-icon" href="{{ '/assets/images/favicon.ico' | relative_url }}">
 
     <style>
-      /* --- Header Styles --- */
+      /* =========================
+         Header + layout
+         (restored original inline styles so the site isn't broken)
+         ========================= */
       .site-header {
         position: fixed;
         top: 0;
@@ -20,6 +25,7 @@
         background: #fff;
         border-bottom: 1px solid #eee;
         z-index: 1000;
+        transition: background-color 0.3s ease, border-color 0.3s ease;
       }
       .header-flex {
         display: flex;
@@ -33,17 +39,24 @@
         text-decoration: none;
         color: #000;
       }
-
-      /* --- Burger Toggle --- */
+      #dark-toggle {
+        background: none;
+        border: none;
+        cursor: pointer;
+        font-size: 1.2rem;
+        color: inherit;
+        margin-left: 1rem;
+        transition: color 0.3s ease;
+      }
+      #dark-toggle:hover { color: #ff0; }
       .nav-toggle {
         font-size: 1.8rem;
+        color: #aaa;
         cursor: pointer;
         background: none;
         border: none;
         display: none; /* hidden on desktop */
       }
-
-      /* --- Nav Links --- */
       .site-nav {
         display: flex;
         gap: 1rem;
@@ -52,15 +65,12 @@
         text-decoration: none;
         color: #333;
         font-weight: 500;
+        transition: color 0.3s ease;
       }
-
-      /* --- Mobile Dropdown --- */
       @media (max-width: 768px) {
-        .nav-toggle {
-          display: block; /* show burger */
-        }
+        .nav-toggle { display: block; }
         .site-nav {
-          display: none; /* hide menu by default */
+          display: none;
           flex-direction: column;
           position: absolute;
           top: 100%;
@@ -71,17 +81,14 @@
           box-shadow: 0 4px 8px rgba(0,0,0,0.1);
           padding: 1rem;
         }
-        .site-nav.open {
-          display: flex; /* show when toggled */
-        }
+        .site-nav.open { display: flex; }
       }
 
-      /* --- Push content down so header doesn't overlap --- */
-      .page-content {
-        margin-top: 4rem;
-      }
+      .page-content { margin-top: 4rem; }
 
-      /* --- Update Toast (unchanged) --- */
+      /* =========================
+         Update toast
+         ========================= */
       #update-toast {
         display: none;
         position: fixed;
@@ -109,15 +116,46 @@
         from { transform: translateY(-20px); opacity: 0; }
         to { transform: translateY(0); opacity: 1; }
       }
+
+      /* =========================
+         Dark mode tweaks for header and nav (keeps popout from being white)
+         ========================= */
+      body.dark-mode {
+        background-color: #111;
+        color: #eee;
+      }
+      body.dark-mode .site-header,
+      body.dark-mode .site-footer {
+        background-color: #222;
+        border-color: #333;
+      }
+      /* ensure the header title (logo text) is light */
+      body.dark-mode .site-title { color: #fff; }
+
+      /* make the popout menu dark in dark-mode */
+      body.dark-mode .site-nav {
+        background-color: #222;
+        border-color: #333;
+      }
+      body.dark-mode .site-nav a { color: #ddd; }
+
+      /* keep remaining dark-mode rules minimal here; main theme CSS has project/card/slider rules */
     </style>
   </head>
 
   <body>
+    <!-- Header -->
     <header class="site-header" role="banner">
       <div class="wrapper header-flex">
         <a class="site-title" rel="author" href="{{ '/' | relative_url }}">{{ site.title | escape }}</a>
+
+        <!-- Dark mode toggle -->
+        <button id="dark-toggle" aria-label="Toggle dark mode">🌙</button>
+
+        <!-- Burger -->
         <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
-        <nav class="site-nav">
+
+        <nav class="site-nav" aria-label="Main navigation">
           <a href="{{ '/projects/' | relative_url }}">Projects</a>
           <a href="{{ '/partnerships/' | relative_url }}">Partnerships</a>
           <a href="{{ '/operations/' | relative_url }}">Operations</a>
@@ -127,17 +165,19 @@
       </div>
     </header>
 
+    <!-- Main content -->
     <main class="page-content" aria-label="Content">
       <div class="wrapper">
         {{ content }}
       </div>
     </main>
 
+    <!-- Footer -->
     <footer class="site-footer">
       <div class="wrapper">
         <p>
           © IxAcc Ventures, Inc. 2025<br>
-          Powered by Jekyll: this is a FLOSS fork of Minima<br> 
+          Powered by Jekyll: this is a FLOSS fork of Minima<br>
           Contributions welcome at github.com/ixventure/dom-jekyll<br>
           Version: {{ site.version }} (modified)
         </p>
@@ -150,14 +190,20 @@
       <button id="reload-btn">Reload</button>
     </div>
 
+    <!-- Scripts -->
     <script>
-      // --- Burger Menu ---
-      document.querySelector('.nav-toggle').addEventListener('click', () => {
-        document.querySelector('.site-nav').classList.toggle('open');
-      });
-
-      // --- Update check (unchanged) ---
+      // wait for DOM to be present before binding handlers
       document.addEventListener('DOMContentLoaded', function () {
+        // Burger menu toggle (guard in case element is missing)
+        const navToggle = document.querySelector('.nav-toggle');
+        const siteNav = document.querySelector('.site-nav');
+        if (navToggle && siteNav) {
+          navToggle.addEventListener('click', () => {
+            siteNav.classList.toggle('open');
+          });
+        }
+
+        // Update toast logic (unchanged)
         const toast = document.getElementById('update-toast');
         const reloadBtn = document.getElementById('reload-btn');
 
@@ -170,14 +216,13 @@
             if (!data.build) return;
 
             const lastBuild = localStorage.getItem('lastBuild');
-
             if (!lastBuild) {
               localStorage.setItem('lastBuild', data.build);
               return;
             }
 
             if (data.build !== lastBuild) {
-              toast.style.display = 'block';
+              if (toast) toast.style.display = 'block';
               localStorage.setItem('newBuild', data.build);
             }
           } catch (e) {
@@ -187,15 +232,32 @@
 
         reloadBtn?.addEventListener('click', function () {
           const newBuild = localStorage.getItem('newBuild');
-          if (newBuild) {
-            localStorage.setItem('lastBuild', newBuild);
-          }
+          if (newBuild) localStorage.setItem('lastBuild', newBuild);
           location.reload(true);
         });
 
-        // Run check immediately and every 30s
         checkForUpdate();
         setInterval(checkForUpdate, 30 * 1000);
+
+        // Dark mode toggle: set icon and attach click handler
+        const darkToggle = document.getElementById('dark-toggle');
+        function setIcon(isDark) {
+          if (!darkToggle) return;
+          darkToggle.textContent = isDark ? '☀️' : '🌙';
+        }
+
+        if (darkToggle) {
+          darkToggle.addEventListener('click', () => {
+            const isDark = document.body.classList.toggle('dark-mode');
+            localStorage.setItem('dark-mode', isDark);
+            setIcon(isDark);
+          });
+        }
+
+        // Load saved preference
+        const prefersDark = localStorage.getItem('dark-mode') === 'true';
+        if (prefersDark) document.body.classList.add('dark-mode');
+        setIcon(prefersDark);
       });
     </script>
   </body>
