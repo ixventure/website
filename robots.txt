@@ -3,7 +3,7 @@ User-agent: *
 Disallow:
 
 # Block internal Jekyll folders
-Disallow: /_about-us/
+Disallow: /_about/
 Disallow: /_includes/
 Disallow: /_layouts/
 Disallow: /_operations/
@@ -11,8 +11,8 @@ Disallow: /_partnerships/
 Disallow: /_projects/
 
 # Block assets you don’t want indexed (optional)
-Disallow: /assets/about-us/bestape-blog/
-Disallow: /assets/operations/music/
+Disallow: /assets/about/
+Disallow: /assets/operations/
 Disallow: /assets/partnerships/
 Disallow: /assets/projects/
 

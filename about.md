@@ -1,17 +1,17 @@
 ---
 layout: default
-title: About Us
-permalink: /about-us/
+title: About
+permalink: /about/
 ---
 
-# About Us
+# About
 
 ## Team Resources
 
 <div class="project-grid">
-  {% for partner in site.about-us %}
+  {% for partner in site.about %}
     {% assign partner_slug = partner.slug | default: partner.name | split: "." | first %}
-    {% assign partner_path = '/assets/about-us/' | append: partner_slug %}
+    {% assign partner_path = '/assets/about/' | append: partner_slug %}
 
     <div class="project-card">
       <a href="{{ partner.url | relative_url }}">
@@ -72,4 +72,4 @@ permalink: /about-us/
   {% endfor %}
 </div>
 
-{% include about-us.md %}
+{% include about.md %}

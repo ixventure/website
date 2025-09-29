@@ -8,6 +8,6 @@ links:
     url: https://ixian.tech
 ---
 
-## A great place to understand pain-points and how to automate.
+## A Great Place to Understand Pain-Points and How to Automate
 
 Clients willing to pay expensive manual legal fees have a real demand that **IxVenture Studio** uses to understand what to build next.
