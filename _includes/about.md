@@ -8,7 +8,7 @@ Solutions touch on existing investment categories — **AI**, **blockchain**, **
 
 ## What Are We Obsessed With?
 
-Continuing the inventor-class lawyer traditions of **juris doctor linguists** who have *hyperdeflated* legal costs worldwide:
+Continuing the inventor-class lawyer traditions of "**juris doctor linguists**" who have *hyperdeflated* legal costs worldwide:
 
 * **Goldfarb**, the Internet's grandpa by inventing **Markup Language** _digital legal formalization_
   
@@ -22,7 +22,7 @@ Despite (and, counter-intuitively, because of) Goldfarb & Szabo hyperdeflating s
 
 * A world that enjoys legal abundance is **a humanitarian world filled with peace & joy**. (As we now enjoy with transport abundance compared to the "oregon trail" scarcity of 200 years ago).
   
-* Our belief is that **last-mile legal costs will hyperdeflate once a critical mass of lawyers become literate** in the digital legal formalizations of markup language and smart contract language, which is an evolution in "fastidious literature' made by lawyers for lawyers so we can better trace out the law.
+* Our belief is that **last-mile legal costs will hyperdeflate once a critical mass of lawyers become literate** in the digital legal formalizations of markup language and smart contract language, which is an evolution in "fastidious literature" made by lawyers for lawyers so we can better trace out the law.
 
 ---
 
