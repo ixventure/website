@@ -1,10 +1,10 @@
 ---
 layout: default
-title: About Us
+title: About
 permalink: /about/
 ---
 
-# About Us
+# About
 
 ## Team Resources
 
