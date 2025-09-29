@@ -1,6 +1,6 @@
 ---
-title: SERVICE
-slug: service
+title: SERVE
+slug: serve
 layout: project
 description: Cheerful dShell robots as realtime cosmolocal locus-of-control entertainment.
 links:
