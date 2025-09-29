@@ -10,7 +10,7 @@ links:
     url: https://youtu.be/pdmVDO0a8dc?si=0JEo3TA_fE-MpEig&t=903
 ---
 
-## Physical labs, some permanent, some pop-up
+## Physical Labs, Some Permanent, Some Pop-Up
 
 By focusing on logistics, the experiences are immersive.
 
