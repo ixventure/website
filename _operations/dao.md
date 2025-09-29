@@ -12,6 +12,6 @@ links:
     url: https://www.youtube.com/watch?v=v2SENfDXhrw&list=PLmgM5u14bFq71Tpwg5DLje2JQiAfKX3sX&index=4
 ---
 
-## Though Illiterate, We Need Lawyers Literate before DAOs can Truly Exist
+## Though Illiterate, We Need Lawyers Literate before DAOs Can Truly Exist
 
 Only the vast creative expression of jurisprudence expressed as software experiences can manifest promise of DAO elegance.
