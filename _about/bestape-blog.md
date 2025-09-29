@@ -8,7 +8,7 @@ links:
     url: https://ape.mirror.xyz
 ---
 
-## At the Edge of One of Our Founder Inventor’s Explorations
+## At the Edge of One of Our Founding Inventor’s Explorations
 
 These posts are rich with information, sketching out some of our core philosophies, discoveries and works in progress.
 

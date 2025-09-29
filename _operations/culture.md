@@ -5,7 +5,7 @@ layout: project
 description: With a background in musical performance and publishing, we enjoy our deeptech ecosystem of network effects.
 links:
   - name: Web3 Music Coalition 
-    url: https://web3coalition.xyz
+    url: https://x.com/web3coalition
   - name: FolkGG
     url: https://folk.gg
   - name: DDEX Simple NFT
@@ -20,4 +20,4 @@ Cover music is an example intersection we love to explore. It’s one of the few
 
 ### Scholarships to Attend Music Industry Events.
 
-Formed a Web3 Music Coalition ("W3M"). Successfully got the [DDEX](https://ddex.net) working group on NFTs approved because of W3M. But there's still much to do!
+Formed a Web3 Music Coalition ("W3M"). Successfully got the DDEX working group on NFTs approved because of W3M. But there's still much to do!

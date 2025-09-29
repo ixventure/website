@@ -14,4 +14,6 @@ links:
 
 ## Though Illiterate, We Need Lawyers Literate before DAOs can Truly Exist
 
-Only the vast creative expression of jurisprudence expressed as software experiences can manifest promise of DAO elegance.
+Only the vast creative expression of jurisprudence expressed as software experiences can manifest the promise of DAO elegance.
+
+We believe thta legal wrappers are wrapping digital legal formalism in a form of fixation with negligently narrow latency, thus stunting the maturation of legal literary works to everyone's great detriment. Wrappers might be triage, but they are no alternative to a critical mass of lawyers making the time-is-of-the-essence effort to become literate in the languages invented by lawyers for lawyers: markup languages and smart contract languages.
