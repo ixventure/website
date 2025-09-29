@@ -280,4 +280,4 @@ title: Home
 ---
 ---
 
-{% include about-us.md %}
+{% include about.md %}

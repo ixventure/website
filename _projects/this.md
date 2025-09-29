@@ -26,7 +26,9 @@ links:
 
 IxVenture is investing in multiple recursive (iFrame) **Document Object Model (DOM) formats** because we believe DOMs represent the **next stage after print-digitized legal formalization: <ins>natively-digital legal formalization</ins>**.
 
-By supporting the development of **multiple legally-regimented DOM formats**, IxVenture is building toward a world where organizational and contractual logic can be expressed as interoperable objects.
+By supporting the development of **multiple legally-regimented DOM formats**, IxVenture is building toward a world where organizational and contractual logic can be expressed as interoperable "**script-database**" objects.
+
+Browsers have shown how much closer to an ongoing _consensus ad idem_, an ongoing event-driven software experience, a DOM legal agreement can become compared to the essentially just a digital copy of the technological limitations of historical documentation methods. These historic methods didn't have the technological ability to realtime trace the parties ongoing legal dynamics but the jurisprudence is clear that a contract is the ongoing relationship that must be traced in hindsight if taken to court.
 
 Many of the DOM stacks we're building use the Hierarchical Script-Database "**SeedTree**" kernel solution invented by IxVenture co-founder, bestape. (Compare: a DOM kernel has a framework's amount of impact in a compression smaller than a library).
 

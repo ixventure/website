@@ -1,6 +1,6 @@
-# IxVentures Jekyll DOM Template
+# IxVenture Jekyll DOM Template
 
-This repository contains the **IxVentures Jekyll DOM Template**, a
+This repository contains the **IxVenture Jekyll DOM Template**, a
 GitHub-hosted **Document Object Model (DOM) architecture**.
 It is both a **technical framework** and a **digital legal formalism object** —
 designed to encode structure, accountability, and reproducibility in digital projects.

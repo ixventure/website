@@ -5,7 +5,7 @@ layout: project
 description: Memes and posters communicating our narrative to the Masses.
 ---
 
-## The Populist Message that Legal is The Peoples' Construct
+## The Populist Message That Legal Is the Peoples’ Construct
 
 Legal is the domain of humanity in serious harmony, including life and death reliances.
 
@@ -22,4 +22,4 @@ The cost of legal is:
 
 ### IxVenture Will Ensure Legal Costs Deflate 99%
 
-#### We will help usher in the Age of Legal Abundance!
+#### We Will Help Usher in the Age of Legal Abundance!
