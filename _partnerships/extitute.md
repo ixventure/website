@@ -8,7 +8,7 @@ links:
     url: https://mobile.ethsign.xyz/share/4foav2uoblir
 ---
 
-## Various partnerships leaning heavily on FLOSS community tools.
+## Various Partnerships Leaning Heavily on FLOSS Community Tools
 
 Open-collaboration that prioritizes ecosystem d/acc and other not-for-profit and multiparty goals.
 
