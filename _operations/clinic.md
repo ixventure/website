@@ -12,7 +12,7 @@ links:
     url: https://github.com/lexclinic
 ---
 
-## An Online Apprenticeship School That Explores What It Means to Be a DAO.
+## An Online Apprenticeship School That Explores What It Means to Be a DAO
 
 This season we're offering online classes as well as our hands-on exploratory sessions with students:
 

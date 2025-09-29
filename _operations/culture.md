@@ -12,12 +12,12 @@ links:
     url: https://kb.ddex.net/implementing-each-standard/simple-music-nft/
 ---
 
-## Folk, Especially Music, and How that Aligns with Web3 Values
+## Folk, Especially Music, and How That Aligns with Web3 Values
 
 Permissionless agency and self-expression are both music cultural and web3 cultural values. But Web3's sui generis IP creative disruption undermines the music industry's pecuniary certainty.
 
 Cover music is an example intersection we love to explore. It’s one of the few permissionless areas of copyright legislation.
 
-### Scholarships to Attend Music Industry Events.
+### Scholarships to Attend Music Industry Events
 
 Formed a Web3 Music Coalition ("W3M"). Successfully got the DDEX working group on NFTs approved because of W3M. But there's still much to do!
