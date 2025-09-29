@@ -6,7 +6,7 @@ Solutions touch on existing investment categories — **AI**, **blockchain**, **
 
 ---
 
-## What are We Obsessed With?
+## What Are We Obsessed With?
 
 Continuing the inventor-class lawyer traditions of **juris doctor linguists** who have *hyperdeflated* legal costs worldwide:
 
@@ -16,7 +16,7 @@ Continuing the inventor-class lawyer traditions of **juris doctor linguists** wh
 
 Note that the Internet and the Blockchain are both legal expressions. They are a "Commons" of real-world relationships formalized through XML, Solidity, etc.
 
-## Why are We Obsessed With This?
+## Why Are We Obsessed with This?
 
 Despite (and, counter-intuitively, because of) Goldfarb & Szabo hyperdeflating some legal costs worldwide, "last-mile" legal costs are hyperinflationary _and_ scarce nowadays:
 
@@ -26,6 +26,6 @@ Despite (and, counter-intuitively, because of) Goldfarb & Szabo hyperdeflating s
 
 ---
 
-### Pro-tip to Navigate this Website
+### Pro-Tip to Navigate This Website
 
 Double-click on a gallery image to go full screen.
