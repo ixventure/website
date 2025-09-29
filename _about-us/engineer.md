@@ -10,7 +10,7 @@ links:
     url: https://www.youtube.com/watch?v=PhG_ZOrxXJk&list=PLmgM5u14bFq71Tpwg5DLje2JQiAfKX3sX&index=1
 ---
 
-## Our Profession Has Changed Humanity, but Few Know About It
+## Our Profession Has Changed Humanity, but Few Know about It
 
 Without the juris-linguistic contributions of Goldfarb's markup language and Szabo's smart contract language, we would not have the legal environments of the Internet or the Blockchain. Trillions of USD worth of wealth has been 
 
