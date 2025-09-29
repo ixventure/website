@@ -14,7 +14,8 @@ links:
 
 ## An Online Apprentiship School that Explores What It Means to be A DAO.
 
-This season we're offering you're classes as well as our hands-on exploratory sessions with students:
+This season we're offering online classes as well as our hands-on exploratory sessions with students:
 
 * "Digital Legal Literacy Basics"
+
 * "Legal Engineering Philosophy"
