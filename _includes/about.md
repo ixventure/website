@@ -3,6 +3,8 @@
 Solutions touch on existing investment categories — **AI**, **blockchain**, **legaltech** — but the common **deeptech** category is sovtech: 
 
 * **Sovtech** reinforces our rights to _sovereignty_ along the entire **individual → multistate** vertical, because a break anywhere along the vertical can lead to catastrophe!
+  
+* Our version of **sovtech** is highly aligned with the [d/acc](https://vitalik.eth.limo/general/2023/11/27/techno_optimism.html) movement and our firm Ixian.tech has directly worked with many d/acc projects
 
 ---
 
