@@ -14,4 +14,4 @@ With our understanding of how to generate *sui generis* digital assets, we're bu
 
 We can deploy and iterate on regulation where needed using our Ixian.tech capabilities in polycentric jurisdictions.
 
-Through our fair use and proprietary LLM output legal theory, Ix Ventures might help lead the way to reconciling the knowledge virtues of copyright work creation incentives and encyclopedic compression.
+Through our fair use and proprietary LLM output legal theory, IxVenture might help lead the way to reconciling the knowledge virtues of copyright work creation incentives and encyclopedic compression.
