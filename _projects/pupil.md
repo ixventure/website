@@ -11,3 +11,7 @@ links:
 ## Metafounders Serially Create AIpreneurs Who Wear Multiple Hats
 
 With our understanding of how to generate *sui generis* digital assets, we're building the infrastucture needed to get AIpreneurs operational.
+
+We can deploy and iterate on regulation where needed using our Ixian.tech capabilities in polycentric jurisdictions.
+
+Through our fair use and proprietary LLM output legal theory, Ix Ventures might help lead the way to reconciling the knowledge virtues of copyright work creation incentives and encyclopedic compression.
