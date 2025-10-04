@@ -24,6 +24,18 @@
   <defs
      id="defs4">
     <linearGradient
+       id="linearGradient1"
+       inkscape:collect="always">
+      <stop
+         style="stop-color:#c93a2e;stop-opacity:1;"
+         offset="0"
+         id="stop1" />
+      <stop
+         style="stop-color:#df9969;stop-opacity:0;"
+         offset="1"
+         id="stop2" />
+    </linearGradient>
+    <linearGradient
        id="linearGradient28439">
       <stop
          id="stop28441"
@@ -90,7 +102,7 @@
     <linearGradient
        id="linearGradient9304">
       <stop
-         style="stop-color:#fdffff;stop-opacity:1;"
+         style="stop-color:#fffefd;stop-opacity:1;"
          offset="0"
          id="stop9306" />
       <stop
@@ -109,21 +121,9 @@
          offset="1"
          id="stop3140" />
     </linearGradient>
-    <filter
-       inkscape:collect="always"
-       id="filter7354"
-       x="-0.021419611"
-       y="-0.046559226"
-       width="1.0428392"
-       height="1.0931185">
-      <feGaussianBlur
-         inkscape:collect="always"
-         stdDeviation="1.2235714"
-         id="feGaussianBlur7356" />
-    </filter>
     <linearGradient
        inkscape:collect="always"
-       xlink:href="#linearGradient9304"
+       xlink:href="#linearGradient12266"
        id="linearGradient9310"
        x1="-14.524966"
        y1="61.09726"
@@ -131,18 +131,6 @@
        y2="61.09726"
        gradientUnits="userSpaceOnUse"
        spreadMethod="pad" />
-    <filter
-       inkscape:collect="always"
-       id="filter10313"
-       x="-0.047362825"
-       y="-0.10706103"
-       width="1.0947257"
-       height="1.2141221">
-      <feGaussianBlur
-         inkscape:collect="always"
-         stdDeviation="2.5543709"
-         id="feGaussianBlur10315" />
-    </filter>
     <filter
        inkscape:collect="always"
        x="-0.029684489"
@@ -239,16 +227,6 @@
          stdDeviation="2.2543172"
          id="feGaussianBlur24528" />
     </filter>
-    <linearGradient
-       inkscape:collect="always"
-       xlink:href="#linearGradient9304"
-       id="linearGradient1"
-       gradientUnits="userSpaceOnUse"
-       x1="-14.524966"
-       y1="61.09726"
-       x2="191.66782"
-       y2="61.09726"
-       spreadMethod="pad" />
     <filter
        inkscape:collect="always"
        id="filter10313-6"
@@ -273,6 +251,15 @@
          stdDeviation="1.2235714"
          id="feGaussianBlur7356-2" />
     </filter>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient1"
+       id="linearGradient2"
+       x1="-14.890991"
+       y1="60.84726"
+       x2="192.03384"
+       y2="60.84726"
+       gradientUnits="userSpaceOnUse" />
   </defs>
   <sodipodi:namedview
      id="base"
@@ -281,9 +268,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="2.0316629"
-     inkscape:cx="283.7577"
-     inkscape:cy="232.56811"
+     inkscape:zoom="1.0460799"
+     inkscape:cx="344.14199"
+     inkscape:cy="205.05127"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      width="400px"
@@ -320,28 +307,17 @@
        x="-129.30797"
        y="16.717094" />
     <g
-       id="g18575"
-       transform="translate(26.999088,52.573048)">
-      <path
-         style="fill:#ff0000;fill-opacity:1;fill-rule:evenodd;stroke:#ffff82;stroke-width:6;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;filter:url(#filter10313)"
-         d="M -0.71428572,213.85714 C 157.85714,131.71429 157.85714,131.71429 157.85714,131.71429"
-         id="path4301" />
-      <path
-         id="path3154"
-         d="M -0.71428572,213.85714 C 157.85714,131.71429 157.85714,131.71429 157.85714,131.71429"
-         style="opacity:0.079602;fill:#fb0031;fill-opacity:1;fill-rule:evenodd;stroke:#ff4e00;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;filter:url(#filter7354)" />
-    </g>
-    <g
        id="g18575-1"
-       transform="translate(-0.972894,68.817319)">
+       transform="matrix(1.1840239,0,0,1.1840239,-0.84144838,29.462502)"
+       style="fill:#e2bead;fill-opacity:1;stroke:#d99c8d;stroke-opacity:1">
       <path
-         style="fill:#ff0000;fill-opacity:1;fill-rule:evenodd;stroke:#ffff82;stroke-width:6;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;filter:url(#filter10313-6)"
+         style="fill:#e2bead;fill-opacity:1;fill-rule:evenodd;stroke:#d99c8d;stroke-width:6;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;filter:url(#filter10313-6)"
          d="M -0.71428572,213.85714 C 157.85714,131.71429 157.85714,131.71429 157.85714,131.71429"
          id="path4301-8" />
       <path
          id="path3154-7"
          d="M -0.71428572,213.85714 C 157.85714,131.71429 157.85714,131.71429 157.85714,131.71429"
-         style="opacity:0.079602;fill:#fb0031;fill-opacity:1;fill-rule:evenodd;stroke:#ff4e00;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;filter:url(#filter7354-6)" />
+         style="opacity:0.079602;fill:#e2bead;fill-opacity:1;fill-rule:evenodd;stroke:#d99c8d;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;filter:url(#filter7354-6)" />
     </g>
     <g
        id="g24530"
@@ -402,7 +378,7 @@
        transform="translate(136.40735,140.46563)" />
     <path
        sodipodi:type="star"
-       style="fill:url(#linearGradient1);fill-opacity:1;fill-rule:evenodd;stroke:#413e3a;stroke-width:1;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       style="fill:url(#linearGradient2);fill-rule:evenodd;stroke:#413e3a;stroke-width:1;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
        id="path2160-9"
        sodipodi:sides="3"
        sodipodi:cx="88.571426"
@@ -415,7 +391,7 @@
        inkscape:rounded="0"
        inkscape:randomized="0"
        d="m 191.16782,149.94834 -205.192786,0 102.596393,-177.702162 z"
-       transform="matrix(0.08621395,0,0,0.08621395,-12.71981,277.70346)" />
+       transform="matrix(-0.08621395,0,0,0.08621395,2.552375,277.70346)" />
     <g
        id="g18358"
        style="opacity:0.263682;filter:url(#filter18571)"
@@ -466,7 +442,7 @@
          id="tspan2"
          x="224.81277"
          y="302.68164"
-         style="fill:#000000">kiln prism &quot;Data Center&quot; raw encyclopedia</tspan><tspan
+         style="fill:#000000">Kiln Prism &quot;Data Center&quot; raw encyclopedia</tspan><tspan
          sodipodi:role="line"
          x="224.81277"
          y="320.01492"
@@ -476,7 +452,7 @@
          x="224.81277"
          y="337.34821"
          style="fill:#000000"
-         id="tspan7">~ x5000 larger than the orb prism</tspan></text>
+         id="tspan7">~ x5000 larger than an Orb Prism</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:13.3333px;line-height:1.3;font-family:Arial;-inkscape-font-specification:Arial;text-align:center;writing-mode:lr-tb;direction:ltr;text-anchor:middle;fill:#000000;stroke-width:0;stroke-linejoin:round"
@@ -485,16 +461,16 @@
        id="text3"><tspan
          sodipodi:role="line"
          id="tspan3"
-         x="-5.4837718"
-         y="302.68164">orb prism &quot;LLM&quot; essence </tspan><tspan
+         x="-5.4837661"
+         y="302.68164">Orb Prism &quot;LLM&quot; essence </tspan><tspan
          sodipodi:role="line"
          x="-5.4837704"
          y="320.01492"
          id="tspan8">~ 4000 units Worldwide</tspan><tspan
          sodipodi:role="line"
-         x="-5.4837713"
+         x="-5.4837704"
          y="337.34821"
-         id="tspan10">~ x5000 smaller than the kiln prism</tspan><tspan
+         id="tspan10">~ x5000 smaller than a Kiln Prism</tspan><tspan
          sodipodi:role="line"
          x="-5.4837675"
          y="354.68152"
@@ -502,23 +478,33 @@
     <text
        xml:space="preserve"
        style="font-size:13.3333px;line-height:1.3;font-family:Arial;-inkscape-font-specification:Arial;text-align:center;writing-mode:lr-tb;direction:ltr;text-anchor:middle;fill:#000000;stroke-width:0;stroke-linejoin:round"
-       x="-1.4494591"
+       x="-98.555847"
        y="52.824238"
        id="text1"><tspan
          sodipodi:role="line"
          id="tspan1"
-         x="-1.4494591"
+         x="-98.555847"
          y="52.824238"
          style="text-align:start;text-anchor:start">Fair use argument:</tspan><tspan
          sodipodi:role="line"
-         x="-1.4494591"
+         x="-98.555847"
          y="70.157524"
          id="tspan4"
-         style="text-align:start;text-anchor:start">- more compression, more likely fair use</tspan><tspan
+         style="text-align:start;text-anchor:start">- more compression, more likely fair use Orb Prism as output</tspan><tspan
          sodipodi:role="line"
-         x="-1.4494591"
+         x="-98.555847"
          y="87.490814"
          id="tspan5"
-         style="text-align:start;text-anchor:start">- more flattened the focus (unfocused), more likely fair use </tspan></text>
+         style="text-align:start;text-anchor:start">- more flattened the focus (unfocused), more likely fair use Orb Prism as output </tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:13.3333px;line-height:1.3;font-family:Arial;-inkscape-font-specification:Arial;text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;opacity:1;fill:#e6e6e6;stroke-width:0;stroke-linejoin:round"
+       x="389.50232"
+       y="194.4791"
+       id="text11"><tspan
+         sodipodi:role="line"
+         id="tspan11"
+         x="389.50232"
+         y="194.4791" /></text>
   </g>
 </svg>
