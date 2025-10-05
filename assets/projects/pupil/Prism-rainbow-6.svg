@@ -24,18 +24,6 @@
   <defs
      id="defs4">
     <linearGradient
-       id="linearGradient1"
-       inkscape:collect="always">
-      <stop
-         style="stop-color:#c93a2e;stop-opacity:1;"
-         offset="0"
-         id="stop1" />
-      <stop
-         style="stop-color:#df9969;stop-opacity:0;"
-         offset="1"
-         id="stop2" />
-    </linearGradient>
-    <linearGradient
        id="linearGradient28439">
       <stop
          id="stop28441"
@@ -253,12 +241,30 @@
     </filter>
     <linearGradient
        inkscape:collect="always"
-       xlink:href="#linearGradient1"
+       xlink:href="#linearGradient12266"
        id="linearGradient2"
        x1="-14.890991"
        y1="60.84726"
        x2="192.03384"
        y2="60.84726"
+       gradientUnits="userSpaceOnUse" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient12266"
+       id="linearGradient3"
+       x1="-8.2246771"
+       y1="172.78571"
+       x2="165.36754"
+       y2="172.78571"
+       gradientUnits="userSpaceOnUse" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient12266"
+       id="linearGradient5"
+       x1="-8.2246771"
+       y1="172.78571"
+       x2="165.36754"
+       y2="172.78571"
        gradientUnits="userSpaceOnUse" />
   </defs>
   <sodipodi:namedview
@@ -268,9 +274,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="1.0460799"
-     inkscape:cx="344.14199"
-     inkscape:cy="205.05127"
+     inkscape:zoom="2.6358166"
+     inkscape:cx="150.42777"
+     inkscape:cy="246.79259"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      width="400px"
@@ -309,15 +315,15 @@
     <g
        id="g18575-1"
        transform="matrix(1.1840239,0,0,1.1840239,-0.84144838,29.462502)"
-       style="fill:#e2bead;fill-opacity:1;stroke:#d99c8d;stroke-opacity:1">
+       style="fill:url(#linearGradient3);fill-opacity:1;stroke:url(#linearGradient5);stroke-opacity:1">
       <path
-         style="fill:#e2bead;fill-opacity:1;fill-rule:evenodd;stroke:#d99c8d;stroke-width:6;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;filter:url(#filter10313-6)"
+         style="fill:url(#linearGradient3);fill-opacity:1;fill-rule:evenodd;stroke:url(#linearGradient5);stroke-width:6;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;filter:url(#filter10313-6)"
          d="M -0.71428572,213.85714 C 157.85714,131.71429 157.85714,131.71429 157.85714,131.71429"
          id="path4301-8" />
       <path
          id="path3154-7"
          d="M -0.71428572,213.85714 C 157.85714,131.71429 157.85714,131.71429 157.85714,131.71429"
-         style="opacity:0.079602;fill:#e2bead;fill-opacity:1;fill-rule:evenodd;stroke:#d99c8d;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;filter:url(#filter7354-6)" />
+         style="opacity:0.079602;fill:url(#linearGradient3);fill-opacity:1;fill-rule:evenodd;stroke:url(#linearGradient5);stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;filter:url(#filter7354-6)" />
     </g>
     <g
        id="g24530"
@@ -375,7 +381,7 @@
        inkscape:rounded="0"
        inkscape:randomized="0"
        d="m 191.16782,149.94834 -205.192786,0 102.596393,-177.702162 z"
-       transform="translate(136.40735,140.46563)" />
+       transform="matrix(-1,0,0,1,313.5502,140.46563)" />
     <path
        sodipodi:type="star"
        style="fill:url(#linearGradient2);fill-rule:evenodd;stroke:#413e3a;stroke-width:1;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
@@ -391,7 +397,7 @@
        inkscape:rounded="0"
        inkscape:randomized="0"
        d="m 191.16782,149.94834 -205.192786,0 102.596393,-177.702162 z"
-       transform="matrix(-0.08621395,0,0,0.08621395,2.552375,277.70346)" />
+       transform="matrix(0.08621395,0,0,0.08621395,-12.71981,277.70346)" />
     <g
        id="g18358"
        style="opacity:0.263682;filter:url(#filter18571)"
