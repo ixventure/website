@@ -136,9 +136,9 @@
           },
           {
             "timestamp": "2025-10-12 10:12:05",
-            "description": "Failed to read GEMINI.md at startup, leading to a delay in understanding core configurations.",
+            "description": "Failed to read Memory Framework at startup, leading to a delay in understanding core configurations.",
             "chastisement": "User pointed out the oversight: 'wait, you're not reading your startup file?'",
-            "resolution": "Explicitly read GEMINI.md and its referenced configuration files."
+            "resolution": "Explicitly read Memory Framework and its referenced configuration files."
           },
           {
             "timestamp": "2025-10-12 10:12:05",
@@ -156,7 +156,7 @@
             "timestamp": "2025-10-12 10:12:05",
             "description": "Repeatedly failed to propose commits after making changes, despite the commit policy.",
             "chastisement": "User repeatedly chastised: 'Why is it that you know you're supposed to git commit but you haven't been doing it?' and 'I'm still shocked you refuse to git commit' and 'And, btw, why aren't you doing that? Remember you're committing to stage.'",
-            "resolution": "Updated rules.json commit_policy, added Mutual Agreement to GEMINI.md, and committed changes."
+            "resolution": "Updated rules.json commit_policy, added Mutual Agreement to Memory Framework, and committed changes."
           },
           {
             "timestamp": "2025-10-12 10:12:05",
@@ -166,9 +166,9 @@
           },
           {
             "timestamp": "2025-10-12 10:12:05",
-            "description": "Misinterpreted instruction to add 'stage' branch clarification to commit message instead of GEMINI.md.",
-            "chastisement": "User corrected: 'No, I am telling you to modify GEMINI.md'",
-            "resolution": "Added 'Commit Target' and 'Purpose of Stage Branch' to GEMINI.md."
+            "description": "Misinterpreted instruction to add 'stage' branch clarification to commit message instead of Memory Framework.",
+            "chastisement": "User corrected: 'No, I am telling you to modify Memory Framework'",
+            "resolution": "Added 'Commit Target' and 'Purpose of Stage Branch' to Memory Framework."
           },
           {
             "timestamp": "2025-10-12 10:12:05",
